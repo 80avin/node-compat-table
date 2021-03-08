@@ -1,10 +1,10 @@
 {
-  "_version": "16.0.0-nightly20201212743ee9d2c0--es_staging",
-  "_engine": "v8 8.7.220.24-node.20",
+  "_version": "16.0.0-nightly20210307d63b717044--es_staging",
+  "_engine": "v8 8.9.255.19-node.16",
   "ESNEXT": {
-    "_successful": 16,
+    "_successful": 19,
     "_count": 73,
-    "_percent": 0.2191780821917808,
+    "_percent": 0.2602739726027397,
     "candidate (stage 3)›instance class fields›public instance class fields": true,
     "candidate (stage 3)›instance class fields›private instance class fields basic support": true,
     "candidate (stage 3)›instance class fields›private instance class fields initializers": true,
@@ -21,6 +21,9 @@
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
     "candidate (stage 3)›Hashbang Grammar": true,
+    "candidate (stage 3)›.at() method on the built-in indexables›Array.prototype.at()": true,
+    "candidate (stage 3)›.at() method on the built-in indexables›String.prototype.at()": true,
+    "candidate (stage 3)›.at() method on the built-in indexables›%TypedArray%.prototype.at()": true,
     "draft (stage 2)›Generator function.sent Meta Property": "Unexpected token '.'",
     "draft (stage 2)›Class and Property Decorators›class decorators": "Invalid or unexpected token",
     "draft (stage 2)›Realms": false,
@@ -74,10 +77,7 @@
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.some": "(intermediate value)(...).some is not a function",
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.take": "(intermediate value)(...).take is not a function",
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
-    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined",
-    "draft (stage 2)›`.item` method›Array.prototype.item": "arr.item is not a function",
-    "draft (stage 2)›`.item` method›String.prototype.item": "str.item is not a function",
-    "draft (stage 2)›`.item` method›%TypedArray%.prototype.item": "arr.item is not a function"
+    "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
   "ES2020": {
     "_successful": 18,
