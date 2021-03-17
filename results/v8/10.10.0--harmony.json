@@ -81,8 +81,8 @@
   },
   "ES2020": {
     "_successful": 9,
-    "_count": 18,
-    "_percent": 0.5,
+    "_count": 19,
+    "_percent": 0.47368421052631576,
     "features›String.prototype.matchAll›basic functionality": true,
     "features›String.prototype.matchAll›throws on non-global regex": false,
     "features›BigInt›basic functionality": true,
@@ -100,6 +100,7 @@
     "features›optional chaining operator (?.)›optional bracket access": "Unexpected token .",
     "features›optional chaining operator (?.)›optional method call": "Unexpected token .",
     "features›optional chaining operator (?.)›optional function call": "Unexpected token .",
+    "features›optional chaining operator (?.)›spread parameters after optional chaining": "Unexpected token .",
     "features›nullish coalescing operator (??)": "Unexpected token ?"
   },
   "ES2019": {

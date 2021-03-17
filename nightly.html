@@ -25332,6 +25332,34 @@ return foo.baz?.() === 42 &amp;&amp; bar.baz?.() === void undefined &amp;&amp; b
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2020-features-optional-chaining-operator------spread-parameters-after-optional-chaining"></div><a class="anchor" href="#ES2020-features-optional-chaining-operator------spread-parameters-after-optional-chaining">§</a><a href="https://github.com/tc39/proposal-optional-chaining">spread parameters after optional chaining</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var fn = null;
+var n = null;
+var o = {};
+
+return fn?.(...[], 1) === void undefined &amp;&amp; fn?.(...[], ...[]) === void undefined &amp;&amp; o.method?.(...[], 1) === void undefined &amp;&amp; n?.method(...[], 1) === void undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var fn = null;
+var n = null;
+var o = {};
+
+return fn?.(...[], 1) === void undefined &amp;&amp; fn?.(...[], ...[]) === void undefined &amp;&amp; o.method?.(...[], 1) === void undefined &amp;&amp; n?.method(...[], 1) === void undefined;</div>}
+            </div>
+          </td>
+        </tr>
       </table>
     </article>
     <article id="ESNEXT">

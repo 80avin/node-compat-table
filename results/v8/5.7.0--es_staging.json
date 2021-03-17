@@ -81,7 +81,7 @@
   },
   "ES2020": {
     "_successful": 0,
-    "_count": 18,
+    "_count": 19,
     "_percent": 0,
     "features›String.prototype.matchAll›basic functionality": "\"11a2bb\".matchAll is not a function",
     "features›String.prototype.matchAll›throws on non-global regex": false,
@@ -100,6 +100,7 @@
     "features›optional chaining operator (?.)›optional bracket access": "Unexpected token .",
     "features›optional chaining operator (?.)›optional method call": "Unexpected token .",
     "features›optional chaining operator (?.)›optional function call": "Unexpected token .",
+    "features›optional chaining operator (?.)›spread parameters after optional chaining": "Unexpected token .",
     "features›nullish coalescing operator (??)": "Unexpected token ?"
   },
   "ES2019": {
@@ -237,9 +238,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": "Proxy is not defined"
   },
   "ES2015": {
-    "_successful": 400,
+    "_successful": 399,
     "_count": 694,
-    "_percent": 0.5763688760806917,
+    "_percent": 0.5749279538904899,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": "Unexpected token =",
@@ -251,7 +252,7 @@
     "syntax›default function parameters›new Function() support": "Unexpected token =",
     "syntax›rest parameters›basic functionality": true,
     "syntax›rest parameters›function 'length' property": true,
-    "syntax›rest parameters›arguments object interaction": true,
+    "syntax›rest parameters›arguments object interaction": false,
     "syntax›rest parameters›can't be used in setters": true,
     "syntax›rest parameters›new Function() support": true,
     "syntax›spread syntax for iterable objects›with arrays, in function calls": true,

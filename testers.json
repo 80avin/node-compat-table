@@ -3293,6 +3293,10 @@
       "spec": "https://github.com/tc39/proposal-optional-chaining",
       "code": "var foo = { baz: function () { return 42; } };\nvar bar = {};\nfunction baz() { return 42; };\nvar n;\nreturn foo.baz?.() === 42 && bar.baz?.() === void undefined && baz?.() === 42 && n?.() === void undefined;"
     },
+    "features›optional chaining operator (?.)›spread parameters after optional chaining": {
+      "spec": "https://github.com/tc39/proposal-optional-chaining",
+      "code": "var fn = null;\nvar n = null;\nvar o = {};\n\nreturn fn?.(...[], 1) === void undefined && fn?.(...[], ...[]) === void undefined && o.method?.(...[], 1) === void undefined && n?.method(...[], 1) === void undefined;"
+    },
     "features›nullish coalescing operator (??)": {
       "spec": "https://github.com/tc39/proposal-nullish-coalescing",
       "code": "return (null ?? 42) === 42 &&\n  (undefined ?? 42) === 42 &&\n  (false ?? 42) === false &&\n  ('' ?? 42) === '' &&\n  (0 ?? 42) === 0 &&\n  isNaN(NaN ?? 42);"

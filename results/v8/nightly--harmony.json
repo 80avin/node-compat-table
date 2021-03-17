@@ -1,5 +1,5 @@
 {
-  "_version": "16.0.0-nightly20210316640fe94354--harmony",
+  "_version": "16.0.0-nightly20210317da4b23354f--harmony",
   "_engine": "v8 9.0.257.11-node.7",
   "ESNEXT": {
     "_successful": 19,
@@ -81,8 +81,8 @@
   },
   "ES2020": {
     "_successful": 18,
-    "_count": 18,
-    "_percent": 1,
+    "_count": 19,
+    "_percent": 0.9473684210526315,
     "features›String.prototype.matchAll›basic functionality": true,
     "features›String.prototype.matchAll›throws on non-global regex": true,
     "features›BigInt›basic functionality": true,
@@ -100,6 +100,7 @@
     "features›optional chaining operator (?.)›optional bracket access": true,
     "features›optional chaining operator (?.)›optional method call": true,
     "features›optional chaining operator (?.)›optional function call": true,
+    "features›optional chaining operator (?.)›spread parameters after optional chaining": "Function.prototype.apply was called on null, which is a object and not a function",
     "features›nullish coalescing operator (??)": true
   },
   "ES2019": {
