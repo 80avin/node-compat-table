@@ -3,8 +3,8 @@
   "_engine": "v8 6.6.346.32-node.9",
   "ESNEXT": {
     "_successful": 6,
-    "_count": 73,
-    "_percent": 0.0821917808219178,
+    "_count": 74,
+    "_percent": 0.08108108108108109,
     "candidate (stage 3)›instance class fields›public instance class fields": true,
     "candidate (stage 3)›instance class fields›private instance class fields basic support": true,
     "candidate (stage 3)›instance class fields›private instance class fields initializers": true,
@@ -24,6 +24,7 @@
     "candidate (stage 3)›.at() method on the built-in indexables›Array.prototype.at()": "arr.at is not a function",
     "candidate (stage 3)›.at() method on the built-in indexables›String.prototype.at()": "str.at is not a function",
     "candidate (stage 3)›.at() method on the built-in indexables›%TypedArray%.prototype.at()": "globalThis is not defined",
+    "candidate (stage 3)›Class static initialization blocks": "Unexpected token {",
     "draft (stage 2)›Generator function.sent Meta Property": "Unexpected token .",
     "draft (stage 2)›Class and Property Decorators›class decorators": "Invalid or unexpected token",
     "draft (stage 2)›Realms": false,

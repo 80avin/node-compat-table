@@ -3,8 +3,8 @@
   "_engine": "v8 3.28.71.20",
   "ESNEXT": {
     "_successful": 2,
-    "_count": 73,
-    "_percent": 0.0273972602739726,
+    "_count": 74,
+    "_percent": 0.02702702702702703,
     "candidate (stage 3)›instance class fields›public instance class fields": "Unexpected reserved word",
     "candidate (stage 3)›instance class fields›private instance class fields basic support": "Unexpected reserved word",
     "candidate (stage 3)›instance class fields›private instance class fields initializers": "Unexpected reserved word",
@@ -24,6 +24,7 @@
     "candidate (stage 3)›.at() method on the built-in indexables›Array.prototype.at()": "undefined is not a function",
     "candidate (stage 3)›.at() method on the built-in indexables›String.prototype.at()": "undefined is not a function",
     "candidate (stage 3)›.at() method on the built-in indexables›%TypedArray%.prototype.at()": "globalThis is not defined",
+    "candidate (stage 3)›Class static initialization blocks": "Unexpected identifier",
     "draft (stage 2)›Generator function.sent Meta Property": "Unexpected token .",
     "draft (stage 2)›Class and Property Decorators›class decorators": "Unexpected reserved word",
     "draft (stage 2)›Realms": false,
