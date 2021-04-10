@@ -25948,6 +25948,38 @@ return ok;</div>}
           </td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3---Ergonomic-brand-checks-for-private-fields"></div><a class="anchor" href="#ESNEXT-candidate--stage-3---Ergonomic-brand-checks-for-private-fields">§</a><a href="https://github.com/tc39/proposal-private-fields-in-in">Ergonomic brand checks for private fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class A {
+  #x;
+  static check(obj) {
+    return #x in obj;
+  }
+}
+return A.check(new A) &amp;&amp; !A.check({});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class A {
+  #x;
+  static check(obj) {
+    return #x in obj;
+  }
+}
+return A.check(new A) &amp;&amp; !A.check({});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="3">
             <h3>
               <div class="hash" id="ESNEXT-candidate--stage-3---at---method-on-the-built-in-indexables"></div><a href="#ESNEXT-candidate--stage-3---at---method-on-the-built-in-indexables">.at() method on the built-in indexables</a>

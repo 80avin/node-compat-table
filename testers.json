@@ -3383,6 +3383,10 @@
       "spec": "https://github.com/tc39/proposal-class-static-block",
       "code": "let ok = false;\nclass A {\n  static { ok = true; }\n}\nreturn ok;"
     },
+    "candidate (stage 3)›Ergonomic brand checks for private fields": {
+      "spec": "https://github.com/tc39/proposal-private-fields-in-in",
+      "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\n  }\n}\nreturn A.check(new A) && !A.check({});"
+    },
     "draft (stage 2)›Generator function.sent Meta Property": {
       "spec": "https://github.com/tc39/proposal-function.sent",
       "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"

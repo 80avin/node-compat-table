@@ -1,10 +1,10 @@
 {
-  "_version": "16.0.0-nightly202104097df0fc5c5c--harmony",
+  "_version": "16.0.0-nightly2021041040ace47396--harmony",
   "_engine": "v8 9.0.257.13-node.9",
   "ESNEXT": {
-    "_successful": 20,
-    "_count": 74,
-    "_percent": 0.2702702702702703,
+    "_successful": 21,
+    "_count": 75,
+    "_percent": 0.28,
     "candidate (stage 3)›instance class fields›public instance class fields": true,
     "candidate (stage 3)›instance class fields›private instance class fields basic support": true,
     "candidate (stage 3)›instance class fields›private instance class fields initializers": true,
@@ -25,6 +25,7 @@
     "candidate (stage 3)›.at() method on the built-in indexables›String.prototype.at()": true,
     "candidate (stage 3)›.at() method on the built-in indexables›%TypedArray%.prototype.at()": true,
     "candidate (stage 3)›Class static initialization blocks": true,
+    "candidate (stage 3)›Ergonomic brand checks for private fields": true,
     "draft (stage 2)›Generator function.sent Meta Property": "Unexpected token '.'",
     "draft (stage 2)›Class and Property Decorators›class decorators": "Invalid or unexpected token",
     "draft (stage 2)›Realms": false,
