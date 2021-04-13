@@ -81,6 +81,26 @@
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
+  "ES2021": {
+    "_successful": 15,
+    "_count": 15,
+    "_percent": 1,
+    "features›String.prototype.replaceAll": true,
+    "features›Promise.any›fulfillment": true,
+    "features›Promise.any›AggregateError": true,
+    "features›WeakReferences›WeakRef minimal support": true,
+    "features›WeakReferences›FinalizationRegistry minimal support": true,
+    "features›Logical Assignment›||= basic support": true,
+    "features›Logical Assignment›||= short-circuiting behaviour": true,
+    "features›Logical Assignment›||= setter not unecessarily invoked": true,
+    "features›Logical Assignment›&&= basic support": true,
+    "features›Logical Assignment›&&= short-circuiting behaviour": true,
+    "features›Logical Assignment›&&= setter not unecessarily invoked": true,
+    "features›Logical Assignment›??= basic support": true,
+    "features›Logical Assignment›??= short-circuiting behaviour": true,
+    "features›Logical Assignment›??= setter not unecessarily invoked": true,
+    "features›numeric separators": true
+  },
   "ES2020": {
     "_successful": 18,
     "_count": 19,

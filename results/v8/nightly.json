@@ -1,6 +1,6 @@
 {
-  "_version": "16.0.0-nightly202104128e76397fab",
-  "_engine": "v8 9.0.257.13-node.9",
+  "_version": "16.0.0-nightly2021041313c931a9dc",
+  "_engine": "v8 9.0.257.13-node.10",
   "ESNEXT": {
     "_successful": 16,
     "_count": 75,
@@ -80,6 +80,26 @@
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.take": "(intermediate value)(...).take is not a function",
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
+  },
+  "ES2021": {
+    "_successful": 15,
+    "_count": 15,
+    "_percent": 1,
+    "features›String.prototype.replaceAll": true,
+    "features›Promise.any›fulfillment": true,
+    "features›Promise.any›AggregateError": true,
+    "features›WeakReferences›WeakRef minimal support": true,
+    "features›WeakReferences›FinalizationRegistry minimal support": true,
+    "features›Logical Assignment›||= basic support": true,
+    "features›Logical Assignment›||= short-circuiting behaviour": true,
+    "features›Logical Assignment›||= setter not unecessarily invoked": true,
+    "features›Logical Assignment›&&= basic support": true,
+    "features›Logical Assignment›&&= short-circuiting behaviour": true,
+    "features›Logical Assignment›&&= setter not unecessarily invoked": true,
+    "features›Logical Assignment›??= basic support": true,
+    "features›Logical Assignment›??= short-circuiting behaviour": true,
+    "features›Logical Assignment›??= setter not unecessarily invoked": true,
+    "features›numeric separators": true
   },
   "ES2020": {
     "_successful": 18,

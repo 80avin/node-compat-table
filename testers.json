@@ -3302,6 +3302,68 @@
       "code": "return (null ?? 42) === 42 &&\n  (undefined ?? 42) === 42 &&\n  (false ?? 42) === false &&\n  ('' ?? 42) === '' &&\n  (0 ?? 42) === 0 &&\n  isNaN(NaN ?? 42);"
     }
   },
+  "ES2021": {
+    "features›String.prototype.replaceAll": {
+      "spec": "https://github.com/tc39/proposal-string-replace-all",
+      "code": "return 'q=query+string+parameters'.replaceAll('+', ' ') === 'q=query string parameters';"
+    },
+    "features›Promise.any›fulfillment": {
+      "spec": "https://github.com/tc39/proposal-promise-any",
+      "code": "Promise.any([\n  Promise.reject(1),\n  Promise.resolve(2),\n  Promise.resolve(3)\n]).then(it => {\n  if (it === 2) asyncTestPassed();\n});"
+    },
+    "features›Promise.any›AggregateError": {
+      "spec": "https://github.com/tc39/proposal-promise-any",
+      "code": "Promise.any([\n  Promise.reject(1),\n  Promise.reject(2),\n  Promise.reject(3)\n]).catch(error => {\n  if (error instanceof AggregateError && error.errors.length === 3) asyncTestPassed();\n});"
+    },
+    "features›WeakReferences›WeakRef minimal support": {
+      "spec": "https://github.com/tc39/proposal-weakrefs",
+      "code": "var O = {};\nvar weakref = new WeakRef(O);\nreturn weakref.deref() === O;"
+    },
+    "features›WeakReferences›FinalizationRegistry minimal support": {
+      "spec": "https://github.com/tc39/proposal-weakrefs",
+      "code": "var fr = new FinalizationRegistry(function() {});\nreturn Object.getPrototypeOf(fr) === FinalizationRegistry.prototype;"
+    },
+    "features›Logical Assignment›||= basic support": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let a;\nlet b = 0;\nlet c = 1;\na ||= 2;\nb ||= 2;\nc ||= 2;\nreturn a === 2 && b === 2 && c === 1;"
+    },
+    "features›Logical Assignment›||= short-circuiting behaviour": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let a = 1;\nlet i = 1;\na ||= ++i;\nreturn a === 1 && i === 1;"
+    },
+    "features›Logical Assignment›||= setter not unecessarily invoked": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let i = 1;\nvar obj = { get x() { return 1 }, set x(n) { i++; } };\nobj.x ||= 2;\nreturn i === 1;"
+    },
+    "features›Logical Assignment›&&= basic support": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let a;\nlet b = 0;\nlet c = 1;\na &&= 2;\nb &&= 2;\nc &&= 2;\nreturn typeof a === 'undefined' && b === 0 && c === 2;"
+    },
+    "features›Logical Assignment›&&= short-circuiting behaviour": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let a;\nlet i = 1;\na &&= ++i;\nreturn typeof a === 'undefined' && i === 1;"
+    },
+    "features›Logical Assignment›&&= setter not unecessarily invoked": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let i = 1;\nvar obj = { get x() { return }, set x(n) { i++; } };\nobj.x &&= 2;\nreturn i === 1;"
+    },
+    "features›Logical Assignment›??= basic support": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let a;\nlet b = 0;\nlet c = 1;\na ??= 2;\nb ??= 2;\nc ??= 2;\nreturn a === 2 && b === 0 && c === 1;"
+    },
+    "features›Logical Assignment›??= short-circuiting behaviour": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let a = 1;\nlet i = 1;\na ??= ++i;\nreturn a === 1 && i === 1;"
+    },
+    "features›Logical Assignment›??= setter not unecessarily invoked": {
+      "spec": "https://github.com/tc39/proposal-logical-assignment/",
+      "code": "let i = 1;\nvar obj = { get x() { return 1 }, set x(n) { i++; } };\nobj.x ??= 2;\nreturn i === 1;"
+    },
+    "features›numeric separators": {
+      "spec": "https://github.com/tc39/proposal-numeric-separator",
+      "code": "return 1_000_000.000_001 === 1000000.000001 &&\n  0b1010_0001_1000_0101 === 0b1010000110000101;"
+    }
+  },
   "ESNEXT": {
     "candidate (stage 3)›instance class fields›public instance class fields": {
       "spec": "https://github.com/tc39/proposal-class-fields",

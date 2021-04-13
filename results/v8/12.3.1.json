@@ -81,6 +81,26 @@
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "draft (stage 2)›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
+  "ES2021": {
+    "_successful": 0,
+    "_count": 15,
+    "_percent": 0,
+    "features›String.prototype.replaceAll": "\"q=query+string+parameters\".replaceAll is not a function",
+    "features›Promise.any›fulfillment": "Promise.any is not a function",
+    "features›Promise.any›AggregateError": "Promise.any is not a function",
+    "features›WeakReferences›WeakRef minimal support": "WeakRef is not defined",
+    "features›WeakReferences›FinalizationRegistry minimal support": "FinalizationRegistry is not defined",
+    "features›Logical Assignment›||= basic support": "Unexpected token =",
+    "features›Logical Assignment›||= short-circuiting behaviour": "Unexpected token =",
+    "features›Logical Assignment›||= setter not unecessarily invoked": "Unexpected token =",
+    "features›Logical Assignment›&&= basic support": "Unexpected token =",
+    "features›Logical Assignment›&&= short-circuiting behaviour": "Unexpected token =",
+    "features›Logical Assignment›&&= setter not unecessarily invoked": "Unexpected token =",
+    "features›Logical Assignment›??= basic support": "Unexpected token ?",
+    "features›Logical Assignment›??= short-circuiting behaviour": "Unexpected token ?",
+    "features›Logical Assignment›??= setter not unecessarily invoked": "Unexpected token ?",
+    "features›numeric separators": "Invalid or unexpected token"
+  },
   "ES2020": {
     "_successful": 11,
     "_count": 19,
