@@ -1,6 +1,6 @@
 {
-  "_version": "17.0.0-nightly202105029c7aa96703--harmony",
-  "_engine": "v8 9.0.257.24-node.10",
+  "_version": "17.0.0-nightly2021050368e6673224--harmony",
+  "_engine": "v8 9.0.257.24-node.11",
   "ESNEXT": {
     "_successful": 21,
     "_count": 75,
@@ -102,9 +102,9 @@
     "features›numeric separators": true
   },
   "ES2020": {
-    "_successful": 18,
+    "_successful": 19,
     "_count": 19,
-    "_percent": 0.9473684210526315,
+    "_percent": 1,
     "features›String.prototype.matchAll›basic functionality": true,
     "features›String.prototype.matchAll›throws on non-global regex": true,
     "features›BigInt›basic functionality": true,
@@ -122,7 +122,7 @@
     "features›optional chaining operator (?.)›optional bracket access": true,
     "features›optional chaining operator (?.)›optional method call": true,
     "features›optional chaining operator (?.)›optional function call": true,
-    "features›optional chaining operator (?.)›spread parameters after optional chaining": "Function.prototype.apply was called on null, which is a object and not a function",
+    "features›optional chaining operator (?.)›spread parameters after optional chaining": true,
     "features›nullish coalescing operator (??)": true
   },
   "ES2019": {
