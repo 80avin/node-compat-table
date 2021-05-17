@@ -3364,59 +3364,61 @@
       "code": "return 1_000_000.000_001 === 1000000.000001 &&\n  0b1010_0001_1000_0101 === 0b1010000110000101;"
     }
   },
-  "ESNEXT": {
-    "candidate (stage 3)›instance class fields›public instance class fields": {
+  "ES2022": {
+    "features›instance class fields›public instance class fields": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  x = 'x';\n}\nreturn new C().x === 'x';"
     },
-    "candidate (stage 3)›instance class fields›private instance class fields basic support": {
+    "features›instance class fields›private instance class fields basic support": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  #x;\n  constructor(x){\n    this.#x = x;\n  }\n  x(){\n    return this.#x;\n  }\n}\nreturn new C(42).x() === 42;"
     },
-    "candidate (stage 3)›instance class fields›private instance class fields initializers": {
+    "features›instance class fields›private instance class fields initializers": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  #x = 42;\n  x(){\n    return this.#x;\n  }\n}\nreturn new C().x() === 42;"
     },
-    "candidate (stage 3)›instance class fields›optional private instance class fields access": {
+    "features›instance class fields›optional private instance class fields access": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  #x = 42;\n  x(o = this){\n    return o?.#x;\n  }\n}\nreturn new C().x() === 42 && new C().x(null) === void 0;"
     },
-    "candidate (stage 3)›instance class fields›optional deep private instance class fields access": {
+    "features›instance class fields›optional deep private instance class fields access": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  #x = 42;\n  x(o = {p: this}){\n    return o?.p.#x;\n  }\n}\nreturn new C().x() === 42 && new C().x(null) === void 0;"
     },
-    "candidate (stage 3)›instance class fields›computed instance class fields": {
+    "features›instance class fields›computed instance class fields": {
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  ['x'] = 42;\n}\nreturn new C().x === 42;"
     },
-    "candidate (stage 3)›static class fields›public static class fields": {
+    "features›static class fields›public static class fields": {
       "spec": "https://github.com/tc39/proposal-static-class-features/",
       "code": "class C {\n  static x = 'x';\n}\nreturn C.x === 'x';"
     },
-    "candidate (stage 3)›static class fields›private static class fields": {
+    "features›static class fields›private static class fields": {
       "spec": "https://github.com/tc39/proposal-static-class-features/",
       "code": "class C {\n  static #x = 42;\n  x(){\n    return C.#x;\n  }\n}\nreturn new C().x() === 42;"
     },
-    "candidate (stage 3)›static class fields›computed static class fields": {
+    "features›static class fields›computed static class fields": {
       "spec": "https://github.com/tc39/proposal-static-class-features/",
       "code": "class C {\n  static ['x'] = 42;\n}\nreturn C.x === 42;"
     },
-    "candidate (stage 3)›private class methods›private instance methods": {
+    "features›private class methods›private instance methods": {
       "spec": "https://github.com/tc39/proposal-private-methods",
       "code": "class C {\n  #x() { return 42; }\n  x() {\n    return this.#x();\n  }\n}\nreturn new C().x() === 42;"
     },
-    "candidate (stage 3)›private class methods›private static methods": {
+    "features›private class methods›private static methods": {
       "spec": "https://github.com/tc39/proposal-private-methods",
       "code": "class C {\n  static #x() { return 42; }\n  x() {\n    return C.#x();\n  }\n}\nreturn new C().x() === 42;"
     },
-    "candidate (stage 3)›private class methods›private accessor properties": {
+    "features›private class methods›private accessor properties": {
       "spec": "https://github.com/tc39/proposal-private-methods",
       "code": "var y = false;\nclass C {\n  get #x() { return 42; }\n  set #x(x) { y = x; }\n  x() {\n    this.#x = true;\n    return this.#x;\n  }\n}\nreturn new C().x() === 42 && y;"
     },
-    "candidate (stage 3)›private class methods›private static accessor properties": {
+    "features›private class methods›private static accessor properties": {
       "spec": "https://github.com/tc39/proposal-private-methods",
       "code": "var y = false;\nclass C {\n  static get #x() { return 42; }\n  static set #x(x) { y = x; }\n  x() {\n    C.#x = true;\n    return C.#x;\n  }\n}\nreturn new C().x() === 42 && y;"
-    },
+    }
+  },
+  "ESNEXT": {
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
       "code": "var re = /\\w/;\nre.exec('x');\nreturn RegExp.lastMatch === 'x';"

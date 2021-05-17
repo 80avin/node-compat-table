@@ -25830,6 +25830,473 @@ return i === 1;</div>}
         </tr>
       </table>
     </article>
+    <article id="ES2022">
+        <header>
+          <h1><a href="#ES2022">Node.js ES2022 Support</a></h1>
+          <table class="headings">
+            <tr>
+              <th class="version v9">9.0.0
+                <div class="details"><small>(these versions have identical results)</small>
+                  <table>
+                    <tr>
+                      <td>9.0.0</td>
+                      <td>v8 6.4.0 (candidate)</td>
+                    </tr>
+                  </table>
+                </div><sup>v8</sup><sub class="unflagged">% complete</sub>
+              </th>
+              <th class="version v9">9.0.0
+                <div class="details"><small>(these versions have identical results)</small>
+                  <table>
+                    <tr>
+                      <td>12.0.0</td>
+                      <td>chakracore 1.11.1.0</td>
+                    </tr>
+                  </table>
+                </div><sup>Chakra</sup><sub class="unflagged">% complete</sub>
+              </th>
+            </tr>
+          </table>
+        </header>
+      <table class="results">
+        <caption>
+          <h2 class="category">
+            <div class="hash" id="ES2022-features"></div><a href="#ES2022-features">features</a>
+          </h2>
+        </caption>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2022-features-instance-class-fields"></div><a href="#ES2022-features-instance-class-fields">instance class fields</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-instance-class-fields-public-instance-class-fields"></div><a class="anchor" href="#ES2022-features-instance-class-fields-public-instance-class-fields">§</a><a href="https://github.com/tc39/proposal-class-fields">public instance class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  x = 'x';
+}
+return new C().x === 'x';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  x = 'x';
+}
+return new C().x === 'x';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-instance-class-fields-private-instance-class-fields-basic-support"></div><a class="anchor" href="#ES2022-features-instance-class-fields-private-instance-class-fields-basic-support">§</a><a href="https://github.com/tc39/proposal-class-fields">private instance class fields basic support</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  #x;
+  constructor(x){
+    this.#x = x;
+  }
+  x(){
+    return this.#x;
+  }
+}
+return new C(42).x() === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  #x;
+  constructor(x){
+    this.#x = x;
+  }
+  x(){
+    return this.#x;
+  }
+}
+return new C(42).x() === 42;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-instance-class-fields-private-instance-class-fields-initializers"></div><a class="anchor" href="#ES2022-features-instance-class-fields-private-instance-class-fields-initializers">§</a><a href="https://github.com/tc39/proposal-class-fields">private instance class fields initializers</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  #x = 42;
+  x(){
+    return this.#x;
+  }
+}
+return new C().x() === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  #x = 42;
+  x(){
+    return this.#x;
+  }
+}
+return new C().x() === 42;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-instance-class-fields-optional-private-instance-class-fields-access"></div><a class="anchor" href="#ES2022-features-instance-class-fields-optional-private-instance-class-fields-access">§</a><a href="https://github.com/tc39/proposal-class-fields">optional private instance class fields access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  #x = 42;
+  x(o = this){
+    return o?.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  #x = 42;
+  x(o = this){
+    return o?.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-instance-class-fields-optional-deep-private-instance-class-fields-access"></div><a class="anchor" href="#ES2022-features-instance-class-fields-optional-deep-private-instance-class-fields-access">§</a><a href="https://github.com/tc39/proposal-class-fields">optional deep private instance class fields access</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  #x = 42;
+  x(o = {p: this}){
+    return o?.p.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  #x = 42;
+  x(o = {p: this}){
+    return o?.p.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-instance-class-fields-computed-instance-class-fields"></div><a class="anchor" href="#ES2022-features-instance-class-fields-computed-instance-class-fields">§</a><a href="https://github.com/tc39/proposal-class-fields">computed instance class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  ['x'] = 42;
+}
+return new C().x === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  ['x'] = 42;
+}
+return new C().x === 42;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2022-features-static-class-fields"></div><a href="#ES2022-features-static-class-fields">static class fields</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-static-class-fields-public-static-class-fields"></div><a class="anchor" href="#ES2022-features-static-class-fields-public-static-class-fields">§</a><a href="https://github.com/tc39/proposal-static-class-features/">public static class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  static x = 'x';
+}
+return C.x === 'x';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  static x = 'x';
+}
+return C.x === 'x';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-static-class-fields-private-static-class-fields"></div><a class="anchor" href="#ES2022-features-static-class-fields-private-static-class-fields">§</a><a href="https://github.com/tc39/proposal-static-class-features/">private static class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  static #x = 42;
+  x(){
+    return C.#x;
+  }
+}
+return new C().x() === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  static #x = 42;
+  x(){
+    return C.#x;
+  }
+}
+return new C().x() === 42;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-static-class-fields-computed-static-class-fields"></div><a class="anchor" href="#ES2022-features-static-class-fields-computed-static-class-fields">§</a><a href="https://github.com/tc39/proposal-static-class-features/">computed static class fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  static ['x'] = 42;
+}
+return C.x === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  static ['x'] = 42;
+}
+return C.x === 42;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2022-features-private-class-methods"></div><a href="#ES2022-features-private-class-methods">private class methods</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-private-class-methods-private-instance-methods"></div><a class="anchor" href="#ES2022-features-private-class-methods-private-instance-methods">§</a><a href="https://github.com/tc39/proposal-private-methods">private instance methods</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  #x() { return 42; }
+  x() {
+    return this.#x();
+  }
+}
+return new C().x() === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  #x() { return 42; }
+  x() {
+    return this.#x();
+  }
+}
+return new C().x() === 42;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-private-class-methods-private-static-methods"></div><a class="anchor" href="#ES2022-features-private-class-methods-private-static-methods">§</a><a href="https://github.com/tc39/proposal-private-methods">private static methods</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class C {
+  static #x() { return 42; }
+  x() {
+    return C.#x();
+  }
+}
+return new C().x() === 42;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class C {
+  static #x() { return 42; }
+  x() {
+    return C.#x();
+  }
+}
+return new C().x() === 42;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-private-class-methods-private-accessor-properties"></div><a class="anchor" href="#ES2022-features-private-class-methods-private-accessor-properties">§</a><a href="https://github.com/tc39/proposal-private-methods">private accessor properties</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var y = false;
+class C {
+  get #x() { return 42; }
+  set #x(x) { y = x; }
+  x() {
+    this.#x = true;
+    return this.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; y;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var y = false;
+class C {
+  get #x() { return 42; }
+  set #x(x) { y = x; }
+  x() {
+    this.#x = true;
+    return this.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; y;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-private-class-methods-private-static-accessor-properties"></div><a class="anchor" href="#ES2022-features-private-class-methods-private-static-accessor-properties">§</a><a href="https://github.com/tc39/proposal-private-methods">private static accessor properties</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var y = false;
+class C {
+  static get #x() { return 42; }
+  static set #x(x) { y = x; }
+  x() {
+    C.#x = true;
+    return C.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; y;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var y = false;
+class C {
+  static get #x() { return 42; }
+  static set #x(x) { y = x; }
+  x() {
+    C.#x = true;
+    return C.#x;
+  }
+}
+return new C().x() === 42 &amp;&amp; y;</div>}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </article>
     <article id="ESNEXT">
         <header>
           <h1><a href="#ESNEXT">Node.js ESNEXT Support</a></h1>
@@ -25864,437 +26331,6 @@ return i === 1;</div>}
             <div class="hash" id="ESNEXT-candidate--stage-3-"></div><a href="#ESNEXT-candidate--stage-3-">candidate (stage 3)</a>
           </h2>
         </caption>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields"></div><a href="#ESNEXT-candidate--stage-3--instance-class-fields">instance class fields</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-public-instance-class-fields"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--instance-class-fields-public-instance-class-fields">§</a><a href="https://github.com/tc39/proposal-class-fields">public instance class fields</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  x = 'x';
-}
-return new C().x === 'x';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Expected &#x27;(&#x27;">Error</div></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  x = 'x';
-}
-return new C().x === 'x';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-private-instance-class-fields-basic-support"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--instance-class-fields-private-instance-class-fields-basic-support">§</a><a href="https://github.com/tc39/proposal-class-fields">private instance class fields basic support</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  #x;
-  constructor(x){
-    this.#x = x;
-  }
-  x(){
-    return this.#x;
-  }
-}
-return new C(42).x() === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Invalid character">Error</div></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  #x;
-  constructor(x){
-    this.#x = x;
-  }
-  x(){
-    return this.#x;
-  }
-}
-return new C(42).x() === 42;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-private-instance-class-fields-initializers"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--instance-class-fields-private-instance-class-fields-initializers">§</a><a href="https://github.com/tc39/proposal-class-fields">private instance class fields initializers</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  #x = 42;
-  x(){
-    return this.#x;
-  }
-}
-return new C().x() === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Invalid character">Error</div></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  #x = 42;
-  x(){
-    return this.#x;
-  }
-}
-return new C().x() === 42;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-optional-private-instance-class-fields-access"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--instance-class-fields-optional-private-instance-class-fields-access">§</a><a href="https://github.com/tc39/proposal-class-fields">optional private instance class fields access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  #x = 42;
-  x(o = this){
-    return o?.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  #x = 42;
-  x(o = this){
-    return o?.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-optional-deep-private-instance-class-fields-access"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--instance-class-fields-optional-deep-private-instance-class-fields-access">§</a><a href="https://github.com/tc39/proposal-class-fields">optional deep private instance class fields access</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  #x = 42;
-  x(o = {p: this}){
-    return o?.p.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  #x = 42;
-  x(o = {p: this}){
-    return o?.p.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; new C().x(null) === void 0;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--instance-class-fields-computed-instance-class-fields"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--instance-class-fields-computed-instance-class-fields">§</a><a href="https://github.com/tc39/proposal-class-fields">computed instance class fields</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  ['x'] = 42;
-}
-return new C().x === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  ['x'] = 42;
-}
-return new C().x === 42;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields"></div><a href="#ESNEXT-candidate--stage-3--static-class-fields">static class fields</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields-public-static-class-fields"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--static-class-fields-public-static-class-fields">§</a><a href="https://github.com/tc39/proposal-static-class-features/">public static class fields</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  static x = 'x';
-}
-return C.x === 'x';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Expected &#x27;(&#x27;">Error</div></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  static x = 'x';
-}
-return C.x === 'x';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields-private-static-class-fields"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--static-class-fields-private-static-class-fields">§</a><a href="https://github.com/tc39/proposal-static-class-features/">private static class fields</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  static #x = 42;
-  x(){
-    return C.#x;
-  }
-}
-return new C().x() === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"><div class="Error" title="Invalid character">Error</div></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  static #x = 42;
-  x(){
-    return C.#x;
-  }
-}
-return new C().x() === 42;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--static-class-fields-computed-static-class-fields"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--static-class-fields-computed-static-class-fields">§</a><a href="https://github.com/tc39/proposal-static-class-features/">computed static class fields</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  static ['x'] = 42;
-}
-return C.x === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  static ['x'] = 42;
-}
-return C.x === 42;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-candidate--stage-3--private-class-methods"></div><a href="#ESNEXT-candidate--stage-3--private-class-methods">private class methods</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--private-class-methods-private-instance-methods"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--private-class-methods-private-instance-methods">§</a><a href="https://github.com/tc39/proposal-private-methods">private instance methods</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  #x() { return 42; }
-  x() {
-    return this.#x();
-  }
-}
-return new C().x() === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  #x() { return 42; }
-  x() {
-    return this.#x();
-  }
-}
-return new C().x() === 42;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--private-class-methods-private-static-methods"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--private-class-methods-private-static-methods">§</a><a href="https://github.com/tc39/proposal-private-methods">private static methods</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class C {
-  static #x() { return 42; }
-  x() {
-    return C.#x();
-  }
-}
-return new C().x() === 42;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class C {
-  static #x() { return 42; }
-  x() {
-    return C.#x();
-  }
-}
-return new C().x() === 42;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--private-class-methods-private-accessor-properties"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--private-class-methods-private-accessor-properties">§</a><a href="https://github.com/tc39/proposal-private-methods">private accessor properties</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var y = false;
-class C {
-  get #x() { return 42; }
-  set #x(x) { y = x; }
-  x() {
-    this.#x = true;
-    return this.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; y;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var y = false;
-class C {
-  get #x() { return 42; }
-  set #x(x) { y = x; }
-  x() {
-    this.#x = true;
-    return this.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; y;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-candidate--stage-3--private-class-methods-private-static-accessor-properties"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--private-class-methods-private-static-accessor-properties">§</a><a href="https://github.com/tc39/proposal-private-methods">private static accessor properties</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var y = false;
-class C {
-  static get #x() { return 42; }
-  static set #x(x) { y = x; }
-  x() {
-    C.#x = true;
-    return C.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; y;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var y = false;
-class C {
-  static get #x() { return 42; }
-  static set #x(x) { y = x; }
-  x() {
-    C.#x = true;
-    return C.#x;
-  }
-}
-return new C().x() === 42 &amp;&amp; y;</div>}
-            </div>
-          </td>
-        </tr>
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
