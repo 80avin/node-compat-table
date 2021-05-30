@@ -1,10 +1,10 @@
 {
-  "_version": "17.0.0-nightly20210529f1cbaea74b--harmony",
+  "_version": "17.0.0-nightly202105304c508f51c0--harmony",
   "_engine": "v8 9.0.257.25-node.16",
   "ESNEXT": {
     "_successful": 8,
-    "_count": 62,
-    "_percent": 0.12903225806451613,
+    "_count": 64,
+    "_percent": 0.125,
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "candidate (stage 3)›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
     "candidate (stage 3)›Hashbang Grammar": true,
@@ -13,6 +13,8 @@
     "candidate (stage 3)›.at() method on the built-in indexables›%TypedArray%.prototype.at()": true,
     "candidate (stage 3)›Class static initialization blocks": true,
     "candidate (stage 3)›Ergonomic brand checks for private fields": true,
+    "candidate (stage 3)›Object.hasOwn›Basic functionality": "Object.hasOwn is not a function",
+    "candidate (stage 3)›Object.hasOwn›ToObject called before ToPropertyKey": false,
     "draft (stage 2)›Generator function.sent Meta Property": "Unexpected token '.'",
     "draft (stage 2)›Class and Property Decorators›class decorators": "Invalid or unexpected token",
     "draft (stage 2)›Realms": false,

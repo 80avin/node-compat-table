@@ -3451,6 +3451,14 @@
       "spec": "https://github.com/tc39/proposal-private-fields-in-in",
       "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\n  }\n}\nreturn A.check(new A) && !A.check({});"
     },
+    "candidate (stage 3)›Object.hasOwn›Basic functionality": {
+      "spec": "https://github.com/tc39/proposal-accessible-object-hasownproperty",
+      "code": "return Object.hasOwn({ x: 2 }, \"x\") === true;"
+    },
+    "candidate (stage 3)›Object.hasOwn›ToObject called before ToPropertyKey": {
+      "spec": "https://github.com/tc39/proposal-accessible-object-hasownproperty",
+      "code": "var ok = !!Object.hasOwn;\ntry {\n  Object.hasOwn(null, { toString: function () { ok = false } });\n  return false;\n} catch (e) {\n  return ok;\n}"
+    },
     "draft (stage 2)›Generator function.sent Meta Property": {
       "spec": "https://github.com/tc39/proposal-function.sent",
       "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"

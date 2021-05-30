@@ -26630,6 +26630,65 @@ return str.at(0) === 'a'
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ESNEXT-candidate--stage-3--Object-hasOwn"></div><a href="#ESNEXT-candidate--stage-3--Object-hasOwn">Object.hasOwn</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--Object-hasOwn-Basic-functionality"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--Object-hasOwn-Basic-functionality">§</a><a href="https://github.com/tc39/proposal-accessible-object-hasownproperty">Basic functionality</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Object.hasOwn({ x: 2 }, &quot;x&quot;) === true;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Object.hasOwn({ x: 2 }, &quot;x&quot;) === true;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-candidate--stage-3--Object-hasOwn-ToObject-called-before-ToPropertyKey"></div><a class="anchor" href="#ESNEXT-candidate--stage-3--Object-hasOwn-ToObject-called-before-ToPropertyKey">§</a><a href="https://github.com/tc39/proposal-accessible-object-hasownproperty">ToObject called before ToPropertyKey</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var ok = !!Object.hasOwn;
+try {
+  Object.hasOwn(null, { toString: function () { ok = false } });
+  return false;
+} catch (e) {
+  return ok;
+}</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var ok = !!Object.hasOwn;
+try {
+  Object.hasOwn(null, { toString: function () { ok = false } });
+  return false;
+} catch (e) {
+  return ok;
+}</div>}
+            </div>
+          </td>
+        </tr>
       </table>
       <table class="results">
         <caption>
