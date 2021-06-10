@@ -198,7 +198,7 @@
     },
     "syntax›template literals›toString conversion": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-template-literals",
-      "code": "var a = {\n  toString: function() { return \"foo\"; },\n  valueOf: function() { return \"bar\"; },\n};\nreturn `${a}` === \"foo\";"
+      "code": "var a = {\n  toString: function() { return \"foo\"; },\n  valueOf: function() { return \"bar\"; }\n};\nreturn `${a}` === \"foo\";"
     },
     "syntax›template literals›tagged template literals": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-template-literals",
@@ -958,15 +958,15 @@
     },
     "functions›generators›shorthand generator methods": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var o = {\n  * generator() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
+      "code": "var o = {\n  * generator() {\n    yield 5; yield 6;\n  }\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›string-keyed shorthand generator methods": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var o = {\n  * \"foo bar\"() {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o[\"foo bar\"]();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
+      "code": "var o = {\n  * \"foo bar\"() {\n    yield 5; yield 6;\n  }\n};\nvar iterator = o[\"foo bar\"]();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›computed shorthand generators": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
-      "code": "var garply = \"generator\";\nvar o = {\n  * [garply] () {\n    yield 5; yield 6;\n  },\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
+      "code": "var garply = \"generator\";\nvar o = {\n  * [garply] () {\n    yield 5; yield 6;\n  }\n};\nvar iterator = o.generator();\nvar item = iterator.next();\nvar passed = item.value === 5 && item.done === false;\nitem = iterator.next();\npassed &= item.value === 6 && item.done === false;\nitem = iterator.next();\npassed &= item.value === void undefined && item.done === true;\nreturn passed;"
     },
     "functions›generators›shorthand generator methods, classes": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions",
@@ -1638,19 +1638,19 @@
     },
     "built-ins›Promise›Promise.all": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); }),\n]);\nvar rejects = Promise.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); }),\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); })\n]);\nvar rejects = Promise.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); })\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise.all, generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.all(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); }),\n]));\nvar rejects = Promise.all(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); }),\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.all(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); })\n]));\nvar rejects = Promise.all(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); })\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise.race": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); }),\n]);\nvar rejects = Promise.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); }),\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); })\n]);\nvar rejects = Promise.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); })\n]);\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise.race, generic iterables": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
-      "code": "var fulfills = Promise.race(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); }),\n]));\nvar rejects = Promise.race(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); }),\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
+      "code": "var fulfills = Promise.race(global.__createIterableObject([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); })\n]));\nvar rejects = Promise.race(global.__createIterableObject([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); })\n]));\nvar score = 0;\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 2) asyncTestPassed();\n}"
     },
     "built-ins›Promise›Promise[Symbol.species]": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects",
@@ -2250,11 +2250,11 @@
     },
     "subclassing›Promise is subclassable›Promise.all": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-function-constructor",
-      "code": "class P extends Promise {}\nvar fulfills = P.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); }),\n]);\nvar rejects = P.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); }),\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
+      "code": "class P extends Promise {}\nvar fulfills = P.all([\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"foo\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"bar\"); })\n]);\nvar rejects = P.all([\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"baz\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"qux\"); })\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result + \"\" === \"foo,bar\"); check(); });\nrejects.catch(function(result) { score += (result === \"qux\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
     },
     "subclassing›Promise is subclassable›Promise.race": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-function-constructor",
-      "code": "class P extends Promise {}\nvar fulfills = P.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); }),\n]);\nvar rejects = P.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); }),\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
+      "code": "class P extends Promise {}\nvar fulfills = P.race([\n  new Promise(function(resolve)   { setTimeout(resolve,1000,\"foo\"); }),\n  new Promise(function(_, reject) { setTimeout(reject, 2000,\"bar\"); })\n]);\nvar rejects = P.race([\n  new Promise(function(_, reject) { setTimeout(reject, 1000,\"baz\"); }),\n  new Promise(function(resolve)   { setTimeout(resolve,2000,\"qux\"); })\n]);\nvar score = +(fulfills instanceof P);\nfulfills.then(function(result) { score += (result === \"foo\"); check(); });\nrejects.catch(function(result) { score += (result === \"baz\"); check(); });\n\nfunction check() {\n  if (score === 3) asyncTestPassed();\n}"
     },
     "subclassing›miscellaneous subclassables›Boolean is subclassable": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-boolean-constructor",
@@ -2590,7 +2590,7 @@
     },
     "misc›own property order›Object.keys": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-object-internal-methods-and-internal-slots-ownpropertykeys",
-      "code": "var obj = {\n  // Non-negative integer names appear first in value order\n  2: true,\n  0: true,\n  1: true,\n  // Other string names appear in source order\n  ' ': true,\n  // Non-negative integers are sorted above other names\n  9: true,\n  D: true,\n  B: true,\n  // Negative integers are treated as other names\n  '-1': true,\n};\n// Other string names are added in order of creation\nobj.A = true;\n// Non-negative integer names, conversely, ignore order of creation\nobj[3] = true;\n// Having a total of 20+ properties doesn't affect property order\n\"EFGHIJKLMNOPQRSTUVWXYZ\".split('').forEach(function(key){\n  obj[key] = true;\n});\n// Object.defineProperty doesn't affect the above rules\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, '4', { value: true, enumerable: true });\n// Deleting and reinserting a property doesn't preserve its position\ndelete obj[2];\nobj[2] = true;\n\nvar forInOrder = '';\nfor(var key in obj)forInOrder += key;\n\nreturn Object.keys(obj).join('') === forInOrder;"
+      "code": "var obj = {\n  // Non-negative integer names appear first in value order\n  2: true,\n  0: true,\n  1: true,\n  // Other string names appear in source order\n  ' ': true,\n  // Non-negative integers are sorted above other names\n  9: true,\n  D: true,\n  B: true,\n  // Negative integers are treated as other names\n  '-1': true\n};\n// Other string names are added in order of creation\nobj.A = true;\n// Non-negative integer names, conversely, ignore order of creation\nobj[3] = true;\n// Having a total of 20+ properties doesn't affect property order\n\"EFGHIJKLMNOPQRSTUVWXYZ\".split('').forEach(function(key){\n  obj[key] = true;\n});\n// Object.defineProperty doesn't affect the above rules\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, '4', { value: true, enumerable: true });\n// Deleting and reinserting a property doesn't preserve its position\ndelete obj[2];\nobj[2] = true;\n\nvar forInOrder = '';\nfor(var key in obj)forInOrder += key;\n\nreturn Object.keys(obj).join('') === forInOrder;"
     },
     "misc›own property order›Object.getOwnPropertyNames": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-object-internal-methods-and-internal-slots-ownpropertykeys",
@@ -2614,7 +2614,7 @@
     },
     "misc›own property order›Reflect.ownKeys, symbol key order": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-object-internal-methods-and-internal-slots-ownpropertykeys",
-      "code": "var sym1 = Symbol(), sym2 = Symbol(), sym3 = Symbol();\nvar obj = {\n  1: true,\n  A: true,\n};\nobj.B = true;\nobj[sym1] = true;\nobj[2] = true;\nobj[sym2] = true;\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, sym3,{ value: true, enumerable: true });\nObject.defineProperty(obj, 'D', { value: true, enumerable: true });\n\nvar result = Reflect.ownKeys(obj);\nvar l = result.length;\nreturn result[l-3] === sym1 && result[l-2] === sym2 && result[l-1] === sym3;"
+      "code": "var sym1 = Symbol(), sym2 = Symbol(), sym3 = Symbol();\nvar obj = {\n  1: true,\n  A: true\n};\nobj.B = true;\nobj[sym1] = true;\nobj[2] = true;\nobj[sym2] = true;\nObject.defineProperty(obj, 'C', { value: true, enumerable: true });\nObject.defineProperty(obj, sym3,{ value: true, enumerable: true });\nObject.defineProperty(obj, 'D', { value: true, enumerable: true });\n\nvar result = Reflect.ownKeys(obj);\nvar l = result.length;\nreturn result[l-3] === sym1 && result[l-2] === sym2 && result[l-1] === sym3;"
     },
     "misc›Updated identifier syntax›var ⸯ;": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-names-and-keywords",
@@ -3441,7 +3441,7 @@
     },
     "candidate (stage 3)›.at() method on the built-in indexables›%TypedArray%.prototype.at()": {
       "spec": "https://github.com/tc39/proposal-relative-indexing-method/",
-      "code": "return [\n  'Int8Array',\n  'Uint8Array',\n  'Uint8ClampedArray',\n  'Int16Array',\n  'Uint16Array',\n  'Int32Array',\n  'Uint32Array',\n  'Float32Array',\n  'Float64Array',\n].every(function (TypedArray) {\n  var Constructor = globalThis[TypedArray];\n  if (typeof Constructor !== 'function') {\n    return false;\n  }\n  var arr = new Constructor([1, 2, 3]);\n  return arr.at(0) === 1\n    && arr.at(-3) === 1\n    && arr.at(1) === 2\n    && arr.at(-2) === 2\n    && arr.at(2) === 3\n    && arr.at(-1) === 3\n    && arr.at(3) === undefined\n    && arr.at(-4) === undefined;\n});"
+      "code": "return [\n  'Int8Array',\n  'Uint8Array',\n  'Uint8ClampedArray',\n  'Int16Array',\n  'Uint16Array',\n  'Int32Array',\n  'Uint32Array',\n  'Float32Array',\n  'Float64Array'\n].every(function (TypedArray) {\n  var Constructor = globalThis[TypedArray];\n  if (typeof Constructor !== 'function') {\n    return false;\n  }\n  var arr = new Constructor([1, 2, 3]);\n  return arr.at(0) === 1\n    && arr.at(-3) === 1\n    && arr.at(1) === 2\n    && arr.at(-2) === 2\n    && arr.at(2) === 3\n    && arr.at(-1) === 3\n    && arr.at(3) === undefined\n    && arr.at(-4) === undefined;\n});"
     },
     "candidate (stage 3)›Class static initialization blocks": {
       "spec": "https://github.com/tc39/proposal-class-static-block",
@@ -3449,7 +3449,7 @@
     },
     "candidate (stage 3)›Ergonomic brand checks for private fields": {
       "spec": "https://github.com/tc39/proposal-private-fields-in-in",
-      "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\n  }\n}\nreturn A.check(new A) && !A.check({});"
+      "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\nrhino1_7: false\n  }\n}\nreturn A.check(new A) && !A.check({});"
     },
     "candidate (stage 3)›Object.hasOwn›Basic functionality": {
       "spec": "https://github.com/tc39/proposal-accessible-object-hasownproperty",
