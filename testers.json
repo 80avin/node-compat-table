@@ -3449,7 +3449,7 @@
     },
     "candidate (stage 3)›Ergonomic brand checks for private fields": {
       "spec": "https://github.com/tc39/proposal-private-fields-in-in",
-      "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\nrhino1_7: false\n  }\n}\nreturn A.check(new A) && !A.check({});"
+      "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\nrhino1_7_13: false\n  }\n}\nreturn A.check(new A) && !A.check({});"
     },
     "candidate (stage 3)›Object.hasOwn›Basic functionality": {
       "spec": "https://github.com/tc39/proposal-accessible-object-hasownproperty",
