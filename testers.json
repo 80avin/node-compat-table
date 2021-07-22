@@ -3416,9 +3416,17 @@
     "features›private class methods›private static accessor properties": {
       "spec": "https://github.com/tc39/proposal-private-methods",
       "code": "var y = false;\nclass C {\n  static get #x() { return 42; }\n  static set #x(x) { y = x; }\n  x() {\n    C.#x = true;\n    return C.#x;\n  }\n}\nreturn new C().x() === 42 && y;"
+    },
+    "features›Ergonomic brand checks for private fields": {
+      "spec": "https://github.com/tc39/proposal-private-fields-in-in",
+      "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\n  }\n}\nreturn A.check(new A) && !A.check({});"
     }
   },
   "ESNEXT": {
+    "Stage 3›Realms": {
+      "spec": "https://github.com/tc39/proposal-realms",
+      "code": "return typeof Realm === \"function\"\n  && [\"eval\", \"global\", \"intrinsics\", \"stdlib\", \"directEval\", \"indirectEval\", \"initGlobal\", \"nonEval\"].every(function(key){\n    return key in Realm.prototype;\n  });"
+    },
     "Stage 3›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
       "code": "var re = /\\w/;\nre.exec('x');\nreturn RegExp.lastMatch === 'x';"
@@ -3447,10 +3455,6 @@
       "spec": "https://github.com/tc39/proposal-class-static-block",
       "code": "let ok = false;\nclass A {\n  static { ok = true; }\n}\nreturn ok;"
     },
-    "Stage 3›Ergonomic brand checks for private fields": {
-      "spec": "https://github.com/tc39/proposal-private-fields-in-in",
-      "code": "class A {\n  #x;\n  static check(obj) {\n    return #x in obj;\nrhino1_7_13: false\n  }\n}\nreturn A.check(new A) && !A.check({});"
-    },
     "Stage 3›Object.hasOwn›Basic functionality": {
       "spec": "https://github.com/tc39/proposal-accessible-object-hasownproperty",
       "code": "return Object.hasOwn({ x: 2 }, \"x\") === true;"
@@ -3467,6 +3471,38 @@
       "spec": "https://github.com/tc39/proposal-array-find-from-last",
       "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLast(function (o) { return o.x === 1; }) === 2;"
     },
+    "Stage 3›Error.cause property›Error has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new Error('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "Stage 3›Error.cause property›EvalError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new EvalError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "Stage 3›Error.cause property›RangeError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new RangeError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "Stage 3›Error.cause property›ReferenceError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new ReferenceError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "Stage 3›Error.cause property›SyntaxError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new SyntaxError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "Stage 3›Error.cause property›TypeError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new TypeError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "Stage 3›Error.cause property›URIError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new URIError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "Stage 3›Error.cause property›AggregateError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new AggregateError([], 'error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
     "Stage 2›Generator function.sent Meta Property": {
       "spec": "https://github.com/tc39/proposal-function.sent",
       "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"
@@ -3474,10 +3510,6 @@
     "Stage 2›Class and Property Decorators›class decorators": {
       "spec": "https://github.com/tc39/proposal-decorators",
       "code": "class A {\n  @nonconf\n  get B() {}\n}\nfunction nonconf(target, name, descriptor) {\n  descriptor.configurable = false;\n  return descriptor;\n}\nreturn Object.getOwnPropertyDescriptor(A.prototype, \"B\").configurable === false;"
-    },
-    "Stage 2›Realms": {
-      "spec": "https://github.com/tc39/proposal-realms",
-      "code": "return typeof Realm === \"function\"\n  && [\"eval\", \"global\", \"intrinsics\", \"stdlib\", \"directEval\", \"indirectEval\", \"initGlobal\", \"nonEval\"].every(function(key){\n    return key in Realm.prototype;\n  });"
     },
     "Stage 2›throw expressions›logical": {
       "spec": "https://github.com/tc39/proposal-throw-expressions",

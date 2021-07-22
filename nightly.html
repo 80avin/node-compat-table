@@ -26295,6 +26295,45 @@ return new C().x() === 42 &amp;&amp; y;</div>}
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2022-features-"></div><a href="#ES2022-features-"></a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features--Ergonomic-brand-checks-for-private-fields"></div><a class="anchor" href="#ES2022-features--Ergonomic-brand-checks-for-private-fields">§</a><a href="https://github.com/tc39/proposal-private-fields-in-in">Ergonomic brand checks for private fields</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class A {
+  #x;
+  static check(obj) {
+    return #x in obj;
+  }
+}
+return A.check(new A) &amp;&amp; !A.check({});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class A {
+  #x;
+  static check(obj) {
+    return #x in obj;
+  }
+}
+return A.check(new A) &amp;&amp; !A.check({});</div>}
+            </div>
+          </td>
+        </tr>
       </table>
     </article>
     <article id="ESNEXT">
@@ -26334,65 +26373,34 @@ return new C().x() === 42 &amp;&amp; y;</div>}
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript"></div><a href="#ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript">Legacy RegExp features in JavaScript</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--lastMatch-"></div><a class="anchor" href="#ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--lastMatch-">§</a><a href="https://github.com/tc39/proposal-regexp-legacy-features">RegExp &quot;lastMatch&quot;</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var re = /\w/;
-re.exec('x');
-return RegExp.lastMatch === 'x';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var re = /\w/;
-re.exec('x');
-return RegExp.lastMatch === 'x';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--1--9"></div><a class="anchor" href="#ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--1--9">§</a><a href="https://github.com/tc39/proposal-regexp-legacy-features">RegExp.$1-$9</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">for (var i = 1; i &lt; 10; i++) {
-  if (!(('$' + i) in RegExp)) return false;
-}
-return true;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">for (var i = 1; i &lt; 10; i++) {
-  if (!(('$' + i) in RegExp)) return false;
-}
-return true;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
               <div class="hash" id="ESNEXT-Stage-3-"></div><a href="#ESNEXT-Stage-3-"></a>
             </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3--Realms"></div><a class="anchor" href="#ESNEXT-Stage-3--Realms">§</a><a href="https://github.com/tc39/proposal-realms">Realms</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return typeof Realm === &quot;function&quot;
+  &amp;&amp; [&quot;eval&quot;, &quot;global&quot;, &quot;intrinsics&quot;, &quot;stdlib&quot;, &quot;directEval&quot;, &quot;indirectEval&quot;, &quot;initGlobal&quot;, &quot;nonEval&quot;].every(function(key){
+    return key in Realm.prototype;
+  });</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return typeof Realm === &quot;function&quot;
+  &amp;&amp; [&quot;eval&quot;, &quot;global&quot;, &quot;intrinsics&quot;, &quot;stdlib&quot;, &quot;directEval&quot;, &quot;indirectEval&quot;, &quot;initGlobal&quot;, &quot;nonEval&quot;].every(function(key){
+    return key in Realm.prototype;
+  });</div>}
+            </div>
           </td>
         </tr>
         <tr>
@@ -26452,18 +26460,20 @@ return ok;</div>}
           </td>
         </tr>
         <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript"></div><a href="#ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript">Legacy RegExp features in JavaScript</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3--Ergonomic-brand-checks-for-private-fields"></div><a class="anchor" href="#ESNEXT-Stage-3--Ergonomic-brand-checks-for-private-fields">§</a><a href="https://github.com/tc39/proposal-private-fields-in-in">Ergonomic brand checks for private fields</a>
+            <div class="hash" id="ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--lastMatch-"></div><a class="anchor" href="#ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--lastMatch-">§</a><a href="https://github.com/tc39/proposal-regexp-legacy-features">RegExp &quot;lastMatch&quot;</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">class A {
-  #x;
-  static check(obj) {
-    return #x in obj;
-rhino1_7_13: false
-  }
-}
-return A.check(new A) &amp;&amp; !A.check({});</div>}
+                <div class="code">var re = /\w/;
+re.exec('x');
+return RegExp.lastMatch === 'x';</div>}
               </div>
             </div>
           </td>
@@ -26474,14 +26484,35 @@ return A.check(new A) &amp;&amp; !A.check({});</div>}
           <td></td>
           <td colspan="2">
             <div class="fn">function(){
-              <div class="code">class A {
-  #x;
-  static check(obj) {
-    return #x in obj;
-rhino1_7_13: false
-  }
+              <div class="code">var re = /\w/;
+re.exec('x');
+return RegExp.lastMatch === 'x';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--1--9"></div><a class="anchor" href="#ESNEXT-Stage-3-Legacy-RegExp-features-in-JavaScript-RegExp--1--9">§</a><a href="https://github.com/tc39/proposal-regexp-legacy-features">RegExp.$1-$9</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">for (var i = 1; i &lt; 10; i++) {
+  if (!(('$' + i) in RegExp)) return false;
 }
-return A.check(new A) &amp;&amp; !A.check({});</div>}
+return true;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">for (var i = 1; i &lt; 10; i++) {
+  if (!(('$' + i) in RegExp)) return false;
+}
+return true;</div>}
             </div>
           </td>
         </tr>
@@ -26742,6 +26773,189 @@ return arr.findLast(function (o) { return o.x === 1; }) === 2;</div>}
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ESNEXT-Stage-3-Error-cause-property"></div><a href="#ESNEXT-Stage-3-Error-cause-property">Error.cause property</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-Error-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-Error-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">Error has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new Error('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new Error('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-EvalError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-EvalError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">EvalError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new EvalError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new EvalError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-RangeError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-RangeError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">RangeError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new RangeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new RangeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-ReferenceError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-ReferenceError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">ReferenceError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new ReferenceError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new ReferenceError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-SyntaxError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-SyntaxError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">SyntaxError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new SyntaxError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new SyntaxError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-TypeError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-TypeError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">TypeError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new TypeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new TypeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-URIError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-URIError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">URIError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new URIError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new URIError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-AggregateError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-AggregateError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">AggregateError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new AggregateError([], 'error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new AggregateError([], 'error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
       </table>
       <table class="results">
         <caption>
@@ -26785,32 +26999,6 @@ function* generator() {
 var iter = generator();
 iter.next('tromple');
 return result === 'tromple';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2--Realms"></div><a class="anchor" href="#ESNEXT-Stage-2--Realms">§</a><a href="https://github.com/tc39/proposal-realms">Realms</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return typeof Realm === &quot;function&quot;
-  &amp;&amp; [&quot;eval&quot;, &quot;global&quot;, &quot;intrinsics&quot;, &quot;stdlib&quot;, &quot;directEval&quot;, &quot;indirectEval&quot;, &quot;initGlobal&quot;, &quot;nonEval&quot;].every(function(key){
-    return key in Realm.prototype;
-  });</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return typeof Realm === &quot;function&quot;
-  &amp;&amp; [&quot;eval&quot;, &quot;global&quot;, &quot;intrinsics&quot;, &quot;stdlib&quot;, &quot;directEval&quot;, &quot;indirectEval&quot;, &quot;initGlobal&quot;, &quot;nonEval&quot;].every(function(key){
-    return key in Realm.prototype;
-  });</div>}
             </div>
           </td>
         </tr>
