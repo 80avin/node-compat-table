@@ -3545,6 +3545,42 @@ return function({ [qux]: grault }) {
           </td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2015-syntax-destructuring--parameters-duplicate-identifier"></div><a class="anchor" href="#ES2015-syntax-destructuring--parameters-duplicate-identifier">§</a><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment">duplicate identifier</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var d = function d([d]) { return d };
+if (d([true]) !== true) return false;
+
+try {
+  eval('var f = function f([id, id]) { return id }');
+  return false;
+} catch (e) {
+  return e instanceof SyntaxError;
+}</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var d = function d([d]) { return d };
+if (d([true]) !== true) return false;
+
+try {
+  eval('var f = function f([id, id]) { return id }');
+  return false;
+} catch (e) {
+  return e instanceof SyntaxError;
+}</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="3">
             <h3>
               <div class="hash" id="ES2015-syntax-Unicode-code-point-escapes"></div><a href="#ES2015-syntax-Unicode-code-point-escapes">Unicode code point escapes</a>

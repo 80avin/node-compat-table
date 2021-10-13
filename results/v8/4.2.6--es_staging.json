@@ -286,8 +286,8 @@
   },
   "ES2015": {
     "_successful": 328,
-    "_count": 694,
-    "_percent": 0.47262247838616717,
+    "_count": 695,
+    "_percent": 0.4719424460431655,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": "Unexpected token =",
@@ -420,6 +420,7 @@
     "syntax›destructuring, parameters›defaults, new Function() support": "Unexpected token {",
     "syntax›destructuring, parameters›aliased defaults, arrow function": "Unexpected token {",
     "syntax›destructuring, parameters›shorthand defaults, arrow function": "Unexpected token {",
+    "syntax›destructuring, parameters›duplicate identifier": "Unexpected token [",
     "syntax›Unicode code point escapes›in strings": true,
     "syntax›Unicode code point escapes›in identifiers": true,
     "syntax›Unicode code point escapes›in property key definitions": true,

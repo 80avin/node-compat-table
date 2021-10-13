@@ -1,6 +1,6 @@
 {
-  "_version": "17.0.0-nightly20211012a784258444--harmony",
-  "_engine": "v8 9.4.146.18-node.12",
+  "_version": "17.0.0-nightly20211013f570109094--harmony",
+  "_engine": "v8 9.5.172.19-node.10",
   "ESNEXT": {
     "_successful": 19,
     "_count": 75,
@@ -285,9 +285,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": true
   },
   "ES2015": {
-    "_successful": 691,
-    "_count": 694,
-    "_percent": 0.9956772334293948,
+    "_successful": 692,
+    "_count": 695,
+    "_percent": 0.99568345323741,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": true,
@@ -420,6 +420,7 @@
     "syntax›destructuring, parameters›defaults, new Function() support": true,
     "syntax›destructuring, parameters›aliased defaults, arrow function": true,
     "syntax›destructuring, parameters›shorthand defaults, arrow function": true,
+    "syntax›destructuring, parameters›duplicate identifier": true,
     "syntax›Unicode code point escapes›in strings": true,
     "syntax›Unicode code point escapes›in identifiers": true,
     "syntax›Unicode code point escapes›in property key definitions": true,

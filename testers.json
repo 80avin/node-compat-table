@@ -528,6 +528,10 @@
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
       "code": "return ((a, {b = 0, c = 3}) => {\n  return a === 1 && b === 2 && c === 3;\n})(1, {b: 2});"
     },
+    "syntax›destructuring, parameters›duplicate identifier": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
+      "code": "var d = function d([d]) { return d };\nif (d([true]) !== true) return false;\n\ntry {\n  eval('var f = function f([id, id]) { return id }');\n  return false;\n} catch (e) {\n  return e instanceof SyntaxError;\n}"
+    },
     "syntax›Unicode code point escapes›in strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
       "code": "return '\\u{1d306}' === '\\ud834\\udf06';"
