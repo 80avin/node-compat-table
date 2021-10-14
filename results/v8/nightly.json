@@ -1,6 +1,6 @@
 {
-  "_version": "17.0.0-nightly20211013f570109094",
-  "_engine": "v8 9.5.172.19-node.10",
+  "_version": "17.0.0-nightly20211014f9996d5b80",
+  "_engine": "v8 9.5.172.19-node.11",
   "ESNEXT": {
     "_successful": 19,
     "_count": 75,
