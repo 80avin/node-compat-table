@@ -3545,6 +3545,42 @@ return function({ [qux]: grault }) {
           </td>
         </tr>
         <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2015-syntax-destructuring--parameters-duplicate-identifier"></div><a class="anchor" href="#ES2015-syntax-destructuring--parameters-duplicate-identifier">§</a><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment">duplicate identifier</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var d = function d([d]) { return d };
+if (d([true]) !== true) return false;
+
+try {
+  eval('var f = function f([id, id]) { return id }');
+  return false;
+} catch (e) {
+  return e instanceof SyntaxError;
+}</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var d = function d([d]) { return d };
+if (d([true]) !== true) return false;
+
+try {
+  eval('var f = function f([id, id]) { return id }');
+  return false;
+} catch (e) {
+  return e instanceof SyntaxError;
+}</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
           <td class="feature sub" colspan="3">
             <h3>
               <div class="hash" id="ES2015-syntax-Unicode-code-point-escapes"></div><a href="#ES2015-syntax-Unicode-code-point-escapes">Unicode code point escapes</a>
@@ -24163,6 +24199,75 @@ return tag`\01\1\xg\xAg\u0\u0g\u00g\u000g\u{g\u{0\u{110000}${0}\0`;</div>}
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
+              <div class="hash" id="ES2019-features-Symbol-prototype-description"></div><a href="#ES2019-features-Symbol-prototype-description">Symbol.prototype.description</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2019-features-Symbol-prototype-description-basic"></div><a class="anchor" href="#ES2019-features-Symbol-prototype-description-basic">§</a><a href="https://github.com/tc39/proposal-Symbol-description">basic</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Symbol('foo').description === 'foo';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Symbol('foo').description === 'foo';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2019-features-Symbol-prototype-description-empty-description"></div><a class="anchor" href="#ES2019-features-Symbol-prototype-description-empty-description">§</a><a href="https://github.com/tc39/proposal-Symbol-description">empty description</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Symbol('').description === '';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Symbol('').description === '';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2019-features-Symbol-prototype-description-undefined-description"></div><a class="anchor" href="#ES2019-features-Symbol-prototype-description-undefined-description">§</a><a href="https://github.com/tc39/proposal-Symbol-description">undefined description</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Symbol.prototype.hasOwnProperty('description')
+  &amp;&amp; Symbol().description === void undefined;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Symbol.prototype.hasOwnProperty('description')
+  &amp;&amp; Symbol().description === void undefined;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
               <div class="hash" id="ES2019-features-"></div><a href="#ES2019-features-"></a>
             </h3>
           </td>
@@ -24468,75 +24573,6 @@ return it.throw().value;</div>}
 var it = foo();
 it.next();
 return it.throw().value;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ES2019-misc-Symbol-prototype-description"></div><a href="#ES2019-misc-Symbol-prototype-description">Symbol.prototype.description</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ES2019-misc-Symbol-prototype-description-basic"></div><a class="anchor" href="#ES2019-misc-Symbol-prototype-description-basic">§</a><a href="https://github.com/tc39/proposal-Symbol-description">basic</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Symbol('foo').description === 'foo';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Symbol('foo').description === 'foo';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ES2019-misc-Symbol-prototype-description-empty-description"></div><a class="anchor" href="#ES2019-misc-Symbol-prototype-description-empty-description">§</a><a href="https://github.com/tc39/proposal-Symbol-description">empty description</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Symbol('').description === '';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Symbol('').description === '';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ES2019-misc-Symbol-prototype-description-undefined-description"></div><a class="anchor" href="#ES2019-misc-Symbol-prototype-description-undefined-description">§</a><a href="https://github.com/tc39/proposal-Symbol-description">undefined description</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Symbol.prototype.hasOwnProperty('description')
-  &amp;&amp; Symbol().description === void undefined;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Symbol.prototype.hasOwnProperty('description')
-  &amp;&amp; Symbol().description === void undefined;</div>}
             </div>
           </td>
         </tr>
@@ -26568,6 +26604,349 @@ try {
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2022-features-Error-cause-property"></div><a href="#ES2022-features-Error-cause-property">Error.cause property</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-Error-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-Error-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">Error has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new Error('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new Error('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-Error-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-Error-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">Error.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in Error.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in Error.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-EvalError-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-EvalError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">EvalError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new EvalError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new EvalError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-EvalError-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-EvalError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">EvalError.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in EvalError.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in EvalError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-RangeError-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-RangeError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">RangeError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new RangeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new RangeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-RangeError-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-RangeError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">RangeError.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in RangeError.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in RangeError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-ReferenceError-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-ReferenceError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">ReferenceError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new ReferenceError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new ReferenceError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-ReferenceError-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-ReferenceError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">ReferenceError.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in ReferenceError.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in ReferenceError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-SyntaxError-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-SyntaxError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">SyntaxError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new SyntaxError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new SyntaxError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-SyntaxError-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-SyntaxError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">SyntaxError.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in SyntaxError.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in SyntaxError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-TypeError-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-TypeError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">TypeError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new TypeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new TypeError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-TypeError-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-TypeError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">TypeError.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in TypeError.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in TypeError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-URIError-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-URIError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">URIError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new URIError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new URIError('error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-URIError-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-URIError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">URIError.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in URIError.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in URIError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-AggregateError-has-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-AggregateError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">AggregateError has cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var error = new AggregateError([], 'error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var error = new AggregateError([], 'error', { cause: 'cause' })
+return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-Error-cause-property-AggregateError-prototype-lacks-cause"></div><a class="anchor" href="#ES2022-features-Error-cause-property-AggregateError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">AggregateError.prototype lacks cause</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return !('cause' in AggregateError.prototype);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return !('cause' in AggregateError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
       </table>
     </article>
     <article id="ESNEXT">
@@ -26770,349 +27149,6 @@ return arr.findLastIndex(function (o) { return o.x === 1; }) === 2;</div>}
             <div class="fn">function(){
               <div class="code">var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];
 return arr.findLastIndex(function (o) { return o.x === 1; }) === 2;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-Stage-3-Error-cause-property"></div><a href="#ESNEXT-Stage-3-Error-cause-property">Error.cause property</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-Error-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-Error-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">Error has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new Error('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new Error('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-Error-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-Error-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">Error.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in Error.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in Error.prototype);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-EvalError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-EvalError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">EvalError has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new EvalError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new EvalError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-EvalError-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-EvalError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">EvalError.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in EvalError.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in EvalError.prototype);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-RangeError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-RangeError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">RangeError has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new RangeError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new RangeError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-RangeError-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-RangeError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">RangeError.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in RangeError.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in RangeError.prototype);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-ReferenceError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-ReferenceError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">ReferenceError has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new ReferenceError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new ReferenceError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-ReferenceError-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-ReferenceError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">ReferenceError.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in ReferenceError.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in ReferenceError.prototype);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-SyntaxError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-SyntaxError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">SyntaxError has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new SyntaxError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new SyntaxError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-SyntaxError-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-SyntaxError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">SyntaxError.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in SyntaxError.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in SyntaxError.prototype);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-TypeError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-TypeError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">TypeError has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new TypeError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new TypeError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-TypeError-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-TypeError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">TypeError.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in TypeError.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in TypeError.prototype);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-URIError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-URIError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">URIError has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new URIError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new URIError('error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-URIError-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-URIError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">URIError.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in URIError.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in URIError.prototype);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-AggregateError-has-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-AggregateError-has-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">AggregateError has cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var error = new AggregateError([], 'error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var error = new AggregateError([], 'error', { cause: 'cause' })
-return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3-Error-cause-property-AggregateError-prototype-lacks-cause"></div><a class="anchor" href="#ESNEXT-Stage-3-Error-cause-property-AggregateError-prototype-lacks-cause">§</a><a href="https://github.com/tc39/proposal-error-cause">AggregateError.prototype lacks cause</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return !('cause' in AggregateError.prototype);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return !('cause' in AggregateError.prototype);</div>}
             </div>
           </td>
         </tr>

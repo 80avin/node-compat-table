@@ -528,6 +528,10 @@
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
       "code": "return ((a, {b = 0, c = 3}) => {\n  return a === 1 && b === 2 && c === 3;\n})(1, {b: 2});"
     },
+    "syntax›destructuring, parameters›duplicate identifier": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
+      "code": "var d = function d([d]) { return d };\nif (d([true]) !== true) return false;\n\ntry {\n  eval('var f = function f([id, id]) { return id }');\n  return false;\n} catch (e) {\n  return e instanceof SyntaxError;\n}"
+    },
     "syntax›Unicode code point escapes›in strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
       "code": "return '\\u{1d306}' === '\\ud834\\udf06';"
@@ -3127,6 +3131,18 @@
     }
   },
   "ES2019": {
+    "features›Symbol.prototype.description›basic": {
+      "spec": "https://github.com/tc39/proposal-Symbol-description",
+      "code": "return Symbol('foo').description === 'foo';"
+    },
+    "features›Symbol.prototype.description›empty description": {
+      "spec": "https://github.com/tc39/proposal-Symbol-description",
+      "code": "return Symbol('').description === '';"
+    },
+    "features›Symbol.prototype.description›undefined description": {
+      "spec": "https://github.com/tc39/proposal-Symbol-description",
+      "code": "return Symbol.prototype.hasOwnProperty('description')\n  && Symbol().description === void undefined;"
+    },
     "features›Object.fromEntries": {
       "spec": "https://github.com/tc39/proposal-object-from-entries",
       "code": "var object = Object.fromEntries(new Map([['foo', 42], ['bar', 23]]));\nreturn object.foo === 42 && object.bar === 23;"
@@ -3170,18 +3186,6 @@
     "misc›optional catch binding›yield": {
       "spec": "https://github.com/tc39/proposal-optional-catch-binding",
       "code": "function *foo() {\n  try {\n    yield;\n  }\n  catch {\n    return true;\n  }\n}\n\nvar it = foo();\nit.next();\nreturn it.throw().value;"
-    },
-    "misc›Symbol.prototype.description›basic": {
-      "spec": "https://github.com/tc39/proposal-Symbol-description",
-      "code": "return Symbol('foo').description === 'foo';"
-    },
-    "misc›Symbol.prototype.description›empty description": {
-      "spec": "https://github.com/tc39/proposal-Symbol-description",
-      "code": "return Symbol('').description === '';"
-    },
-    "misc›Symbol.prototype.description›undefined description": {
-      "spec": "https://github.com/tc39/proposal-Symbol-description",
-      "code": "return Symbol.prototype.hasOwnProperty('description')\n  && Symbol().description === void undefined;"
     },
     "misc›Function.prototype.toString revision›functions created with the Function constructor": {
       "spec": "https://github.com/tc39/Function-prototype-toString-revision",
@@ -3444,6 +3448,70 @@
     "features›Class static initialization blocks": {
       "spec": "https://github.com/tc39/proposal-class-static-block",
       "code": "let ok = false;\nclass A {\n  static { ok = true; }\n}\nreturn ok;"
+    },
+    "features›Error.cause property›Error has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new Error('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›Error.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in Error.prototype);"
+    },
+    "features›Error.cause property›EvalError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new EvalError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›EvalError.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in EvalError.prototype);"
+    },
+    "features›Error.cause property›RangeError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new RangeError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›RangeError.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in RangeError.prototype);"
+    },
+    "features›Error.cause property›ReferenceError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new ReferenceError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›ReferenceError.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in ReferenceError.prototype);"
+    },
+    "features›Error.cause property›SyntaxError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new SyntaxError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›SyntaxError.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in SyntaxError.prototype);"
+    },
+    "features›Error.cause property›TypeError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new TypeError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›TypeError.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in TypeError.prototype);"
+    },
+    "features›Error.cause property›URIError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new URIError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›URIError.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in URIError.prototype);"
+    },
+    "features›Error.cause property›AggregateError has cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "var error = new AggregateError([], 'error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
+    },
+    "features›Error.cause property›AggregateError.prototype lacks cause": {
+      "spec": "https://github.com/tc39/proposal-error-cause",
+      "code": "return !('cause' in AggregateError.prototype);"
     }
   },
   "ESNEXT": {
@@ -3470,70 +3538,6 @@
     "Stage 3›Array find from last›Array.prototype.findLastIndex": {
       "spec": "https://github.com/tc39/proposal-array-find-from-last",
       "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLastIndex(function (o) { return o.x === 1; }) === 2;"
-    },
-    "Stage 3›Error.cause property›Error has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new Error('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›Error.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in Error.prototype);"
-    },
-    "Stage 3›Error.cause property›EvalError has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new EvalError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›EvalError.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in EvalError.prototype);"
-    },
-    "Stage 3›Error.cause property›RangeError has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new RangeError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›RangeError.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in RangeError.prototype);"
-    },
-    "Stage 3›Error.cause property›ReferenceError has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new ReferenceError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›ReferenceError.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in ReferenceError.prototype);"
-    },
-    "Stage 3›Error.cause property›SyntaxError has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new SyntaxError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›SyntaxError.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in SyntaxError.prototype);"
-    },
-    "Stage 3›Error.cause property›TypeError has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new TypeError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›TypeError.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in TypeError.prototype);"
-    },
-    "Stage 3›Error.cause property›URIError has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new URIError('error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›URIError.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in URIError.prototype);"
-    },
-    "Stage 3›Error.cause property›AggregateError has cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "var error = new AggregateError([], 'error', { cause: 'cause' })\nreturn error.hasOwnProperty('cause') && error.cause === 'cause';"
-    },
-    "Stage 3›Error.cause property›AggregateError.prototype lacks cause": {
-      "spec": "https://github.com/tc39/proposal-error-cause",
-      "code": "return !('cause' in AggregateError.prototype);"
     },
     "Stage 2›Generator function.sent Meta Property": {
       "spec": "https://github.com/tc39/proposal-function.sent",
