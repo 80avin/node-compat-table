@@ -1,5 +1,5 @@
 {
-  "_version": "18.0.0-nightly20211218587b167cc4--harmony",
+  "_version": "17.3.0",
   "_engine": "v8 9.6.180.15-node.12",
   "ESNEXT": {
     "_successful": 3,
