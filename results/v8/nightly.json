@@ -1,5 +1,5 @@
 {
-  "_version": "18.0.0-nightly202201256023bedc07",
+  "_version": "18.0.0-nightly20220126ccb8aae393",
   "_engine": "v8 9.7.106.18-node.12",
   "ESNEXT": {
     "_successful": 5,
@@ -66,8 +66,8 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
   "ES2022": {
-    "_successful": 36,
-    "_count": 36,
+    "_successful": 37,
+    "_count": 37,
     "_percent": 1,
     "features›instance class fields›public instance class fields": true,
     "features›instance class fields›private instance class fields basic support": true,
@@ -76,6 +76,7 @@
     "features›instance class fields›optional deep private instance class fields access": true,
     "features›instance class fields›computed instance class fields": true,
     "features›static class fields›public static class fields": true,
+    "features›static class fields›static class fields use [[Define]]": true,
     "features›static class fields›private static class fields": true,
     "features›static class fields›computed static class fields": true,
     "features›private class methods›private instance methods": true,

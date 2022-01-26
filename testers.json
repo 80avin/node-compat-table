@@ -3397,6 +3397,10 @@
       "spec": "https://github.com/tc39/proposal-static-class-features/",
       "code": "class C {\n  static x = 'x';\n}\nreturn C.x === 'x';"
     },
+    "features›static class fields›static class fields use [[Define]]": {
+      "spec": "https://github.com/tc39/proposal-static-class-features/",
+      "code": "return (class X { static name = \"name\"; }).name === 'name';"
+    },
     "features›static class fields›private static class fields": {
       "spec": "https://github.com/tc39/proposal-static-class-features/",
       "code": "class C {\n  static #x = 42;\n  x(){\n    return C.#x;\n  }\n}\nreturn new C().x() === 42;"

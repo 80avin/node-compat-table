@@ -67,8 +67,8 @@
   },
   "ES2022": {
     "_successful": 7,
-    "_count": 36,
-    "_percent": 0.19444444444444445,
+    "_count": 37,
+    "_percent": 0.1891891891891892,
     "features›instance class fields›public instance class fields": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "features›instance class fields›private instance class fields basic support": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "features›instance class fields›private instance class fields initializers": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
@@ -76,6 +76,7 @@
     "features›instance class fields›optional deep private instance class fields access": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "features›instance class fields›computed instance class fields": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "features›static class fields›public static class fields": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
+    "features›static class fields›static class fields use [[Define]]": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "features›static class fields›private static class fields": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "features›static class fields›computed static class fields": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",
     "features›private class methods›private instance methods": "Block-scoped declarations (let, const, function, class) not yet supported outside strict mode",

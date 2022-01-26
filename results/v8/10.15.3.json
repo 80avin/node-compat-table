@@ -67,8 +67,8 @@
   },
   "ES2022": {
     "_successful": 7,
-    "_count": 36,
-    "_percent": 0.19444444444444445,
+    "_count": 37,
+    "_percent": 0.1891891891891892,
     "features›instance class fields›public instance class fields": "Unexpected token =",
     "features›instance class fields›private instance class fields basic support": "Invalid or unexpected token",
     "features›instance class fields›private instance class fields initializers": "Invalid or unexpected token",
@@ -76,6 +76,7 @@
     "features›instance class fields›optional deep private instance class fields access": "Invalid or unexpected token",
     "features›instance class fields›computed instance class fields": "Unexpected token =",
     "features›static class fields›public static class fields": "Unexpected token =",
+    "features›static class fields›static class fields use [[Define]]": "Unexpected token =",
     "features›static class fields›private static class fields": "Invalid or unexpected token",
     "features›static class fields›computed static class fields": "Unexpected token =",
     "features›private class methods›private instance methods": "Invalid or unexpected token",

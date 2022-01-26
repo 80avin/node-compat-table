@@ -66,9 +66,9 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
   "ES2022": {
-    "_successful": 19,
-    "_count": 36,
-    "_percent": 0.5277777777777778,
+    "_successful": 20,
+    "_count": 37,
+    "_percent": 0.5405405405405406,
     "features›instance class fields›public instance class fields": true,
     "features›instance class fields›private instance class fields basic support": true,
     "features›instance class fields›private instance class fields initializers": true,
@@ -76,6 +76,7 @@
     "features›instance class fields›optional deep private instance class fields access": true,
     "features›instance class fields›computed instance class fields": true,
     "features›static class fields›public static class fields": true,
+    "features›static class fields›static class fields use [[Define]]": true,
     "features›static class fields›private static class fields": true,
     "features›static class fields›computed static class fields": true,
     "features›private class methods›private instance methods": true,
