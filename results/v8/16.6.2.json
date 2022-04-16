@@ -66,9 +66,9 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
   "ES2022": {
-    "_successful": 26,
-    "_count": 37,
-    "_percent": 0.7027027027027027,
+    "_successful": 27,
+    "_count": 39,
+    "_percent": 0.6923076923076923,
     "features›instance class fields›public instance class fields": true,
     "features›instance class fields›private instance class fields basic support": true,
     "features›instance class fields›private instance class fields initializers": true,
@@ -105,7 +105,9 @@
     "features›Error.cause property›URIError has cause": false,
     "features›Error.cause property›URIError.prototype lacks cause": true,
     "features›Error.cause property›AggregateError has cause": false,
-    "features›Error.cause property›AggregateError.prototype lacks cause": true
+    "features›Error.cause property›AggregateError.prototype lacks cause": true,
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›constructor supports it": true,
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›shows up in flags": false
   },
   "ES2021": {
     "_successful": 15,

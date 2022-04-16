@@ -67,8 +67,8 @@
   },
   "ES2022": {
     "_successful": 21,
-    "_count": 37,
-    "_percent": 0.5675675675675675,
+    "_count": 39,
+    "_percent": 0.5384615384615384,
     "features›instance class fields›public instance class fields": true,
     "features›instance class fields›private instance class fields basic support": true,
     "features›instance class fields›private instance class fields initializers": true,
@@ -105,7 +105,9 @@
     "features›Error.cause property›URIError has cause": false,
     "features›Error.cause property›URIError.prototype lacks cause": true,
     "features›Error.cause property›AggregateError has cause": "AggregateError is not defined",
-    "features›Error.cause property›AggregateError.prototype lacks cause": "AggregateError is not defined"
+    "features›Error.cause property›AggregateError.prototype lacks cause": "AggregateError is not defined",
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›constructor supports it": "Invalid flags supplied to RegExp constructor 'd'",
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›shows up in flags": false
   },
   "ES2021": {
     "_successful": 3,

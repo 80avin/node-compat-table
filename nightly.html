@@ -17937,7 +17937,7 @@ return get[0] === Symbol.match &amp;&amp; get.slice(1) + '' === &quot;constructo
               <div class="fn">function(){
                 <div class="code">// RegExp.prototype.flags -&gt; Get -&gt; [[Get]]
 var expected = [];
-// Sorted alphabetically by shortname – &quot;gumsuy&quot;.
+// Sorted alphabetically by shortname – &quot;gimsuy&quot;.
 if ('global' in RegExp.prototype) expected.push('global');
 if ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');
 if ('multiline' in RegExp.prototype) expected.push('multiline');
@@ -17964,7 +17964,7 @@ return true;</div>}
             <div class="fn">function(){
               <div class="code">// RegExp.prototype.flags -&gt; Get -&gt; [[Get]]
 var expected = [];
-// Sorted alphabetically by shortname – &quot;gumsuy&quot;.
+// Sorted alphabetically by shortname – &quot;gimsuy&quot;.
 if ('global' in RegExp.prototype) expected.push('global');
 if ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');
 if ('multiline' in RegExp.prototype) expected.push('multiline');
@@ -26964,6 +26964,83 @@ return error.hasOwnProperty('cause') &amp;&amp; error.cause === 'cause';</div>}
           <td colspan="2">
             <div class="fn">function(){
               <div class="code">return !('cause' in AggregateError.prototype);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag-"></div><a href="#ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag-">RegExp Match Indices (`hasIndices` / `d` flag)</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag--constructor-supports-it"></div><a class="anchor" href="#ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag--constructor-supports-it">§</a><a href="https://github.com/tc39/proposal-regexp-match-indices">constructor supports it</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return new RegExp('a', 'd') instanceof RegExp;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return new RegExp('a', 'd') instanceof RegExp;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag--shows-up-in-flags"></div><a class="anchor" href="#ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag--shows-up-in-flags">§</a><a href="https://github.com/tc39/proposal-regexp-match-indices">shows up in flags</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var expected = ['hasIndices'];
+// Sorted alphabetically by shortname – &quot;dgimsuy&quot;.
+if ('global' in RegExp.prototype) expected.push('global');
+if ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');
+if ('multiline' in RegExp.prototype) expected.push('multiline');
+if ('dotAll' in RegExp.prototype) expected.push('dotAll');
+if ('unicode' in RegExp.prototype) expected.push('unicode');
+if ('sticky' in RegExp.prototype) expected.push('sticky');
+var actual = [];
+var p = new Proxy({}, { get: function(o, k) { actual.push(k); return o[k]; }});
+Object.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(p);
+if (expected.length !== actual.length) return false;
+for (var i = 0; i &lt; expected.length; i++) {
+  if (expected[i] !== actual[i]) return false;
+}
+return true;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var expected = ['hasIndices'];
+// Sorted alphabetically by shortname – &quot;dgimsuy&quot;.
+if ('global' in RegExp.prototype) expected.push('global');
+if ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');
+if ('multiline' in RegExp.prototype) expected.push('multiline');
+if ('dotAll' in RegExp.prototype) expected.push('dotAll');
+if ('unicode' in RegExp.prototype) expected.push('unicode');
+if ('sticky' in RegExp.prototype) expected.push('sticky');
+var actual = [];
+var p = new Proxy({}, { get: function(o, k) { actual.push(k); return o[k]; }});
+Object.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(p);
+if (expected.length !== actual.length) return false;
+for (var i = 0; i &lt; expected.length; i++) {
+  if (expected[i] !== actual[i]) return false;
+}
+return true;</div>}
             </div>
           </td>
         </tr>

@@ -67,8 +67,8 @@
   },
   "ES2022": {
     "_successful": 7,
-    "_count": 37,
-    "_percent": 0.1891891891891892,
+    "_count": 39,
+    "_percent": 0.1794871794871795,
     "features›instance class fields›public instance class fields": "Unexpected reserved word",
     "features›instance class fields›private instance class fields basic support": "Unexpected reserved word",
     "features›instance class fields›private instance class fields initializers": "Unexpected reserved word",
@@ -105,7 +105,9 @@
     "features›Error.cause property›URIError has cause": false,
     "features›Error.cause property›URIError.prototype lacks cause": true,
     "features›Error.cause property›AggregateError has cause": "AggregateError is not defined",
-    "features›Error.cause property›AggregateError.prototype lacks cause": "AggregateError is not defined"
+    "features›Error.cause property›AggregateError.prototype lacks cause": "AggregateError is not defined",
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›constructor supports it": "Invalid flags supplied to RegExp constructor 'd'",
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›shows up in flags": "Proxy is not defined"
   },
   "ES2021": {
     "_successful": 0,

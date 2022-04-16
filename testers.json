@@ -2362,7 +2362,7 @@
     },
     "misc›Proxy, internal 'get' calls›RegExp.prototype.flags": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-proxy-object-internal-methods-and-internal-slots",
-      "code": "// RegExp.prototype.flags -> Get -> [[Get]]\nvar expected = [];\n// Sorted alphabetically by shortname – \"gumsuy\".\nif ('global' in RegExp.prototype) expected.push('global');\nif ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');\nif ('multiline' in RegExp.prototype) expected.push('multiline');\nif ('dotAll' in RegExp.prototype) expected.push('dotAll');\nif ('unicode' in RegExp.prototype) expected.push('unicode');\nif ('sticky' in RegExp.prototype) expected.push('sticky');\nvar actual = [];\nvar p = new Proxy({}, { get: function(o, k) { actual.push(k); return o[k]; }});\nObject.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(p);\nif (expected.length !== actual.length) return false;\nfor (var i = 0; i < expected.length; i++) {\n  if (expected[i] !== actual[i]) return false;\n}\nreturn true;"
+      "code": "// RegExp.prototype.flags -> Get -> [[Get]]\nvar expected = [];\n// Sorted alphabetically by shortname – \"gimsuy\".\nif ('global' in RegExp.prototype) expected.push('global');\nif ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');\nif ('multiline' in RegExp.prototype) expected.push('multiline');\nif ('dotAll' in RegExp.prototype) expected.push('dotAll');\nif ('unicode' in RegExp.prototype) expected.push('unicode');\nif ('sticky' in RegExp.prototype) expected.push('sticky');\nvar actual = [];\nvar p = new Proxy({}, { get: function(o, k) { actual.push(k); return o[k]; }});\nObject.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(p);\nif (expected.length !== actual.length) return false;\nfor (var i = 0; i < expected.length; i++) {\n  if (expected[i] !== actual[i]) return false;\n}\nreturn true;"
     },
     "misc›Proxy, internal 'get' calls›RegExp.prototype.test": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-proxy-object-internal-methods-and-internal-slots",
@@ -3516,6 +3516,14 @@
     "features›Error.cause property›AggregateError.prototype lacks cause": {
       "spec": "https://github.com/tc39/proposal-error-cause",
       "code": "return !('cause' in AggregateError.prototype);"
+    },
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›constructor supports it": {
+      "spec": "https://github.com/tc39/proposal-regexp-match-indices",
+      "code": "return new RegExp('a', 'd') instanceof RegExp;"
+    },
+    "features›RegExp Match Indices (`hasIndices` / `d` flag)›shows up in flags": {
+      "spec": "https://github.com/tc39/proposal-regexp-match-indices",
+      "code": "var expected = ['hasIndices'];\n// Sorted alphabetically by shortname – \"dgimsuy\".\nif ('global' in RegExp.prototype) expected.push('global');\nif ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');\nif ('multiline' in RegExp.prototype) expected.push('multiline');\nif ('dotAll' in RegExp.prototype) expected.push('dotAll');\nif ('unicode' in RegExp.prototype) expected.push('unicode');\nif ('sticky' in RegExp.prototype) expected.push('sticky');\nvar actual = [];\nvar p = new Proxy({}, { get: function(o, k) { actual.push(k); return o[k]; }});\nObject.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(p);\nif (expected.length !== actual.length) return false;\nfor (var i = 0; i < expected.length; i++) {\n  if (expected[i] !== actual[i]) return false;\n}\nreturn true;"
     }
   },
   "ESNEXT": {
