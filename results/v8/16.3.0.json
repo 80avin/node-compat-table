@@ -270,13 +270,14 @@
     "annex b›assignments allowed in for-in head in non-strict mode": true
   },
   "ES2016": {
-    "_successful": 13,
-    "_count": 13,
+    "_successful": 14,
+    "_count": 14,
     "_percent": 1,
     "features›exponentiation (**) operator›basic support": true,
     "features›exponentiation (**) operator›assignment": true,
     "features›exponentiation (**) operator›early syntax error for unary negation without parens": true,
     "features›Array.prototype.includes›Array.prototype.includes": true,
+    "features›Array.prototype.includes›Array.prototype.includes handles sparse arrays": true,
     "features›Array.prototype.includes›Array.prototype.includes is generic": true,
     "features›Array.prototype.includes›%TypedArray%.prototype.includes": true,
     "misc›generator functions can't be used with \"new\"": true,

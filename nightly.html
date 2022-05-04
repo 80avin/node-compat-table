@@ -21315,8 +21315,7 @@ return true;
                 <div class="code">return [1, 2, 3].includes(1)
 &amp;&amp; ![1, 2, 3].includes(4)
 &amp;&amp; ![1, 2, 3].includes(1, 1)
-&amp;&amp; [NaN].includes(NaN)
-&amp;&amp; Array(1).includes();</div>}
+&amp;&amp; [NaN].includes(NaN);</div>}
               </div>
             </div>
           </td>
@@ -21330,8 +21329,29 @@ return true;
               <div class="code">return [1, 2, 3].includes(1)
 &amp;&amp; ![1, 2, 3].includes(4)
 &amp;&amp; ![1, 2, 3].includes(1, 1)
-&amp;&amp; [NaN].includes(NaN)
-&amp;&amp; Array(1).includes();</div>}
+&amp;&amp; [NaN].includes(NaN);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2016-features-Array-prototype-includes-Array-prototype-includes-handles-sparse-arrays"></div><a class="anchor" href="#ES2016-features-Array-prototype-includes-Array-prototype-includes-handles-sparse-arrays">§</a><a href="http://www.ecma-international.org/ecma-262/7.0/index.html#sec-array.prototype.includes">Array.prototype.includes handles sparse arrays</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return [,].includes()
+ &amp;&amp; Array(1).includes();</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return [,].includes()
+ &amp;&amp; Array(1).includes();</div>}
             </div>
           </td>
         </tr>

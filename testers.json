@@ -2796,7 +2796,11 @@
     },
     "features›Array.prototype.includes›Array.prototype.includes": {
       "spec": "http://www.ecma-international.org/ecma-262/7.0/index.html#sec-array.prototype.includes",
-      "code": "return [1, 2, 3].includes(1)\n&& ![1, 2, 3].includes(4)\n&& ![1, 2, 3].includes(1, 1)\n&& [NaN].includes(NaN)\n&& Array(1).includes();"
+      "code": "return [1, 2, 3].includes(1)\n&& ![1, 2, 3].includes(4)\n&& ![1, 2, 3].includes(1, 1)\n&& [NaN].includes(NaN);"
+    },
+    "features›Array.prototype.includes›Array.prototype.includes handles sparse arrays": {
+      "spec": "http://www.ecma-international.org/ecma-262/7.0/index.html#sec-array.prototype.includes",
+      "code": "return [,].includes()\n && Array(1).includes();"
     },
     "features›Array.prototype.includes›Array.prototype.includes is generic": {
       "spec": "http://www.ecma-international.org/ecma-262/7.0/index.html#sec-array.prototype.includes",
