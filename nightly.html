@@ -13470,7 +13470,7 @@ return passed;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2015-built-ins-well-known-symbols-Symbol-isConcatSpreadable"></div><a class="anchor" href="#ES2015-built-ins-well-known-symbols-Symbol-isConcatSpreadable">§</a><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols">Symbol.isConcatSpreadable</a>
+            <div class="hash" id="ES2015-built-ins-well-known-symbols-Symbol-isConcatSpreadable--non-spreadable-array"></div><a class="anchor" href="#ES2015-built-ins-well-known-symbols-Symbol-isConcatSpreadable--non-spreadable-array">§</a><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols">Symbol.isConcatSpreadable, non-spreadable array</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">var a = [], b = [];
@@ -13480,8 +13480,8 @@ return a[0] === b;</div>}
               </div>
             </div>
           </td>
-          <td class="result"><div class="Yes" title="Test passed">Yes</div></td>
-          <td class="result"><div class="Yes" title="Test passed">Yes</div></td>
+          <td class="result"></td>
+          <td class="result"></td>
         </tr>
         <tr class="codeExample">
           <td></td>
@@ -13491,6 +13491,52 @@ return a[0] === b;</div>}
 b[Symbol.isConcatSpreadable] = false;
 a = a.concat(b);
 return a[0] === b;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2015-built-ins-well-known-symbols-Symbol-isConcatSpreadable--spreadable-object-with-poisoned-getter"></div><a class="anchor" href="#ES2015-built-ins-well-known-symbols-Symbol-isConcatSpreadable--spreadable-object-with-poisoned-getter">§</a><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols">Symbol.isConcatSpreadable, spreadable object with poisoned getter</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">if (typeof Symbol !== 'function' || !Symbol.isConcatSpreadable) {
+  return null;
+}
+var spreadableHasPoisonedIndex = { length: Math.pow(2, 53) - 1 };
+spreadableHasPoisonedIndex[Symbol.isConcatSpreadable] = true;
+Object.defineProperty(spreadableHasPoisonedIndex, 0, {
+  get: function () { throw new SyntaxError(); }
+});
+try {
+  [].concat(spreadableHasPoisonedIndex);
+  return false;
+} catch (e) {
+  return !!e &amp;&amp; e.name === 'SyntaxError';
+}</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">if (typeof Symbol !== 'function' || !Symbol.isConcatSpreadable) {
+  return null;
+}
+var spreadableHasPoisonedIndex = { length: Math.pow(2, 53) - 1 };
+spreadableHasPoisonedIndex[Symbol.isConcatSpreadable] = true;
+Object.defineProperty(spreadableHasPoisonedIndex, 0, {
+  get: function () { throw new SyntaxError(); }
+});
+try {
+  [].concat(spreadableHasPoisonedIndex);
+  return false;
+} catch (e) {
+  return !!e &amp;&amp; e.name === 'SyntaxError';
+}</div>}
             </div>
           </td>
         </tr>
@@ -15641,6 +15687,110 @@ return 'get' in prop &amp;&amp; Array[Symbol.species] === Array;</div>}
           <td colspan="2">
             <div class="fn">function(){
               <div class="code">return typeof Array.prototype.entries === 'function';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2015-built-in-extensions-Array-prototype-methods-Array-prototype-splice"></div><a class="anchor" href="#ES2015-built-in-extensions-Array-prototype-methods-Array-prototype-splice">§</a><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-the-array-prototype-object">Array.prototype.splice</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">if ([0, 1, 2].splice(0).length !== 3) {
+  // IE &lt;= 8 and other pre-ES6 engines fail this check
+  return false;
+}
+
+var a = [1, 2];
+var result = a.splice();
+if (a.length !== 2 || result.length !== 0) {
+  // Safari 5.0 has this bug
+  return false;
+}
+
+var obj = {};
+Array.prototype.splice.call(obj, 0, 0, 1);
+if (obj.length !== 1) {
+  return false;
+}
+
+var spliceWorksWithLargeSparseArrays = (function () {
+  // Per https://github.com/es-shims/es5-shim/issues/295
+  // Safari 7/8 breaks with sparse arrays of size 1e5 or greater
+  var arr = new Array(1e5);
+  // note: the index MUST be 8 or larger or the test will false pass
+  arr[8] = 'x';
+  arr.splice(1, 1);
+  for (var i = 0; i &lt; arr.length; i += 1) {
+    if (arr[i] === 'x') {
+      return i === 7;
+    }
+  }
+  return false;
+}());
+var spliceWorksWithSmallSparseArrays = (function () {
+  // Per https://github.com/es-shims/es5-shim/issues/295
+  // Opera 12.15 breaks on this, no idea why.
+  var n = 256;
+  var arr = [];
+  arr[n] = 'a';
+  arr.splice(n + 1, 0, 'b');
+  return arr[n] === 'a';
+}());
+
+return spliceWorksWithLargeSparseArrays &amp;&amp; spliceWorksWithSmallSparseArrays;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">if ([0, 1, 2].splice(0).length !== 3) {
+  // IE &lt;= 8 and other pre-ES6 engines fail this check
+  return false;
+}
+
+var a = [1, 2];
+var result = a.splice();
+if (a.length !== 2 || result.length !== 0) {
+  // Safari 5.0 has this bug
+  return false;
+}
+
+var obj = {};
+Array.prototype.splice.call(obj, 0, 0, 1);
+if (obj.length !== 1) {
+  return false;
+}
+
+var spliceWorksWithLargeSparseArrays = (function () {
+  // Per https://github.com/es-shims/es5-shim/issues/295
+  // Safari 7/8 breaks with sparse arrays of size 1e5 or greater
+  var arr = new Array(1e5);
+  // note: the index MUST be 8 or larger or the test will false pass
+  arr[8] = 'x';
+  arr.splice(1, 1);
+  for (var i = 0; i &lt; arr.length; i += 1) {
+    if (arr[i] === 'x') {
+      return i === 7;
+    }
+  }
+  return false;
+}());
+var spliceWorksWithSmallSparseArrays = (function () {
+  // Per https://github.com/es-shims/es5-shim/issues/295
+  // Opera 12.15 breaks on this, no idea why.
+  var n = 256;
+  var arr = [];
+  arr[n] = 'a';
+  arr.splice(n + 1, 0, 'b');
+  return arr[n] === 'a';
+}());
+
+return spliceWorksWithLargeSparseArrays &amp;&amp; spliceWorksWithSmallSparseArrays;</div>}
             </div>
           </td>
         </tr>
@@ -22708,21 +22858,21 @@ p.then(function(result) {
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2017-features-shared-memory-and-atomics-Atomics-wake"></div><a class="anchor" href="#ES2017-features-shared-memory-and-atomics-Atomics-wake">§</a><a>Atomics.wake</a>
+            <div class="hash" id="ES2017-features-shared-memory-and-atomics-Atomics-notify"></div><a class="anchor" href="#ES2017-features-shared-memory-and-atomics-Atomics-notify">§</a><a>Atomics.notify</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return typeof Atomics.wake === 'function';</div>}
+                <div class="code">return typeof Atomics.notify === 'function';</div>}
               </div>
             </div>
           </td>
-          <td class="result"><div class="Yes" title="Test passed">Yes</div></td>
-          <td class="result"><div class="No" title="Test failed">No</div></td>
+          <td class="result"></td>
+          <td class="result"></td>
         </tr>
         <tr class="codeExample">
           <td></td>
           <td colspan="2">
             <div class="fn">function(){
-              <div class="code">return typeof Atomics.wake === 'function';</div>}
+              <div class="code">return typeof Atomics.notify === 'function';</div>}
             </div>
           </td>
         </tr>

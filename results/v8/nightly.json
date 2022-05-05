@@ -1,5 +1,5 @@
 {
-  "_version": "19.0.0-nightly20220504c3aa86d678",
+  "_version": "19.0.0-nightly202205057ff2170f36",
   "_engine": "v8 10.2.154.2-node.8",
   "ESNEXT": {
     "_successful": 5,
@@ -201,9 +201,9 @@
     "misc›template literal revision": true
   },
   "ES2017": {
-    "_successful": 63,
+    "_successful": 64,
     "_count": 64,
-    "_percent": 0.984375,
+    "_percent": 1,
     "features›Object static methods›Object.values": true,
     "features›Object static methods›Object.entries": true,
     "features›Object static methods›Object.getOwnPropertyDescriptors": true,
@@ -238,7 +238,7 @@
     "features›shared memory and atomics›Atomics.compareExchange": true,
     "features›shared memory and atomics›Atomics.exchange": true,
     "features›shared memory and atomics›Atomics.wait": true,
-    "features›shared memory and atomics›Atomics.wake": false,
+    "features›shared memory and atomics›Atomics.notify": true,
     "features›shared memory and atomics›Atomics.isLockFree": true,
     "features›shared memory and atomics›Atomics.load": true,
     "features›shared memory and atomics›Atomics.or": true,
@@ -289,9 +289,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": true
   },
   "ES2015": {
-    "_successful": 692,
-    "_count": 695,
-    "_percent": 0.99568345323741,
+    "_successful": 693,
+    "_count": 697,
+    "_percent": 0.994261119081779,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": true,
@@ -720,7 +720,8 @@
     "built-ins›Symbol›JSON.stringify ignores symbol objects": true,
     "built-ins›Symbol›global symbol registry": true,
     "built-ins›well-known symbols›Symbol.hasInstance": true,
-    "built-ins›well-known symbols›Symbol.isConcatSpreadable": true,
+    "built-ins›well-known symbols›Symbol.isConcatSpreadable, non-spreadable array": true,
+    "built-ins›well-known symbols›Symbol.isConcatSpreadable, spreadable object with poisoned getter": false,
     "built-ins›well-known symbols›Symbol.iterator, existence": true,
     "built-ins›well-known symbols›Symbol.iterator, arguments object": true,
     "built-ins›well-known symbols›Symbol.species, existence": true,
@@ -802,6 +803,7 @@
     "built-in extensions›Array.prototype methods›Array.prototype.keys": true,
     "built-in extensions›Array.prototype methods›Array.prototype.values": true,
     "built-in extensions›Array.prototype methods›Array.prototype.entries": true,
+    "built-in extensions›Array.prototype methods›Array.prototype.splice": true,
     "built-in extensions›Array.prototype methods›Array.prototype[Symbol.iterator]": true,
     "built-in extensions›Array.prototype methods›Array iterator prototype chain": true,
     "built-in extensions›Array.prototype methods›Array.prototype[Symbol.unscopables]": true,

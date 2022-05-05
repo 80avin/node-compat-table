@@ -1712,9 +1712,13 @@
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
       "code": "var passed = false;\nvar obj = { foo: true };\nvar C = function(){};\nObject.defineProperty(C, Symbol.hasInstance, {\n  value: function(inst) { passed = inst.foo; return false; }\n});\nobj instanceof C;\nreturn passed;"
     },
-    "built-ins›well-known symbols›Symbol.isConcatSpreadable": {
+    "built-ins›well-known symbols›Symbol.isConcatSpreadable, non-spreadable array": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
       "code": "var a = [], b = [];\nb[Symbol.isConcatSpreadable] = false;\na = a.concat(b);\nreturn a[0] === b;"
+    },
+    "built-ins›well-known symbols›Symbol.isConcatSpreadable, spreadable object with poisoned getter": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
+      "code": "if (typeof Symbol !== 'function' || !Symbol.isConcatSpreadable) {\n  return null;\n}\nvar spreadableHasPoisonedIndex = { length: Math.pow(2, 53) - 1 };\nspreadableHasPoisonedIndex[Symbol.isConcatSpreadable] = true;\nObject.defineProperty(spreadableHasPoisonedIndex, 0, {\n  get: function () { throw new SyntaxError(); }\n});\ntry {\n  [].concat(spreadableHasPoisonedIndex);\n  return false;\n} catch (e) {\n  return !!e && e.name === 'SyntaxError';\n}"
     },
     "built-ins›well-known symbols›Symbol.iterator, existence": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-well-known-symbols",
@@ -2039,6 +2043,10 @@
     "built-in extensions›Array.prototype methods›Array.prototype.entries": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-the-array-prototype-object",
       "code": "return typeof Array.prototype.entries === 'function';"
+    },
+    "built-in extensions›Array.prototype methods›Array.prototype.splice": {
+      "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-the-array-prototype-object",
+      "code": "if ([0, 1, 2].splice(0).length !== 3) {\n  // IE <= 8 and other pre-ES6 engines fail this check\n  return false;\n}\n\nvar a = [1, 2];\nvar result = a.splice();\nif (a.length !== 2 || result.length !== 0) {\n  // Safari 5.0 has this bug\n  return false;\n}\n\nvar obj = {};\nArray.prototype.splice.call(obj, 0, 0, 1);\nif (obj.length !== 1) {\n  return false;\n}\n\nvar spliceWorksWithLargeSparseArrays = (function () {\n  // Per https://github.com/es-shims/es5-shim/issues/295\n  // Safari 7/8 breaks with sparse arrays of size 1e5 or greater\n  var arr = new Array(1e5);\n  // note: the index MUST be 8 or larger or the test will false pass\n  arr[8] = 'x';\n  arr.splice(1, 1);\n  for (var i = 0; i < arr.length; i += 1) {\n    if (arr[i] === 'x') {\n      return i === 7;\n    }\n  }\n  return false;\n}());\nvar spliceWorksWithSmallSparseArrays = (function () {\n  // Per https://github.com/es-shims/es5-shim/issues/295\n  // Opera 12.15 breaks on this, no idea why.\n  var n = 256;\n  var arr = [];\n  arr[n] = 'a';\n  arr.splice(n + 1, 0, 'b');\n  return arr[n] === 'a';\n}());\n\nreturn spliceWorksWithLargeSparseArrays && spliceWorksWithSmallSparseArrays;"
     },
     "built-in extensions›Array.prototype methods›Array.prototype[Symbol.iterator]": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-the-array-prototype-object",
@@ -2966,8 +2974,8 @@
     "features›shared memory and atomics›Atomics.wait": {
       "code": "return typeof Atomics.wait === 'function';"
     },
-    "features›shared memory and atomics›Atomics.wake": {
-      "code": "return typeof Atomics.wake === 'function';"
+    "features›shared memory and atomics›Atomics.notify": {
+      "code": "return typeof Atomics.notify === 'function';"
     },
     "features›shared memory and atomics›Atomics.isLockFree": {
       "code": "return typeof Atomics.isLockFree === 'function';"
