@@ -3633,7 +3633,7 @@
     },
     "Stage 2›Array.isTemplateObject": {
       "spec": "https://github.com/tc39/proposal-array-is-template-object",
-      "code": "return !Array.isTemplateObject([])\n  && Array.isTemplateObject((it => it)`a{1}c`);"
+      "code": "return !Array.isTemplateObject([])\n  && Array.isTemplateObject((it => it)`a${1}c`);"
     },
     "Stage 2›Iterator Helpers›instanceof Iterator": {
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
