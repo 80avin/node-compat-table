@@ -1,5 +1,5 @@
 {
-  "_version": "19.0.0-nightly20220825ec0d8da838",
+  "_version": "18.8.0",
   "_engine": "v8 10.2.154.13-node.11",
   "ESNEXT": {
     "_successful": 5,
