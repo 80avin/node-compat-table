@@ -3,14 +3,11 @@
   "_engine": "v8 7.0.276.38-node.13",
   "ESNEXT": {
     "_successful": 2,
-    "_count": 59,
-    "_percent": 0.03389830508474576,
+    "_count": 56,
+    "_percent": 0.03571428571428571,
     "Stage 3›Realms": false,
     "Stage 3›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "Stage 3›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
-    "Stage 3›Hashbang Grammar": false,
-    "Stage 3›Array find from last›Array.prototype.findLast": "arr.findLast is not a function",
-    "Stage 3›Array find from last›Array.prototype.findLastIndex": "arr.findLastIndex is not a function",
     "Stage 2›Generator function.sent Meta Property": "Unexpected token .",
     "Stage 2›Class and Property Decorators›class decorators": "Invalid or unexpected token",
     "Stage 2›throw expressions›logical": "Unexpected token throw",
@@ -64,6 +61,14 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.take": "(intermediate value)(...).take is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
+  },
+  "ES2023": {
+    "_successful": 0,
+    "_count": 3,
+    "_percent": 0,
+    "features›Array find from last›Array.prototype.findLast": "arr.findLast is not a function",
+    "features›Array find from last›Array.prototype.findLastIndex": "arr.findLastIndex is not a function",
+    "features›Hashbang Grammar": false
   },
   "ES2022": {
     "_successful": 11,

@@ -3538,6 +3538,20 @@
       "code": "var expected = ['hasIndices'];\n// Sorted alphabetically by shortname – \"dgimsuy\".\nif ('global' in RegExp.prototype) expected.push('global');\nif ('ignoreCase' in RegExp.prototype) expected.push('ignoreCase');\nif ('multiline' in RegExp.prototype) expected.push('multiline');\nif ('dotAll' in RegExp.prototype) expected.push('dotAll');\nif ('unicode' in RegExp.prototype) expected.push('unicode');\nif ('sticky' in RegExp.prototype) expected.push('sticky');\nvar actual = [];\nvar p = new Proxy({}, { get: function(o, k) { actual.push(k); return o[k]; }});\nObject.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(p);\nif (expected.length !== actual.length) return false;\nfor (var i = 0; i < expected.length; i++) {\n  if (expected[i] !== actual[i]) return false;\n}\nreturn true;"
     }
   },
+  "ES2023": {
+    "features›Array find from last›Array.prototype.findLast": {
+      "spec": "https://github.com/tc39/proposal-array-find-from-last",
+      "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLast(function (o) { return o.x === 1; }) === arr[2];"
+    },
+    "features›Array find from last›Array.prototype.findLastIndex": {
+      "spec": "https://github.com/tc39/proposal-array-find-from-last",
+      "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLastIndex(function (o) { return o.x === 1; }) === 2;"
+    },
+    "features›Hashbang Grammar": {
+      "spec": "https://github.com/tc39/proposal-hashbang/",
+      "code": "try {\n  return !eval('#!/wash/your/hands');\n} catch (e) {\n  return false\n}"
+    }
+  },
   "ESNEXT": {
     "Stage 3›Realms": {
       "spec": "https://github.com/tc39/proposal-realms",
@@ -3550,18 +3564,6 @@
     "Stage 3›Legacy RegExp features in JavaScript›RegExp.$1-$9": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
       "code": "for (var i = 1; i < 10; i++) {\n  if (!(('$' + i) in RegExp)) return false;\n}\nreturn true;"
-    },
-    "Stage 3›Hashbang Grammar": {
-      "spec": "https://github.com/tc39/proposal-hashbang/",
-      "code": "try {\n  return !eval('#!/wash/your/hands');\n} catch (e) {\n  return false\n}"
-    },
-    "Stage 3›Array find from last›Array.prototype.findLast": {
-      "spec": "https://github.com/tc39/proposal-array-find-from-last",
-      "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLast(function (o) { return o.x === 1; }) === arr[2];"
-    },
-    "Stage 3›Array find from last›Array.prototype.findLastIndex": {
-      "spec": "https://github.com/tc39/proposal-array-find-from-last",
-      "code": "var arr = [{ x: 1 }, { x: 2 }, { x: 1 }, { x: 2 }];\nreturn arr.findLastIndex(function (o) { return o.x === 1; }) === 2;"
     },
     "Stage 2›Generator function.sent Meta Property": {
       "spec": "https://github.com/tc39/proposal-function.sent",
