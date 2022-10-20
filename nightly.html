@@ -27383,12 +27383,12 @@ return arr.findLastIndex(function (o) { return o.x === 1; }) === 2;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3--Realms"></div><a class="anchor" href="#ESNEXT-Stage-3--Realms">§</a><a href="https://github.com/tc39/proposal-realms">Realms</a>
+            <div class="hash" id="ESNEXT-Stage-3--ShadowRealm"></div><a class="anchor" href="#ESNEXT-Stage-3--ShadowRealm">§</a><a href="https://github.com/tc39/proposal-shadowrealm">ShadowRealm</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return typeof Realm === &quot;function&quot;
-  &amp;&amp; [&quot;eval&quot;, &quot;global&quot;, &quot;intrinsics&quot;, &quot;stdlib&quot;, &quot;directEval&quot;, &quot;indirectEval&quot;, &quot;initGlobal&quot;, &quot;nonEval&quot;].every(function(key){
-    return key in Realm.prototype;
+                <div class="code">return typeof ShadowRealm === &quot;function&quot;
+  &amp;&amp; [&quot;evaluate&quot;, &quot;importValue&quot;].every(function(key){
+    return key in ShadowRealm.prototype;
   });</div>}
               </div>
             </div>
@@ -27400,9 +27400,9 @@ return arr.findLastIndex(function (o) { return o.x === 1; }) === 2;</div>}
           <td></td>
           <td colspan="2">
             <div class="fn">function(){
-              <div class="code">return typeof Realm === &quot;function&quot;
-  &amp;&amp; [&quot;eval&quot;, &quot;global&quot;, &quot;intrinsics&quot;, &quot;stdlib&quot;, &quot;directEval&quot;, &quot;indirectEval&quot;, &quot;initGlobal&quot;, &quot;nonEval&quot;].every(function(key){
-    return key in Realm.prototype;
+              <div class="code">return typeof ShadowRealm === &quot;function&quot;
+  &amp;&amp; [&quot;evaluate&quot;, &quot;importValue&quot;].every(function(key){
+    return key in ShadowRealm.prototype;
   });</div>}
             </div>
           </td>

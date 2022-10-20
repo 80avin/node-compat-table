@@ -3553,9 +3553,9 @@
     }
   },
   "ESNEXT": {
-    "Stage 3›Realms": {
-      "spec": "https://github.com/tc39/proposal-realms",
-      "code": "return typeof Realm === \"function\"\n  && [\"eval\", \"global\", \"intrinsics\", \"stdlib\", \"directEval\", \"indirectEval\", \"initGlobal\", \"nonEval\"].every(function(key){\n    return key in Realm.prototype;\n  });"
+    "Stage 3›ShadowRealm": {
+      "spec": "https://github.com/tc39/proposal-shadowrealm",
+      "code": "return typeof ShadowRealm === \"function\"\n  && [\"evaluate\", \"importValue\"].every(function(key){\n    return key in ShadowRealm.prototype;\n  });"
     },
     "Stage 3›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
