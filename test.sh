@@ -20,13 +20,7 @@ echo
 echo 'running the tests on each version of node...'
 
 bash versions.sh > v8.versions
-while read v; do
-  fnm install $v
-  fnm exec --using=$v node test.js
-  fnm exec --using=$v node --es_staging test.js
-  fnm exec --using=$v node --harmony test.js
-  fnm uninstall $v  # Don't fill the disk with node installs.
-done < v8.versions
+xargs -P $(nproc) -n 1 ./test-one.sh < v8.versions
 
 
 LATEST=$(curl -sL https://nodejs.org/download/nightly/index.tab |   awk '{ if (!f && NR > 1) { print $1; f = 1 } }')
@@ -65,4 +59,3 @@ git config user.email "hubbed@kap.co"
 git config user.name "Imma Bot"
 git commit -am 'Auto Update'
 git push
-
