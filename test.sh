@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
 
-ORIGIN=https://hubbed:$GITHUB_TOKEN@github.com/williamkapke/node-compat-table.git
-
 #newer version of n stopped working with nightly builds
 npm install -g n@2.1.7 --force
 
-echo
-echo 'downloading latest...'
-rm -rf ./.temp
-git clone $ORIGIN .temp
-
-mkdir -p ./.temp/results
-cd ./.temp
-git config user.email "hubbed@kap.co"
-git config user.name "Imma Bot"
+mkdir -p ./results
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es6.js > data-es6.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es2016plus.js > data-es2016plus.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-esnext.js > data-esnext.js
@@ -71,6 +61,8 @@ node build-nightly.js
 
 echo
 echo 'saving the results...'
+git config user.email "hubbed@kap.co"
+git config user.name "Imma Bot"
 git commit -am 'Auto Update'
-git push $ORIGIN gh-pages
+git push
 

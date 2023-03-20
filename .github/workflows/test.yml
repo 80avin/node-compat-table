@@ -1,0 +1,23 @@
+name: Test and update
+
+on:
+  schedule:
+      - cron: '37 6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: github.repository == 'williamkapke/node-compat-table'
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+
+      - run: test.sh
