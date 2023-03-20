@@ -21,4 +21,4 @@ jobs:
       - uses: actions/setup-node@v3
 
       - run: npm install
-      - run: bash test.sh
+      - run: test.sh
