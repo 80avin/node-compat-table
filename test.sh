@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-#newer version of n stopped working with nightly builds
-npm install -g n@2.1.7 --force
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
+PATH=$PWD/.fnm:$PATH
 
-mkdir -p ./results
+mkdir ./results
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es6.js > data-es6.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es2016plus.js > data-es2016plus.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-esnext.js > data-esnext.js
@@ -21,10 +21,11 @@ echo 'running the tests on each version of node...'
 
 bash versions.sh > v8.versions
 while read v; do
-  n $v
-  node test.js
-  node --es_staging test.js
-  node --harmony test.js
+  fnm install $v
+  fnm exec --using=$v node test.js
+  fnm exec --using=$v node --es_staging test.js
+  fnm exec --using=$v node --harmony test.js
+  fnm uninstall $v  # Don't fill the disk with node installs.
 done < v8.versions
 
 
@@ -45,13 +46,12 @@ node --harmony test.js
 #PROJECT_NAME="node" PROJECT_URL="https://nodejs.org/download/chakracore-nightly/" n project $LATEST
 #node test.js
 
-n use 10.16.3
 git add ./results/**/*.json
 git add v8.versions
 
 if [[ `git status -s` == '' ]]; then
   echo 'No changes';
-  exit 1;
+  exit 0;
 fi
 
 echo
