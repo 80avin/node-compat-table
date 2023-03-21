@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
-PATH=$PWD/.fnm:$PATH
+. $NVM_DIR/nvm.sh
 
-mkdir ./results
+mkdir -p ./results
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es6.js > data-es6.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es2016plus.js > data-es2016plus.js
 curl https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-esnext.js > data-esnext.js
@@ -23,11 +22,9 @@ bash versions.sh > v8.versions
 xargs -P $(nproc) -n 1 ./test-one.sh < v8.versions
 
 
-LATEST=$(curl -sL https://nodejs.org/download/nightly/index.tab |   awk '{ if (!f && NR > 1) { print $1; f = 1 } }')
-PROJECT_NAME="node" PROJECT_URL="https://nodejs.org/download/nightly/" n project $LATEST
-node test.js
-node --es_staging test.js
-node --harmony test.js
+LATEST=$(curl -sL https://nodejs.org/download/nightly/index.tab | awk '{ if (!f && NR > 1) { print $1; f = 1 } }')
+echo Testing nightly $LATEST
+NVM_NODEJS_ORG_MIRROR=https://nodejs.org/download/nightly ./test-one.sh $LATEST
 
 # test latest from the v8 team
 #bash download-chromium-latest.sh
@@ -40,6 +37,7 @@ node --harmony test.js
 #PROJECT_NAME="node" PROJECT_URL="https://nodejs.org/download/chakracore-nightly/" n project $LATEST
 #node test.js
 
+nvm install 10.16.3
 git add ./results/**/*.json
 git add v8.versions
 
@@ -59,3 +57,4 @@ git config user.email "hubbed@kap.co"
 git config user.name "Imma Bot"
 git commit -am 'Auto Update'
 git push
+

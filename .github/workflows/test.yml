@@ -18,7 +18,28 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: ljharb/actions/node/install@main
 
-      - run: npm install
-      - run: test.sh
+      - run: |
+          . $NVM_DIR/nvm.sh
+          echo "path=$(nvm cache dir)" >> "$GITHUB_OUTPUT"
+        id: nvm-path
+
+      - name: Restore nvm cache
+        uses: actions/cache/restore@v3
+        id: cache-nvm-restore
+        with:
+          path: ${{ steps.nvm-path.outputs.path }}
+          key: ${{ runner.os }}-nvm
+
+      - run: bash test.sh
+
+      # Remove nightlies so that the cache doesn't infinitely grow.
+      - run: |
+          rm -rf ${{ steps.nvm-path.outputs.path }}/*/*nightly*
+
+      - name: Save nvm cache
+        uses: actions/cache/save@v3
+        with:
+          path: ${{ steps.nvm-path.outputs.path }}
+          key: ${{ steps.cache-nvm-restore.outputs.cache-primary-key }}

@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+. $NVM_DIR/nvm.sh
+
 version=$1
-fnm install $version
-fnm exec --using=$version node test.js
-fnm exec --using=$version node --es_staging test.js
-fnm exec --using=$version node --harmony test.js
-fnm uninstall $version  # Don't fill the disk with node installs.
+nvm install $version
+node test.js
+node --es_staging test.js
+node --harmony test.js
+nvm deactivate
+nvm uninstall $version  # Don't fill the disk with node installs.
