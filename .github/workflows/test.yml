@@ -30,16 +30,16 @@ jobs:
         id: cache-nvm-restore
         with:
           path: ${{ steps.nvm-path.outputs.path }}
-          key: ${{ runner.os }}-nvm
+          key: ${{ runner.os }}-nvm-${{ hashFiles('v8.versions') }}
+          restore-keys: ${{ runner.os }}-nvm-
 
       - run: bash test.sh
 
       # Remove nightlies so that the cache doesn't infinitely grow.
-      - run: |
-          rm -rf ${{ steps.nvm-path.outputs.path }}/*/*nightly*
+      - run: rm -rf ${{ steps.nvm-path.outputs.path }}/*/*nightly*
 
       - name: Save nvm cache
         uses: actions/cache/save@v3
         with:
           path: ${{ steps.nvm-path.outputs.path }}
-          key: ${{ steps.cache-nvm-restore.outputs.cache-primary-key }}
+          key: ${{ runner.os }}-nvm-${{ hashFiles('v8.versions') }}
