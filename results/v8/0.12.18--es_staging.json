@@ -429,7 +429,7 @@
     "syntax›destructuring, parameters›defaults, new Function() support": "Unexpected token {",
     "syntax›destructuring, parameters›aliased defaults, arrow function": "Unexpected token =>",
     "syntax›destructuring, parameters›shorthand defaults, arrow function": "Unexpected token =",
-    "syntax›destructuring, parameters›duplicate identifier": "Unexpected token [",
+    "syntax›destructuring, parameters›duplicate identifier": false,
     "syntax›Unicode code point escapes›in strings": "Unexpected token ILLEGAL",
     "syntax›Unicode code point escapes›in identifiers": "Unexpected token ILLEGAL",
     "syntax›Unicode code point escapes›in property key definitions": "Unexpected token ILLEGAL",

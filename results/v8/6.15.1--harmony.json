@@ -294,9 +294,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": true
   },
   "ES2015": {
-    "_successful": 692,
+    "_successful": 691,
     "_count": 697,
-    "_percent": 0.9928263988522238,
+    "_percent": 0.9913916786226685,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": true,
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": true,
     "syntax›default function parameters›basic functionality": true,
@@ -429,7 +429,7 @@
     "syntax›destructuring, parameters›defaults, new Function() support": true,
     "syntax›destructuring, parameters›aliased defaults, arrow function": true,
     "syntax›destructuring, parameters›shorthand defaults, arrow function": true,
-    "syntax›destructuring, parameters›duplicate identifier": true,
+    "syntax›destructuring, parameters›duplicate identifier": false,
     "syntax›Unicode code point escapes›in strings": true,
     "syntax›Unicode code point escapes›in identifiers": true,
     "syntax›Unicode code point escapes›in property key definitions": true,
