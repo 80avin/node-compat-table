@@ -1,10 +1,10 @@
 {
-  "_version": "21.0.0-nightly202307214ee4718857",
-  "_engine": "v8 11.3.244.8-node.13",
+  "_version": "20.5.0--harmony",
+  "_engine": "v8 11.3.244.8-node.10",
   "ESNEXT": {
-    "_successful": 2,
+    "_successful": 3,
     "_count": 56,
-    "_percent": 0.03571428571428571,
+    "_percent": 0.05357142857142857,
     "Stage 3›ShadowRealm": false,
     "Stage 3›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "Stage 3›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
@@ -21,7 +21,7 @@
     "Stage 2›Set methods›Set.prototype.isDisjointFrom": "(intermediate value).isDisjointFrom is not a function",
     "Stage 2›Set methods›Set.prototype.isSubsetOf": "(intermediate value).isSubsetOf is not a function",
     "Stage 2›Set methods›Set.prototype.isSupersetOf": "(intermediate value).isSupersetOf is not a function",
-    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": "buffer1.transfer is not a function",
+    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": true,
     "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.realloc()": "buffer1.realloc is not a function",
     "Stage 2›Map.prototype.upsert›Map.prototype.upsert": "map.upsert is not a function",
     "Stage 2›Map.prototype.upsert›WeakMap.prototype.upsert": "map.upsert is not a function",
