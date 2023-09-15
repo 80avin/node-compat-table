@@ -3121,9 +3121,37 @@
       "spec": "https://github.com/tc39/proposal-regexp-lookbehind",
       "code": "return /(?<=a)b/.test('ab') && /(?<!a)b/.test('cb') &&\n       !/(?<=a)b/.test('b');"
     },
-    "features›RegExp Unicode Property Escapes": {
+    "features›RegExp Unicode Property Escapes›basic": {
       "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
       "code": "const regexGreekSymbol = /\\p{Script=Greek}/u;\nreturn regexGreekSymbol.test('π');"
+    },
+    "features›RegExp Unicode Property Escapes›Unicode 11": {
+      "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
+      "code": "return /\\p{Extended_Pictographic}/u.test(\"\\xA9\") && /\\p{Emoji}/u.test(\"🥰\");"
+    },
+    "features›RegExp Unicode Property Escapes›Unicode 12": {
+      "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
+      "code": "return /\\p{Script=Elymaic}/u.test(\"\\u{10fe0}\") && /\\p{Emoji}/u.test(\"🥱\");"
+    },
+    "features›RegExp Unicode Property Escapes›Unicode 12.1": {
+      "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
+      "code": "return /\\p{Other_Symbol}/u.test(\"\\u32FF\");"
+    },
+    "features›RegExp Unicode Property Escapes›Unicode 13": {
+      "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
+      "code": "return /\\p{Script=Chorasmian}/u.test(\"\\u{10fb0}\") && /\\p{Emoji}/u.test(\"🥲\");"
+    },
+    "features›RegExp Unicode Property Escapes›Unicode 14": {
+      "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
+      "code": "return /\\p{Script=Vithkuqi}/u.test(\"\\u{10570}\") && /\\p{Emoji}/u.test(\"🫠\");"
+    },
+    "features›RegExp Unicode Property Escapes›Unicode 15": {
+      "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
+      "code": "return /\\p{Script=Kawi}/u.test(\"\\u{11f00}\") && /\\p{Emoji}/u.test(\"🫨\");"
+    },
+    "features›RegExp Unicode Property Escapes›Unicode 15.1": {
+      "spec": "https://github.com/tc39/proposal-regexp-unicode-property-escapes",
+      "code": "return /\\p{Unified_Ideograph}/u.test(\"\\u{2ebf0}\");"
     },
     "features›Asynchronous Iterators›async generators": {
       "spec": "https://github.com/tc39/proposal-async-iteration",
@@ -3550,6 +3578,28 @@
     "features›Hashbang Grammar": {
       "spec": "https://github.com/tc39/proposal-hashbang/",
       "code": "try {\n  return !eval('#!/wash/your/hands');\n} catch (e) {\n  return false\n}"
+    }
+  },
+  "ES2024": {
+    "features›RegExp `v` flag›set notations": {
+      "spec": "https://github.com/tc39/proposal-regexp-v-flag",
+      "code": "return /[\\p{ASCII}&&\\p{Decimal_Number}]/v.test(\"0\")\n&& /[\\p{Any}--[\\x01-\\u{10ffff}]]/v.test(\"\\0\")"
+    },
+    "features›RegExp `v` flag›properties of Strings": {
+      "spec": "https://github.com/tc39/proposal-regexp-v-flag",
+      "code": "return /^\\p{Emoji_Keycap_Sequence}$/v.test(\"*\\uFE0F\\u20E3\")\n&& !/^\\p{Emoji_Keycap_Sequence}$/v.test(\"*\");"
+    },
+    "features›RegExp `v` flag›constructor supports it": {
+      "spec": "https://github.com/tc39/proposal-regexp-v-flag",
+      "code": "return new RegExp('a', 'v') instanceof RegExp;"
+    },
+    "features›RegExp `v` flag›shows up in flags": {
+      "spec": "https://github.com/tc39/proposal-regexp-v-flag",
+      "code": "var flags = [];\nvar p = new Proxy({}, { get: function(o, k) { flags.push(k); return o[k]; }});\nObject.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(p);\nreturn flags.indexOf(\"unicodeSets\") !== -1;"
+    },
+    "features›RegExp `v` flag›Unicode 15.1": {
+      "spec": "https://github.com/tc39/proposal-regexp-v-flag",
+      "code": "return /^\\p{RGI_Emoji}$/v.test(\"🐦‍🔥\");"
     }
   },
   "ESNEXT": {

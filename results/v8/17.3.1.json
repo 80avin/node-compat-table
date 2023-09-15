@@ -62,6 +62,16 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
+  "ES2024": {
+    "_successful": 0,
+    "_count": 5,
+    "_percent": 0,
+    "features›RegExp `v` flag›set notations": "Invalid regular expression flags",
+    "features›RegExp `v` flag›properties of Strings": "Invalid regular expression flags",
+    "features›RegExp `v` flag›constructor supports it": "Invalid flags supplied to RegExp constructor 'v'",
+    "features›RegExp `v` flag›shows up in flags": false,
+    "features›RegExp `v` flag›Unicode 15.1": "Invalid regular expression flags"
+  },
   "ES2023": {
     "_successful": 1,
     "_count": 3,
@@ -188,9 +198,9 @@
     "misc›Well-formed JSON.stringify": true
   },
   "ES2018": {
-    "_successful": 13,
-    "_count": 13,
-    "_percent": 1,
+    "_successful": 18,
+    "_count": 20,
+    "_percent": 0.9,
     "features›object rest/spread properties›object rest properties": true,
     "features›object rest/spread properties›object spread properties": true,
     "features›Promise.prototype.finally›basic support": true,
@@ -199,7 +209,14 @@
     "features›s (dotAll) flag for regular expressions": true,
     "features›RegExp named capture groups": true,
     "features›RegExp Lookbehind Assertions": true,
-    "features›RegExp Unicode Property Escapes": true,
+    "features›RegExp Unicode Property Escapes›basic": true,
+    "features›RegExp Unicode Property Escapes›Unicode 11": true,
+    "features›RegExp Unicode Property Escapes›Unicode 12": true,
+    "features›RegExp Unicode Property Escapes›Unicode 12.1": true,
+    "features›RegExp Unicode Property Escapes›Unicode 13": true,
+    "features›RegExp Unicode Property Escapes›Unicode 14": true,
+    "features›RegExp Unicode Property Escapes›Unicode 15": "Invalid regular expression: /\\p{Script=Kawi}/: Invalid property name",
+    "features›RegExp Unicode Property Escapes›Unicode 15.1": false,
     "features›Asynchronous Iterators›async generators": true,
     "features›Asynchronous Iterators›for-await-of loops": true,
     "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets": true,

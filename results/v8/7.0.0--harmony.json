@@ -62,6 +62,16 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": "Unexpected token *",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
+  "ES2024": {
+    "_successful": 0,
+    "_count": 5,
+    "_percent": 0,
+    "features›RegExp `v` flag›set notations": "Invalid regular expression flags",
+    "features›RegExp `v` flag›properties of Strings": "Invalid regular expression flags",
+    "features›RegExp `v` flag›constructor supports it": "Invalid flags supplied to RegExp constructor 'v'",
+    "features›RegExp `v` flag›shows up in flags": false,
+    "features›RegExp `v` flag›Unicode 15.1": "Invalid regular expression flags"
+  },
   "ES2023": {
     "_successful": 0,
     "_count": 3,
@@ -189,8 +199,8 @@
   },
   "ES2018": {
     "_successful": 1,
-    "_count": 13,
-    "_percent": 0.07692307692307693,
+    "_count": 20,
+    "_percent": 0.05,
     "features›object rest/spread properties›object rest properties": "Unexpected token ...",
     "features›object rest/spread properties›object spread properties": "Unexpected token ...",
     "features›Promise.prototype.finally›basic support": "p1.finally is not a function",
@@ -199,7 +209,14 @@
     "features›s (dotAll) flag for regular expressions": "Invalid regular expression flags",
     "features›RegExp named capture groups": "Invalid regular expression: /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/: Invalid group",
     "features›RegExp Lookbehind Assertions": true,
-    "features›RegExp Unicode Property Escapes": "Invalid regular expression: /\\p{Script=Greek}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›basic": "Invalid regular expression: /\\p{Script=Greek}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›Unicode 11": "Invalid regular expression: /\\p{Extended_Pictographic}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›Unicode 12": "Invalid regular expression: /\\p{Script=Elymaic}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›Unicode 12.1": "Invalid regular expression: /\\p{Other_Symbol}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›Unicode 13": "Invalid regular expression: /\\p{Script=Chorasmian}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›Unicode 14": "Invalid regular expression: /\\p{Script=Vithkuqi}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›Unicode 15": "Invalid regular expression: /\\p{Script=Kawi}/: Invalid escape",
+    "features›RegExp Unicode Property Escapes›Unicode 15.1": "Invalid regular expression: /\\p{Unified_Ideograph}/: Invalid escape",
     "features›Asynchronous Iterators›async generators": "Unexpected token *",
     "features›Asynchronous Iterators›for-await-of loops": "Unexpected reserved word",
     "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets": false,

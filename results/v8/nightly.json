@@ -1,5 +1,5 @@
 {
-  "_version": "21.0.0-nightly202309144efa3744a0",
+  "_version": "21.0.0-nightly202309156a489df73b",
   "_engine": "v8 11.3.244.8-node.17",
   "ESNEXT": {
     "_successful": 2,
@@ -61,6 +61,16 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.take": "(intermediate value)(...).take is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
+  },
+  "ES2024": {
+    "_successful": 4,
+    "_count": 5,
+    "_percent": 0.8,
+    "features›RegExp `v` flag›set notations": true,
+    "features›RegExp `v` flag›properties of Strings": true,
+    "features›RegExp `v` flag›constructor supports it": true,
+    "features›RegExp `v` flag›shows up in flags": true,
+    "features›RegExp `v` flag›Unicode 15.1": false
   },
   "ES2023": {
     "_successful": 3,
@@ -188,9 +198,9 @@
     "misc›Well-formed JSON.stringify": true
   },
   "ES2018": {
-    "_successful": 13,
-    "_count": 13,
-    "_percent": 1,
+    "_successful": 19,
+    "_count": 20,
+    "_percent": 0.95,
     "features›object rest/spread properties›object rest properties": true,
     "features›object rest/spread properties›object spread properties": true,
     "features›Promise.prototype.finally›basic support": true,
@@ -199,7 +209,14 @@
     "features›s (dotAll) flag for regular expressions": true,
     "features›RegExp named capture groups": true,
     "features›RegExp Lookbehind Assertions": true,
-    "features›RegExp Unicode Property Escapes": true,
+    "features›RegExp Unicode Property Escapes›basic": true,
+    "features›RegExp Unicode Property Escapes›Unicode 11": true,
+    "features›RegExp Unicode Property Escapes›Unicode 12": true,
+    "features›RegExp Unicode Property Escapes›Unicode 12.1": true,
+    "features›RegExp Unicode Property Escapes›Unicode 13": true,
+    "features›RegExp Unicode Property Escapes›Unicode 14": true,
+    "features›RegExp Unicode Property Escapes›Unicode 15": true,
+    "features›RegExp Unicode Property Escapes›Unicode 15.1": false,
     "features›Asynchronous Iterators›async generators": true,
     "features›Asynchronous Iterators›for-await-of loops": true,
     "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets": true,
