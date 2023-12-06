@@ -1,6 +1,6 @@
 {
   "_version": "22.0.0-pre--harmony",
-  "_engine": "v8 11.8.172.17-node.16",
+  "_engine": "v8 11.8.172.17-node.17",
   "ESNEXT": {
     "_successful": 23,
     "_count": 56,
@@ -63,14 +63,14 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
   "ES2024": {
-    "_successful": 4,
+    "_successful": 5,
     "_count": 5,
-    "_percent": 0.8,
+    "_percent": 1,
     "features›RegExp `v` flag›set notations": true,
     "features›RegExp `v` flag›properties of Strings": true,
     "features›RegExp `v` flag›constructor supports it": true,
     "features›RegExp `v` flag›shows up in flags": true,
-    "features›RegExp `v` flag›Unicode 15.1": false
+    "features›RegExp `v` flag›Unicode 15.1": true
   },
   "ES2023": {
     "_successful": 3,
@@ -198,9 +198,9 @@
     "misc›Well-formed JSON.stringify": true
   },
   "ES2018": {
-    "_successful": 19,
+    "_successful": 20,
     "_count": 20,
-    "_percent": 0.95,
+    "_percent": 1,
     "features›object rest/spread properties›object rest properties": true,
     "features›object rest/spread properties›object spread properties": true,
     "features›Promise.prototype.finally›basic support": true,
@@ -216,7 +216,7 @@
     "features›RegExp Unicode Property Escapes›Unicode 13": true,
     "features›RegExp Unicode Property Escapes›Unicode 14": true,
     "features›RegExp Unicode Property Escapes›Unicode 15": true,
-    "features›RegExp Unicode Property Escapes›Unicode 15.1": false,
+    "features›RegExp Unicode Property Escapes›Unicode 15.1": true,
     "features›Asynchronous Iterators›async generators": true,
     "features›Asynchronous Iterators›for-await-of loops": true,
     "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets": true,
