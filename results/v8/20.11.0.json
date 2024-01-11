@@ -1,10 +1,10 @@
 {
-  "_version": "22.0.0-nightly20240111d102d16e98",
-  "_engine": "v8 11.9.169.7-node.12",
+  "_version": "20.11.0",
+  "_engine": "v8 11.3.244.8-node.17",
   "ESNEXT": {
-    "_successful": 3,
+    "_successful": 2,
     "_count": 56,
-    "_percent": 0.05357142857142857,
+    "_percent": 0.03571428571428571,
     "Stage 3›ShadowRealm": false,
     "Stage 3›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": true,
     "Stage 3›Legacy RegExp features in JavaScript›RegExp.$1-$9": true,
@@ -21,7 +21,7 @@
     "Stage 2›Set methods›Set.prototype.isDisjointFrom": "(intermediate value).isDisjointFrom is not a function",
     "Stage 2›Set methods›Set.prototype.isSubsetOf": "(intermediate value).isSubsetOf is not a function",
     "Stage 2›Set methods›Set.prototype.isSupersetOf": "(intermediate value).isSupersetOf is not a function",
-    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": true,
+    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": "buffer1.transfer is not a function",
     "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.realloc()": "buffer1.realloc is not a function",
     "Stage 2›Map.prototype.upsert›Map.prototype.upsert": "map.upsert is not a function",
     "Stage 2›Map.prototype.upsert›WeakMap.prototype.upsert": "map.upsert is not a function",
@@ -63,14 +63,14 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
   "ES2024": {
-    "_successful": 5,
+    "_successful": 4,
     "_count": 5,
-    "_percent": 1,
+    "_percent": 0.8,
     "features›RegExp `v` flag›set notations": true,
     "features›RegExp `v` flag›properties of Strings": true,
     "features›RegExp `v` flag›constructor supports it": true,
     "features›RegExp `v` flag›shows up in flags": true,
-    "features›RegExp `v` flag›Unicode 15.1": true
+    "features›RegExp `v` flag›Unicode 15.1": false
   },
   "ES2023": {
     "_successful": 3,
@@ -198,9 +198,9 @@
     "misc›Well-formed JSON.stringify": true
   },
   "ES2018": {
-    "_successful": 20,
+    "_successful": 19,
     "_count": 20,
-    "_percent": 1,
+    "_percent": 0.95,
     "features›object rest/spread properties›object rest properties": true,
     "features›object rest/spread properties›object spread properties": true,
     "features›Promise.prototype.finally›basic support": true,
@@ -216,7 +216,7 @@
     "features›RegExp Unicode Property Escapes›Unicode 13": true,
     "features›RegExp Unicode Property Escapes›Unicode 14": true,
     "features›RegExp Unicode Property Escapes›Unicode 15": true,
-    "features›RegExp Unicode Property Escapes›Unicode 15.1": true,
+    "features›RegExp Unicode Property Escapes›Unicode 15.1": false,
     "features›Asynchronous Iterators›async generators": true,
     "features›Asynchronous Iterators›for-await-of loops": true,
     "misc›Proxy \"ownKeys\" handler, duplicate keys for non-extensible targets": true,
