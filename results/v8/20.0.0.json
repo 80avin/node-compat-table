@@ -62,6 +62,12 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
   },
+  "ES2025": {
+    "_successful": 0,
+    "_count": 1,
+    "_percent": 0,
+    "features›Duplicate named capturing groups": "Invalid regular expression: /(?<year>[0-9]{4})-[0-9]{2}|[0-9]{2}-(?<year>[0-9]{4})/: Duplicate capture group name"
+  },
   "ES2024": {
     "_successful": 4,
     "_count": 5,
