@@ -1,6 +1,6 @@
 {
   "_version": "23.0.0-pre--harmony",
-  "_engine": "v8 12.4.254.14-node.11",
+  "_engine": "v8 12.4.254.20-node.13",
   "ESNEXT": {
     "_successful": 23,
     "_count": 56,
@@ -61,6 +61,12 @@
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.take": "(intermediate value)(...).take is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": "(intermediate value)(...).toArray is not a function",
     "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": "AsyncIterator is not defined"
+  },
+  "ES2025": {
+    "_successful": 1,
+    "_count": 1,
+    "_percent": 1,
+    "features›Duplicate named capturing groups": true
   },
   "ES2024": {
     "_successful": 5,
