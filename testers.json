@@ -3433,6 +3433,10 @@
       "spec": "https://github.com/tc39/proposal-class-fields",
       "code": "class C {\n  ['x'] = 42;\n}\nreturn new C().x === 42;"
     },
+    "features›instance class fields›resolving identifier in parent scope": {
+      "spec": "https://github.com/tc39/proposal-class-fields",
+      "code": "{\n  let a = [\"hello world\"];\n  class MyClass {\n    // The parenthesis below are required to trigger https://bugs.webkit.org/show_bug.cgi?id=236843\n    c = a[(0)]; \n  }\n  return new MyClass().c === a[0];\n}"
+    },
     "features›static class fields›public static class fields": {
       "spec": "https://github.com/tc39/proposal-static-class-features/",
       "code": "class C {\n  static x = 'x';\n}\nreturn C.x === 'x';"
