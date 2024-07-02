@@ -530,7 +530,7 @@
     },
     "syntax›destructuring, parameters›duplicate identifier": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-destructuring-assignment",
-      "code": "try {\n  eval('var d = function d([d]) { return d };if (d([true]) !== true) return false;');\n} catch (e) {\n  return !(e instanceof SyntaxError);\n}\n\ntry {\n  eval('var f = function f([id, id]) { return id }');\n  return false;\n} catch (e) {\n  return e instanceof SyntaxError;\n}"
+      "code": "try {\n  eval('var d = function d([d]) { return d };');\n  if (d([true]) !== true) return false;\n} catch (e) {\n  return !(e instanceof SyntaxError);\n}\n\ntry {\n  eval('var f = function f([id, id]) { return id }');\n  return false;\n} catch (e) {\n  return e instanceof SyntaxError;\n}"
     },
     "syntax›Unicode code point escapes›in strings": {
       "spec": "http://www.ecma-international.org/ecma-262/6.0/#sec-literals-string-literals",
@@ -3435,7 +3435,7 @@
     },
     "features›instance class fields›resolving identifier in parent scope": {
       "spec": "https://github.com/tc39/proposal-class-fields",
-      "code": "{\n  let a = [\"hello world\"];\n  class MyClass {\n    // The parenthesis below are required to trigger https://bugs.webkit.org/show_bug.cgi?id=236843\n    c = a[(0)]; \n  }\n  return new MyClass().c === a[0];\n}"
+      "code": "{\n  let a = [\"hello world\"];\n  class MyClass {\n    // The parenthesis below are required to trigger https://bugs.webkit.org/show_bug.cgi?id=236843\n    c = a[(0)];\n  }\n  return new MyClass().c === a[0];\n}"
     },
     "features›static class fields›public static class fields": {
       "spec": "https://github.com/tc39/proposal-static-class-features/",
@@ -3604,18 +3604,54 @@
     "features›RegExp `v` flag›Unicode 15.1": {
       "spec": "https://github.com/tc39/proposal-regexp-v-flag",
       "code": "return /^\\p{RGI_Emoji}$/v.test(\"🐦‍🔥\");"
+    },
+    "features›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": {
+      "spec": "https://github.com/domenic/proposal-arraybuffer-transfer/",
+      "code": "const buffer1 = new Uint8Array([1, 2]).buffer;\nconst buffer2 = buffer1.transfer();\nreturn buffer1.byteLength === 0\n  && buffer2.byteLength === 2;"
+    },
+    "features›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.realloc()": {
+      "spec": "https://github.com/domenic/proposal-arraybuffer-transfer/",
+      "code": "const buffer1 = new ArrayBuffer(1024);\nconst buffer2 = buffer1.realloc(256);\nreturn buffer1.byteLength === 0\n  && buffer2.byteLength === 256;"
     }
   },
   "ES2025": {
     "features›Duplicate named capturing groups": {
       "spec": "https://github.com/tc39/proposal-duplicate-named-capturing-groups",
       "code": "return /(?<year>[0-9]{4})-[0-9]{2}|[0-9]{2}-(?<year>[0-9]{4})/.test(\"12-1995\");"
+    },
+    "features›Set methods›Set.prototype.intersection": {
+      "spec": "https://github.com/tc39/proposal-set-methods",
+      "code": "var set = new Set([1, 2, 3]).intersection(new Set([2, 3, 4]));\nreturn set.size === 2\n  && set.has(2)\n  && set.has(3);"
+    },
+    "features›Set methods›Set.prototype.union": {
+      "spec": "https://github.com/tc39/proposal-set-methods",
+      "code": "var set = new Set([1, 2]).union(new Set([2, 3]));\nreturn set.size === 3\n  && set.has(1)\n  && set.has(2)\n  && set.has(3);"
+    },
+    "features›Set methods›Set.prototype.difference": {
+      "spec": "https://github.com/tc39/proposal-set-methods",
+      "code": "var set = new Set([1, 2, 3]).difference(new Set([3, 4]));\nreturn set.size === 2\n  && set.has(1)\n  && set.has(2);"
+    },
+    "features›Set methods›Set.prototype.symmetricDifference": {
+      "spec": "https://github.com/tc39/proposal-set-methods",
+      "code": "var set = new Set([1, 2]).symmetricDifference(new Set([2, 3]));\nreturn set.size === 2\n  && set.has(1)\n  && set.has(3);"
+    },
+    "features›Set methods›Set.prototype.isDisjointFrom": {
+      "spec": "https://github.com/tc39/proposal-set-methods",
+      "code": "return new Set([1, 2, 3]).isDisjointFrom([4, 5, 6]);"
+    },
+    "features›Set methods›Set.prototype.isSubsetOf": {
+      "spec": "https://github.com/tc39/proposal-set-methods",
+      "code": "return new Set([1, 2, 3]).isSubsetOf([5, 4, 3, 2, 1]);"
+    },
+    "features›Set methods›Set.prototype.isSupersetOf": {
+      "spec": "https://github.com/tc39/proposal-set-methods",
+      "code": "return new Set([5, 4, 3, 2, 1]).isSupersetOf([1, 2, 3]);"
     }
   },
   "ESNEXT": {
-    "Stage 3›ShadowRealm": {
-      "spec": "https://github.com/tc39/proposal-shadowrealm",
-      "code": "return typeof ShadowRealm === \"function\"\n  && [\"evaluate\", \"importValue\"].every(function(key){\n    return key in ShadowRealm.prototype;\n  });"
+    "Stage 3›Class and Property Decorators›class decorators": {
+      "spec": "https://github.com/tc39/proposal-decorators",
+      "code": "class A {\n  @nonconf\n  get B() {}\n}\nfunction nonconf(target, name, descriptor) {\n  descriptor.configurable = false;\n  return descriptor;\n}\nreturn Object.getOwnPropertyDescriptor(A.prototype, \"B\").configurable === false;"
     },
     "Stage 3›Legacy RegExp features in JavaScript›RegExp \"lastMatch\"": {
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
@@ -3625,13 +3661,153 @@
       "spec": "https://github.com/tc39/proposal-regexp-legacy-features",
       "code": "for (var i = 1; i < 10; i++) {\n  if (!(('$' + i) in RegExp)) return false;\n}\nreturn true;"
     },
+    "Stage 3›Iterator Helpers›instanceof Iterator": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return [1, 2, 3].values() instanceof Iterator;"
+    },
+    "Stage 3›Iterator Helpers›extends Iterator": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "class Class extends Iterator { }\nconst instance = new Class();\nreturn instance[Symbol.iterator]() === instance;"
+    },
+    "Stage 3›Iterator Helpers›Iterator.from, iterable": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "const iterator = Iterator.from([1, 2, 3]);\nreturn 'next' in iterator\n  && iterator instanceof Iterator\n  && Array.from(iterator).join() === '1,2,3';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.from, iterator": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "const iterator = Iterator.from({\n  i: 0,\n  next() {\n    return { value: ++this.i, done: this.i > 3 };\n  }\n});\nreturn 'next' in iterator\n  && iterator instanceof Iterator\n  && Array.from(iterator).join() === '1,2,3';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.asIndexedPairs": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return Array.from([1, 2, 3].values().asIndexedPairs()).join() === '0,1,1,2,2,3';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.drop": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return Array.from([1, 2, 3].values().drop(1)).join() === '2,3';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.every": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return [1, 2, 3].values().every(it => typeof it === 'number');"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.filter": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return Array.from([1, 2, 3].values().filter(it => it % 2)).join() === '1,3';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.find": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return [1, 2, 3].values().find(it => it % 2) === 1;"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.flatMap": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return Array.from([1, 2, 3].values().flatMap(it => [it, 0])).join() === '1,0,2,0,3,0';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.forEach": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "let result = '';\n[1, 2, 3].values().forEach(it => result += it);\nreturn result === '123';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.map": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return Array.from([1, 2, 3].values().map(it => it * it)).join() === '1,4,9';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.reduce": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return [1, 2, 3].values().reduce((a, b) => a + b) === 6;"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.some": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return [1, 2, 3].values().some(it => typeof it === 'number');"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.take": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return Array.from([1, 2, 3].values().take(2)).join() === '1,2';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype.toArray": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "const array = [1, 2, 3].values().toArray();\nreturn Array.isArray(array) && array.join() === '1,2,3';"
+    },
+    "Stage 3›Iterator Helpers›Iterator.prototype[@@toStringTag]": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return Iterator.prototype[Symbol.toStringTag] === 'Iterator';"
+    },
+    "Stage 3›Iterator Helpers›instanceof AsyncIterator": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return (async function*() {})() instanceof AsyncIterator;"
+    },
+    "Stage 3›Iterator Helpers›extends AsyncIterator": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "class Class extends AsyncIterator { }\nconst instance = new Class();\nreturn instance[Symbol.asyncIterator]() === instance;"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.from, async iterable": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from(async function*() { yield * [1, 2, 3] }());\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.from, iterable": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from([1, 2, 3]);\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.from, iterator": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from([1, 2, 3].values());\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.asIndexedPairs": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray((async function*() { yield * [1, 2, 3] })().asIndexedPairs()).then(it => {\n  if (it.join() === '0,1,1,2,2,3') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.drop": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().drop(1)).then(it => {\n  if (it.join() === '2,3') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.every": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "(async function*() { yield * [1, 2, 3] })().every(it => typeof it === 'number').then(it => {\n  if (it === true) asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.filter": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().filter(it => it % 2)).then(it => {\n  if (it.join() === '1,3') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.find": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "(async function*() { yield * [1, 2, 3] })().find(it => it % 2).then(it => {\n  if (it === 1) asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.flatMap": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().flatMap(it => [it, 0])).then(it => {\n  if (it.join() === '1,0,2,0,3,0') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.forEach": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "let result = '';\n(async function*() { yield * [1, 2, 3] })().forEach(it => result += it).then(() => {\n  if (result === '123') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.map": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().map(it => it * it)).then(it => {\n  if (it.join() === '1,4,9') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.reduce": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "(async function*() { yield * [1, 2, 3] })().reduce((a, b) => a + b).then(it => {\n  if (it === 6) asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.some": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "(async function*() { yield * [1, 2, 3] })().some(it => typeof it === 'number').then(it => {\n  if (it === true) asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.take": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it => {\n  if (it.join() === '1,2') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype.toArray": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "(async function*() { yield * [1, 2, 3] })().toArray().then(it => {\n  if (Array.isArray(it) && it.join() === '1,2,3') asyncTestPassed();\n});"
+    },
+    "Stage 3›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": {
+      "spec": "https://github.com/tc39/proposal-iterator-helpers",
+      "code": "return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';"
+    },
+    "Stage 2.7›ShadowRealm": {
+      "spec": "https://github.com/tc39/proposal-shadowrealm",
+      "code": "return typeof ShadowRealm === \"function\"\n  && [\"evaluate\", \"importValue\"].every(function(key){\n    return key in ShadowRealm.prototype;\n  });"
+    },
     "Stage 2›Generator function.sent Meta Property": {
       "spec": "https://github.com/tc39/proposal-function.sent",
       "code": "var result;\nfunction* generator() {\n  result = function.sent;\n}\nvar iter = generator();\niter.next('tromple');\nreturn result === 'tromple';"
-    },
-    "Stage 2›Class and Property Decorators›class decorators": {
-      "spec": "https://github.com/tc39/proposal-decorators",
-      "code": "class A {\n  @nonconf\n  get B() {}\n}\nfunction nonconf(target, name, descriptor) {\n  descriptor.configurable = false;\n  return descriptor;\n}\nreturn Object.getOwnPropertyDescriptor(A.prototype, \"B\").configurable === false;"
     },
     "Stage 2›throw expressions›logical": {
       "spec": "https://github.com/tc39/proposal-throw-expressions",
@@ -3649,42 +3825,6 @@
       "spec": "https://github.com/tc39/proposal-throw-expressions",
       "code": "true ? 42 : throw 21;\ntry {\n  false ? 42 : throw 21;\n} catch (e) {\n  return e === 21;\n}"
     },
-    "Stage 2›Set methods›Set.prototype.intersection": {
-      "spec": "https://github.com/tc39/proposal-set-methods",
-      "code": "var set = new Set([1, 2, 3]).intersection(new Set([2, 3, 4]));\nreturn set.size === 2\n  && set.has(2)\n  && set.has(3);"
-    },
-    "Stage 2›Set methods›Set.prototype.union": {
-      "spec": "https://github.com/tc39/proposal-set-methods",
-      "code": "var set = new Set([1, 2]).union(new Set([2, 3]));\nreturn set.size === 3\n  && set.has(1)\n  && set.has(2)\n  && set.has(3);"
-    },
-    "Stage 2›Set methods›Set.prototype.difference": {
-      "spec": "https://github.com/tc39/proposal-set-methods",
-      "code": "var set = new Set([1, 2, 3]).difference(new Set([3, 4]));\nreturn set.size === 2\n  && set.has(1)\n  && set.has(2);"
-    },
-    "Stage 2›Set methods›Set.prototype.symmetricDifference": {
-      "spec": "https://github.com/tc39/proposal-set-methods",
-      "code": "var set = new Set([1, 2]).symmetricDifference(new Set([2, 3]));\nreturn set.size === 2\n  && set.has(1)\n  && set.has(3);"
-    },
-    "Stage 2›Set methods›Set.prototype.isDisjointFrom": {
-      "spec": "https://github.com/tc39/proposal-set-methods",
-      "code": "return new Set([1, 2, 3]).isDisjointFrom([4, 5, 6]);"
-    },
-    "Stage 2›Set methods›Set.prototype.isSubsetOf": {
-      "spec": "https://github.com/tc39/proposal-set-methods",
-      "code": "return new Set([1, 2, 3]).isSubsetOf([5, 4, 3, 2, 1]);"
-    },
-    "Stage 2›Set methods›Set.prototype.isSupersetOf": {
-      "spec": "https://github.com/tc39/proposal-set-methods",
-      "code": "return new Set([5, 4, 3, 2, 1]).isSupersetOf([1, 2, 3]);"
-    },
-    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.transfer()": {
-      "spec": "https://github.com/domenic/proposal-arraybuffer-transfer/",
-      "code": "const buffer1 = new Uint8Array([1, 2]).buffer;\nconst buffer2 = buffer1.transfer();\nreturn buffer1.byteLength === 0\n  && buffer2.byteLength === 2;"
-    },
-    "Stage 2›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.realloc()": {
-      "spec": "https://github.com/domenic/proposal-arraybuffer-transfer/",
-      "code": "const buffer1 = new ArrayBuffer(1024);\nconst buffer2 = buffer1.realloc(256);\nreturn buffer1.byteLength === 0\n  && buffer2.byteLength === 256;"
-    },
     "Stage 2›Map.prototype.upsert›Map.prototype.upsert": {
       "spec": "https://github.com/tc39/proposal-upsert",
       "code": "const map = new Map([['a', 1]]);\nif (map.upsert('a', it => 2, () => 3) !== 2) return false;\nif (map.upsert('b', it => 2, () => 3) !== 3) return false;\nreturn Array.from(map).join() === 'a,2,b,3';"
@@ -3696,146 +3836,6 @@
     "Stage 2›Array.isTemplateObject": {
       "spec": "https://github.com/tc39/proposal-array-is-template-object",
       "code": "return !Array.isTemplateObject([])\n  && Array.isTemplateObject((it => it)`a${1}c`);"
-    },
-    "Stage 2›Iterator Helpers›instanceof Iterator": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return [1, 2, 3].values() instanceof Iterator;"
-    },
-    "Stage 2›Iterator Helpers›extends Iterator": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "class Class extends Iterator { }\nconst instance = new Class();\nreturn instance[Symbol.iterator]() === instance;"
-    },
-    "Stage 2›Iterator Helpers›Iterator.from, iterable": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "const iterator = Iterator.from([1, 2, 3]);\nreturn 'next' in iterator\n  && iterator instanceof Iterator\n  && Array.from(iterator).join() === '1,2,3';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.from, iterator": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "const iterator = Iterator.from({\n  i: 0,\n  next() {\n    return { value: ++this.i, done: this.i > 3 };\n  }\n});\nreturn 'next' in iterator\n  && iterator instanceof Iterator\n  && Array.from(iterator).join() === '1,2,3';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.asIndexedPairs": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return Array.from([1, 2, 3].values().asIndexedPairs()).join() === '0,1,1,2,2,3';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.drop": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return Array.from([1, 2, 3].values().drop(1)).join() === '2,3';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.every": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return [1, 2, 3].values().every(it => typeof it === 'number');"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.filter": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return Array.from([1, 2, 3].values().filter(it => it % 2)).join() === '1,3';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.find": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return [1, 2, 3].values().find(it => it % 2) === 1;"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.flatMap": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return Array.from([1, 2, 3].values().flatMap(it => [it, 0])).join() === '1,0,2,0,3,0';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.forEach": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "let result = '';\n[1, 2, 3].values().forEach(it => result += it);\nreturn result === '123';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.map": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return Array.from([1, 2, 3].values().map(it => it * it)).join() === '1,4,9';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.reduce": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return [1, 2, 3].values().reduce((a, b) => a + b) === 6;"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.some": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return [1, 2, 3].values().some(it => typeof it === 'number');"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.take": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return Array.from([1, 2, 3].values().take(2)).join() === '1,2';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype.toArray": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "const array = [1, 2, 3].values().toArray();\nreturn Array.isArray(array) && array.join() === '1,2,3';"
-    },
-    "Stage 2›Iterator Helpers›Iterator.prototype[@@toStringTag]": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return Iterator.prototype[Symbol.toStringTag] === 'Iterator';"
-    },
-    "Stage 2›Iterator Helpers›instanceof AsyncIterator": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return (async function*() {})() instanceof AsyncIterator;"
-    },
-    "Stage 2›Iterator Helpers›extends AsyncIterator": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "class Class extends AsyncIterator { }\nconst instance = new Class();\nreturn instance[Symbol.asyncIterator]() === instance;"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.from, async iterable": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from(async function*() { yield * [1, 2, 3] }());\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.from, iterable": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from([1, 2, 3]);\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.from, iterator": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\nconst iterator = AsyncIterator.from([1, 2, 3].values());\n\nif (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;\n\ntoArray(iterator).then(it => {\n  if (it.join() === '1,2,3') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.asIndexedPairs": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray((async function*() { yield * [1, 2, 3] })().asIndexedPairs()).then(it => {\n  if (it.join() === '0,1,1,2,2,3') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.drop": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().drop(1)).then(it => {\n  if (it.join() === '2,3') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.every": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "(async function*() { yield * [1, 2, 3] })().every(it => typeof it === 'number').then(it => {\n  if (it === true) asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.filter": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().filter(it => it % 2)).then(it => {\n  if (it.join() === '1,3') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.find": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "(async function*() { yield * [1, 2, 3] })().find(it => it % 2).then(it => {\n  if (it === 1) asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.flatMap": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().flatMap(it => [it, 0])).then(it => {\n  if (it.join() === '1,0,2,0,3,0') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.forEach": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "let result = '';\n(async function*() { yield * [1, 2, 3] })().forEach(it => result += it).then(() => {\n  if (result === '123') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.map": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().map(it => it * it)).then(it => {\n  if (it.join() === '1,4,9') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.reduce": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "(async function*() { yield * [1, 2, 3] })().reduce((a, b) => a + b).then(it => {\n  if (it === 6) asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.some": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "(async function*() { yield * [1, 2, 3] })().some(it => typeof it === 'number').then(it => {\n  if (it === true) asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.take": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "async function toArray(iterator) {\n  const result = [];\n  for await (const it of iterator) result.push(it);\n  return result;\n}\n\ntoArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it => {\n  if (it.join() === '1,2') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype.toArray": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "(async function*() { yield * [1, 2, 3] })().toArray().then(it => {\n  if (Array.isArray(it) && it.join() === '1,2,3') asyncTestPassed();\n});"
-    },
-    "Stage 2›Iterator Helpers›AsyncIterator.prototype[@@toStringTag]": {
-      "spec": "https://github.com/tc39/proposal-iterator-helpers",
-      "code": "return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';"
     }
   }
 }

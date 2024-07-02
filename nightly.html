@@ -3552,7 +3552,8 @@ return function({ [qux]: grault }) {
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">try {
-  eval('var d = function d([d]) { return d };if (d([true]) !== true) return false;');
+  eval('var d = function d([d]) { return d };');
+  if (d([true]) !== true) return false;
 } catch (e) {
   return !(e instanceof SyntaxError);
 }
@@ -3574,7 +3575,8 @@ try {
           <td colspan="2">
             <div class="fn">function(){
               <div class="code">try {
-  eval('var d = function d([d]) { return d };if (d([true]) !== true) return false;');
+  eval('var d = function d([d]) { return d };');
+  if (d([true]) !== true) return false;
 } catch (e) {
   return !(e instanceof SyntaxError);
 }
@@ -26427,7 +26429,7 @@ return new C().x === 42;</div>}
   let a = [&quot;hello world&quot;];
   class MyClass {
     // The parenthesis below are required to trigger https://bugs.webkit.org/show_bug.cgi?id=236843
-    c = a[(0)]; 
+    c = a[(0)];
   }
   return new MyClass().c === a[0];
 }</div>}
@@ -26445,7 +26447,7 @@ return new C().x === 42;</div>}
   let a = [&quot;hello world&quot;];
   class MyClass {
     // The parenthesis below are required to trigger https://bugs.webkit.org/show_bug.cgi?id=236843
-    c = a[(0)]; 
+    c = a[(0)];
   }
   return new MyClass().c === a[0];
 }</div>}
@@ -27678,6 +27680,65 @@ return flags.indexOf(&quot;unicodeSets&quot;) !== -1;</div>}
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2024-features-ArrayBuffer-prototype-transfer"></div><a href="#ES2024-features-ArrayBuffer-prototype-transfer">ArrayBuffer.prototype.transfer</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2024-features-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-transfer--"></div><a class="anchor" href="#ES2024-features-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-transfer--">§</a><a href="https://github.com/domenic/proposal-arraybuffer-transfer/">ArrayBuffer.prototype.transfer()</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">const buffer1 = new Uint8Array([1, 2]).buffer;
+const buffer2 = buffer1.transfer();
+return buffer1.byteLength === 0
+  &amp;&amp; buffer2.byteLength === 2;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">const buffer1 = new Uint8Array([1, 2]).buffer;
+const buffer2 = buffer1.transfer();
+return buffer1.byteLength === 0
+  &amp;&amp; buffer2.byteLength === 2;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2024-features-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-realloc--"></div><a class="anchor" href="#ES2024-features-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-realloc--">§</a><a href="https://github.com/domenic/proposal-arraybuffer-transfer/">ArrayBuffer.prototype.realloc()</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">const buffer1 = new ArrayBuffer(1024);
+const buffer2 = buffer1.realloc(256);
+return buffer1.byteLength === 0
+  &amp;&amp; buffer2.byteLength === 256;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">const buffer1 = new ArrayBuffer(1024);
+const buffer2 = buffer1.realloc(256);
+return buffer1.byteLength === 0
+  &amp;&amp; buffer2.byteLength === 256;</div>}
+            </div>
+          </td>
+        </tr>
       </table>
     </article>
     <article id="ES2025">
@@ -27741,6 +27802,179 @@ return flags.indexOf(&quot;unicodeSets&quot;) !== -1;</div>}
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ES2025-features-Set-methods"></div><a href="#ES2025-features-Set-methods">Set methods</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2025-features-Set-methods-Set-prototype-intersection"></div><a class="anchor" href="#ES2025-features-Set-methods-Set-prototype-intersection">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.intersection</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var set = new Set([1, 2, 3]).intersection(new Set([2, 3, 4]));
+return set.size === 2
+  &amp;&amp; set.has(2)
+  &amp;&amp; set.has(3);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var set = new Set([1, 2, 3]).intersection(new Set([2, 3, 4]));
+return set.size === 2
+  &amp;&amp; set.has(2)
+  &amp;&amp; set.has(3);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2025-features-Set-methods-Set-prototype-union"></div><a class="anchor" href="#ES2025-features-Set-methods-Set-prototype-union">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.union</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var set = new Set([1, 2]).union(new Set([2, 3]));
+return set.size === 3
+  &amp;&amp; set.has(1)
+  &amp;&amp; set.has(2)
+  &amp;&amp; set.has(3);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var set = new Set([1, 2]).union(new Set([2, 3]));
+return set.size === 3
+  &amp;&amp; set.has(1)
+  &amp;&amp; set.has(2)
+  &amp;&amp; set.has(3);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2025-features-Set-methods-Set-prototype-difference"></div><a class="anchor" href="#ES2025-features-Set-methods-Set-prototype-difference">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.difference</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var set = new Set([1, 2, 3]).difference(new Set([3, 4]));
+return set.size === 2
+  &amp;&amp; set.has(1)
+  &amp;&amp; set.has(2);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var set = new Set([1, 2, 3]).difference(new Set([3, 4]));
+return set.size === 2
+  &amp;&amp; set.has(1)
+  &amp;&amp; set.has(2);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2025-features-Set-methods-Set-prototype-symmetricDifference"></div><a class="anchor" href="#ES2025-features-Set-methods-Set-prototype-symmetricDifference">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.symmetricDifference</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var set = new Set([1, 2]).symmetricDifference(new Set([2, 3]));
+return set.size === 2
+  &amp;&amp; set.has(1)
+  &amp;&amp; set.has(3);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var set = new Set([1, 2]).symmetricDifference(new Set([2, 3]));
+return set.size === 2
+  &amp;&amp; set.has(1)
+  &amp;&amp; set.has(3);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2025-features-Set-methods-Set-prototype-isDisjointFrom"></div><a class="anchor" href="#ES2025-features-Set-methods-Set-prototype-isDisjointFrom">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.isDisjointFrom</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return new Set([1, 2, 3]).isDisjointFrom([4, 5, 6]);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return new Set([1, 2, 3]).isDisjointFrom([4, 5, 6]);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2025-features-Set-methods-Set-prototype-isSubsetOf"></div><a class="anchor" href="#ES2025-features-Set-methods-Set-prototype-isSubsetOf">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.isSubsetOf</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return new Set([1, 2, 3]).isSubsetOf([5, 4, 3, 2, 1]);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return new Set([1, 2, 3]).isSubsetOf([5, 4, 3, 2, 1]);</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2025-features-Set-methods-Set-prototype-isSupersetOf"></div><a class="anchor" href="#ES2025-features-Set-methods-Set-prototype-isSupersetOf">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.isSupersetOf</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return new Set([5, 4, 3, 2, 1]).isSupersetOf([1, 2, 3]);</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return new Set([5, 4, 3, 2, 1]).isSupersetOf([1, 2, 3]);</div>}
+            </div>
+          </td>
+        </tr>
       </table>
     </article>
     <article id="ESNEXT">
@@ -27780,19 +28014,24 @@ return flags.indexOf(&quot;unicodeSets&quot;) !== -1;</div>}
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ESNEXT-Stage-3-"></div><a href="#ESNEXT-Stage-3-"></a>
+              <div class="hash" id="ESNEXT-Stage-3-Class-and-Property-Decorators"></div><a href="#ESNEXT-Stage-3-Class-and-Property-Decorators">Class and Property Decorators</a>
             </h3>
           </td>
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-3--ShadowRealm"></div><a class="anchor" href="#ESNEXT-Stage-3--ShadowRealm">§</a><a href="https://github.com/tc39/proposal-shadowrealm">ShadowRealm</a>
+            <div class="hash" id="ESNEXT-Stage-3-Class-and-Property-Decorators-class-decorators"></div><a class="anchor" href="#ESNEXT-Stage-3-Class-and-Property-Decorators-class-decorators">§</a><a href="https://github.com/tc39/proposal-decorators">class decorators</a>
             <div class="info">?
               <div class="fn">function(){
-                <div class="code">return typeof ShadowRealm === &quot;function&quot;
-  &amp;&amp; [&quot;evaluate&quot;, &quot;importValue&quot;].every(function(key){
-    return key in ShadowRealm.prototype;
-  });</div>}
+                <div class="code">class A {
+  @nonconf
+  get B() {}
+}
+function nonconf(target, name, descriptor) {
+  descriptor.configurable = false;
+  return descriptor;
+}
+return Object.getOwnPropertyDescriptor(A.prototype, &quot;B&quot;).configurable === false;</div>}
               </div>
             </div>
           </td>
@@ -27803,10 +28042,15 @@ return flags.indexOf(&quot;unicodeSets&quot;) !== -1;</div>}
           <td></td>
           <td colspan="2">
             <div class="fn">function(){
-              <div class="code">return typeof ShadowRealm === &quot;function&quot;
-  &amp;&amp; [&quot;evaluate&quot;, &quot;importValue&quot;].every(function(key){
-    return key in ShadowRealm.prototype;
-  });</div>}
+              <div class="code">class A {
+  @nonconf
+  get B() {}
+}
+function nonconf(target, name, descriptor) {
+  descriptor.configurable = false;
+  return descriptor;
+}
+return Object.getOwnPropertyDescriptor(A.prototype, &quot;B&quot;).configurable === false;</div>}
             </div>
           </td>
         </tr>
@@ -27864,6 +28108,983 @@ return true;</div>}
   if (!(('$' + i) in RegExp)) return false;
 }
 return true;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers"></div><a href="#ESNEXT-Stage-3-Iterator-Helpers">Iterator Helpers</a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-instanceof-Iterator"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-instanceof-Iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">instanceof Iterator</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return [1, 2, 3].values() instanceof Iterator;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return [1, 2, 3].values() instanceof Iterator;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-extends-Iterator"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-extends-Iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">extends Iterator</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class Class extends Iterator { }
+const instance = new Class();
+return instance[Symbol.iterator]() === instance;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class Class extends Iterator { }
+const instance = new Class();
+return instance[Symbol.iterator]() === instance;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-from--iterable"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-from--iterable">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.from, iterable</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">const iterator = Iterator.from([1, 2, 3]);
+return 'next' in iterator
+  &amp;&amp; iterator instanceof Iterator
+  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">const iterator = Iterator.from([1, 2, 3]);
+return 'next' in iterator
+  &amp;&amp; iterator instanceof Iterator
+  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-from--iterator"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-from--iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.from, iterator</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">const iterator = Iterator.from({
+  i: 0,
+  next() {
+    return { value: ++this.i, done: this.i &gt; 3 };
+  }
+});
+return 'next' in iterator
+  &amp;&amp; iterator instanceof Iterator
+  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">const iterator = Iterator.from({
+  i: 0,
+  next() {
+    return { value: ++this.i, done: this.i &gt; 3 };
+  }
+});
+return 'next' in iterator
+  &amp;&amp; iterator instanceof Iterator
+  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-asIndexedPairs"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-asIndexedPairs">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.asIndexedPairs</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Array.from([1, 2, 3].values().asIndexedPairs()).join() === '0,1,1,2,2,3';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Array.from([1, 2, 3].values().asIndexedPairs()).join() === '0,1,1,2,2,3';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-drop"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-drop">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.drop</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Array.from([1, 2, 3].values().drop(1)).join() === '2,3';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Array.from([1, 2, 3].values().drop(1)).join() === '2,3';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-every"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-every">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.every</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return [1, 2, 3].values().every(it =&gt; typeof it === 'number');</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return [1, 2, 3].values().every(it =&gt; typeof it === 'number');</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-filter"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-filter">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.filter</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Array.from([1, 2, 3].values().filter(it =&gt; it % 2)).join() === '1,3';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Array.from([1, 2, 3].values().filter(it =&gt; it % 2)).join() === '1,3';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-find"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-find">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.find</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return [1, 2, 3].values().find(it =&gt; it % 2) === 1;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return [1, 2, 3].values().find(it =&gt; it % 2) === 1;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-flatMap"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-flatMap">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.flatMap</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Array.from([1, 2, 3].values().flatMap(it =&gt; [it, 0])).join() === '1,0,2,0,3,0';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Array.from([1, 2, 3].values().flatMap(it =&gt; [it, 0])).join() === '1,0,2,0,3,0';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-forEach"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-forEach">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.forEach</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">let result = '';
+[1, 2, 3].values().forEach(it =&gt; result += it);
+return result === '123';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">let result = '';
+[1, 2, 3].values().forEach(it =&gt; result += it);
+return result === '123';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-map"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-map">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.map</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Array.from([1, 2, 3].values().map(it =&gt; it * it)).join() === '1,4,9';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Array.from([1, 2, 3].values().map(it =&gt; it * it)).join() === '1,4,9';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-reduce"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-reduce">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.reduce</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return [1, 2, 3].values().reduce((a, b) =&gt; a + b) === 6;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return [1, 2, 3].values().reduce((a, b) =&gt; a + b) === 6;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-some"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-some">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.some</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return [1, 2, 3].values().some(it =&gt; typeof it === 'number');</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return [1, 2, 3].values().some(it =&gt; typeof it === 'number');</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-take"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-take">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.take</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Array.from([1, 2, 3].values().take(2)).join() === '1,2';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Array.from([1, 2, 3].values().take(2)).join() === '1,2';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-toArray"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype-toArray">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.toArray</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">const array = [1, 2, 3].values().toArray();
+return Array.isArray(array) &amp;&amp; array.join() === '1,2,3';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">const array = [1, 2, 3].values().toArray();
+return Array.isArray(array) &amp;&amp; array.join() === '1,2,3';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype---toStringTag-"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-Iterator-prototype---toStringTag-">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype[@@toStringTag]</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return Iterator.prototype[Symbol.toStringTag] === 'Iterator';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return Iterator.prototype[Symbol.toStringTag] === 'Iterator';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-instanceof-AsyncIterator"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-instanceof-AsyncIterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">instanceof AsyncIterator</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return (async function*() {})() instanceof AsyncIterator;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return (async function*() {})() instanceof AsyncIterator;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-extends-AsyncIterator"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-extends-AsyncIterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">extends AsyncIterator</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">class Class extends AsyncIterator { }
+const instance = new Class();
+return instance[Symbol.asyncIterator]() === instance;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">class Class extends AsyncIterator { }
+const instance = new Class();
+return instance[Symbol.asyncIterator]() === instance;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-from--async-iterable"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-from--async-iterable">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.from, async iterable</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+const iterator = AsyncIterator.from(async function*() { yield * [1, 2, 3] }());
+
+if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
+
+toArray(iterator).then(it =&gt; {
+  if (it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+const iterator = AsyncIterator.from(async function*() { yield * [1, 2, 3] }());
+
+if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
+
+toArray(iterator).then(it =&gt; {
+  if (it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-from--iterable"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-from--iterable">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.from, iterable</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+const iterator = AsyncIterator.from([1, 2, 3]);
+
+if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
+
+toArray(iterator).then(it =&gt; {
+  if (it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+const iterator = AsyncIterator.from([1, 2, 3]);
+
+if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
+
+toArray(iterator).then(it =&gt; {
+  if (it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-from--iterator"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-from--iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.from, iterator</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+const iterator = AsyncIterator.from([1, 2, 3].values());
+
+if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
+
+toArray(iterator).then(it =&gt; {
+  if (it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+const iterator = AsyncIterator.from([1, 2, 3].values());
+
+if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
+
+toArray(iterator).then(it =&gt; {
+  if (it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-asIndexedPairs"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-asIndexedPairs">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.asIndexedPairs</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray((async function*() { yield * [1, 2, 3] })().asIndexedPairs()).then(it =&gt; {
+  if (it.join() === '0,1,1,2,2,3') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray((async function*() { yield * [1, 2, 3] })().asIndexedPairs()).then(it =&gt; {
+  if (it.join() === '0,1,1,2,2,3') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-drop"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-drop">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.drop</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().drop(1)).then(it =&gt; {
+  if (it.join() === '2,3') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().drop(1)).then(it =&gt; {
+  if (it.join() === '2,3') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-every"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-every">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.every</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">(async function*() { yield * [1, 2, 3] })().every(it =&gt; typeof it === 'number').then(it =&gt; {
+  if (it === true) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">(async function*() { yield * [1, 2, 3] })().every(it =&gt; typeof it === 'number').then(it =&gt; {
+  if (it === true) asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-filter"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-filter">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.filter</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().filter(it =&gt; it % 2)).then(it =&gt; {
+  if (it.join() === '1,3') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().filter(it =&gt; it % 2)).then(it =&gt; {
+  if (it.join() === '1,3') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-find"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-find">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.find</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">(async function*() { yield * [1, 2, 3] })().find(it =&gt; it % 2).then(it =&gt; {
+  if (it === 1) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">(async function*() { yield * [1, 2, 3] })().find(it =&gt; it % 2).then(it =&gt; {
+  if (it === 1) asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-flatMap"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-flatMap">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.flatMap</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().flatMap(it =&gt; [it, 0])).then(it =&gt; {
+  if (it.join() === '1,0,2,0,3,0') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().flatMap(it =&gt; [it, 0])).then(it =&gt; {
+  if (it.join() === '1,0,2,0,3,0') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-forEach"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-forEach">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.forEach</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">let result = '';
+(async function*() { yield * [1, 2, 3] })().forEach(it =&gt; result += it).then(() =&gt; {
+  if (result === '123') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">let result = '';
+(async function*() { yield * [1, 2, 3] })().forEach(it =&gt; result += it).then(() =&gt; {
+  if (result === '123') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-map"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-map">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.map</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().map(it =&gt; it * it)).then(it =&gt; {
+  if (it.join() === '1,4,9') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().map(it =&gt; it * it)).then(it =&gt; {
+  if (it.join() === '1,4,9') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-reduce"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-reduce">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.reduce</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">(async function*() { yield * [1, 2, 3] })().reduce((a, b) =&gt; a + b).then(it =&gt; {
+  if (it === 6) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">(async function*() { yield * [1, 2, 3] })().reduce((a, b) =&gt; a + b).then(it =&gt; {
+  if (it === 6) asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-some"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-some">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.some</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">(async function*() { yield * [1, 2, 3] })().some(it =&gt; typeof it === 'number').then(it =&gt; {
+  if (it === true) asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">(async function*() { yield * [1, 2, 3] })().some(it =&gt; typeof it === 'number').then(it =&gt; {
+  if (it === true) asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-take"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-take">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.take</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it =&gt; {
+  if (it.join() === '1,2') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">async function toArray(iterator) {
+  const result = [];
+  for await (const it of iterator) result.push(it);
+  return result;
+}
+
+toArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it =&gt; {
+  if (it.join() === '1,2') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-toArray"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype-toArray">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.toArray</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">(async function*() { yield * [1, 2, 3] })().toArray().then(it =&gt; {
+  if (Array.isArray(it) &amp;&amp; it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">(async function*() { yield * [1, 2, 3] })().toArray().then(it =&gt; {
+  if (Array.isArray(it) &amp;&amp; it.join() === '1,2,3') asyncTestPassed();
+});</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype---toStringTag-"></div><a class="anchor" href="#ESNEXT-Stage-3-Iterator-Helpers-AsyncIterator-prototype---toStringTag-">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype[@@toStringTag]</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';</div>}
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="results">
+        <caption>
+          <h2 class="category">
+            <div class="hash" id="ESNEXT-Stage-2-7"></div><a href="#ESNEXT-Stage-2-7">Stage 2.7</a>
+          </h2>
+        </caption>
+        <tr>
+          <td class="feature sub" colspan="3">
+            <h3>
+              <div class="hash" id="ESNEXT-Stage-2-7-"></div><a href="#ESNEXT-Stage-2-7-"></a>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ESNEXT-Stage-2-7--ShadowRealm"></div><a class="anchor" href="#ESNEXT-Stage-2-7--ShadowRealm">§</a><a href="https://github.com/tc39/proposal-shadowrealm">ShadowRealm</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">return typeof ShadowRealm === &quot;function&quot;
+  &amp;&amp; [&quot;evaluate&quot;, &quot;importValue&quot;].every(function(key){
+    return key in ShadowRealm.prototype;
+  });</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">return typeof ShadowRealm === &quot;function&quot;
+  &amp;&amp; [&quot;evaluate&quot;, &quot;importValue&quot;].every(function(key){
+    return key in ShadowRealm.prototype;
+  });</div>}
             </div>
           </td>
         </tr>
@@ -27932,49 +29153,6 @@ return result === 'tromple';</div>}
             <div class="fn">function(){
               <div class="code">return !Array.isTemplateObject([])
   &amp;&amp; Array.isTemplateObject((it =&gt; it)`a${1}c`);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-Stage-2-Class-and-Property-Decorators"></div><a href="#ESNEXT-Stage-2-Class-and-Property-Decorators">Class and Property Decorators</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Class-and-Property-Decorators-class-decorators"></div><a class="anchor" href="#ESNEXT-Stage-2-Class-and-Property-Decorators-class-decorators">§</a><a href="https://github.com/tc39/proposal-decorators">class decorators</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class A {
-  @nonconf
-  get B() {}
-}
-function nonconf(target, name, descriptor) {
-  descriptor.configurable = false;
-  return descriptor;
-}
-return Object.getOwnPropertyDescriptor(A.prototype, &quot;B&quot;).configurable === false;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class A {
-  @nonconf
-  get B() {}
-}
-function nonconf(target, name, descriptor) {
-  descriptor.configurable = false;
-  return descriptor;
-}
-return Object.getOwnPropertyDescriptor(A.prototype, &quot;B&quot;).configurable === false;</div>}
             </div>
           </td>
         </tr>
@@ -28120,238 +29298,6 @@ try {
         <tr>
           <td class="feature sub" colspan="3">
             <h3>
-              <div class="hash" id="ESNEXT-Stage-2-Set-methods"></div><a href="#ESNEXT-Stage-2-Set-methods">Set methods</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Set-methods-Set-prototype-intersection"></div><a class="anchor" href="#ESNEXT-Stage-2-Set-methods-Set-prototype-intersection">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.intersection</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var set = new Set([1, 2, 3]).intersection(new Set([2, 3, 4]));
-return set.size === 2
-  &amp;&amp; set.has(2)
-  &amp;&amp; set.has(3);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var set = new Set([1, 2, 3]).intersection(new Set([2, 3, 4]));
-return set.size === 2
-  &amp;&amp; set.has(2)
-  &amp;&amp; set.has(3);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Set-methods-Set-prototype-union"></div><a class="anchor" href="#ESNEXT-Stage-2-Set-methods-Set-prototype-union">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.union</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var set = new Set([1, 2]).union(new Set([2, 3]));
-return set.size === 3
-  &amp;&amp; set.has(1)
-  &amp;&amp; set.has(2)
-  &amp;&amp; set.has(3);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var set = new Set([1, 2]).union(new Set([2, 3]));
-return set.size === 3
-  &amp;&amp; set.has(1)
-  &amp;&amp; set.has(2)
-  &amp;&amp; set.has(3);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Set-methods-Set-prototype-difference"></div><a class="anchor" href="#ESNEXT-Stage-2-Set-methods-Set-prototype-difference">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.difference</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var set = new Set([1, 2, 3]).difference(new Set([3, 4]));
-return set.size === 2
-  &amp;&amp; set.has(1)
-  &amp;&amp; set.has(2);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var set = new Set([1, 2, 3]).difference(new Set([3, 4]));
-return set.size === 2
-  &amp;&amp; set.has(1)
-  &amp;&amp; set.has(2);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Set-methods-Set-prototype-symmetricDifference"></div><a class="anchor" href="#ESNEXT-Stage-2-Set-methods-Set-prototype-symmetricDifference">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.symmetricDifference</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">var set = new Set([1, 2]).symmetricDifference(new Set([2, 3]));
-return set.size === 2
-  &amp;&amp; set.has(1)
-  &amp;&amp; set.has(3);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">var set = new Set([1, 2]).symmetricDifference(new Set([2, 3]));
-return set.size === 2
-  &amp;&amp; set.has(1)
-  &amp;&amp; set.has(3);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Set-methods-Set-prototype-isDisjointFrom"></div><a class="anchor" href="#ESNEXT-Stage-2-Set-methods-Set-prototype-isDisjointFrom">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.isDisjointFrom</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return new Set([1, 2, 3]).isDisjointFrom([4, 5, 6]);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return new Set([1, 2, 3]).isDisjointFrom([4, 5, 6]);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Set-methods-Set-prototype-isSubsetOf"></div><a class="anchor" href="#ESNEXT-Stage-2-Set-methods-Set-prototype-isSubsetOf">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.isSubsetOf</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return new Set([1, 2, 3]).isSubsetOf([5, 4, 3, 2, 1]);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return new Set([1, 2, 3]).isSubsetOf([5, 4, 3, 2, 1]);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Set-methods-Set-prototype-isSupersetOf"></div><a class="anchor" href="#ESNEXT-Stage-2-Set-methods-Set-prototype-isSupersetOf">§</a><a href="https://github.com/tc39/proposal-set-methods">Set.prototype.isSupersetOf</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return new Set([5, 4, 3, 2, 1]).isSupersetOf([1, 2, 3]);</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return new Set([5, 4, 3, 2, 1]).isSupersetOf([1, 2, 3]);</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-Stage-2-ArrayBuffer-prototype-transfer"></div><a href="#ESNEXT-Stage-2-ArrayBuffer-prototype-transfer">ArrayBuffer.prototype.transfer</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-transfer--"></div><a class="anchor" href="#ESNEXT-Stage-2-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-transfer--">§</a><a href="https://github.com/domenic/proposal-arraybuffer-transfer/">ArrayBuffer.prototype.transfer()</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">const buffer1 = new Uint8Array([1, 2]).buffer;
-const buffer2 = buffer1.transfer();
-return buffer1.byteLength === 0
-  &amp;&amp; buffer2.byteLength === 2;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">const buffer1 = new Uint8Array([1, 2]).buffer;
-const buffer2 = buffer1.transfer();
-return buffer1.byteLength === 0
-  &amp;&amp; buffer2.byteLength === 2;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-realloc--"></div><a class="anchor" href="#ESNEXT-Stage-2-ArrayBuffer-prototype-transfer-ArrayBuffer-prototype-realloc--">§</a><a href="https://github.com/domenic/proposal-arraybuffer-transfer/">ArrayBuffer.prototype.realloc()</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">const buffer1 = new ArrayBuffer(1024);
-const buffer2 = buffer1.realloc(256);
-return buffer1.byteLength === 0
-  &amp;&amp; buffer2.byteLength === 256;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">const buffer1 = new ArrayBuffer(1024);
-const buffer2 = buffer1.realloc(256);
-return buffer1.byteLength === 0
-  &amp;&amp; buffer2.byteLength === 256;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
               <div class="hash" id="ESNEXT-Stage-2-Map-prototype-upsert"></div><a href="#ESNEXT-Stage-2-Map-prototype-upsert">Map.prototype.upsert</a>
             </h3>
           </td>
@@ -28407,943 +29353,6 @@ const map = new WeakMap([[a, 1]]);
 if (map.upsert(a, it =&gt; 2, () =&gt; 3) !== 2) return false;
 if (map.upsert(b, it =&gt; 2, () =&gt; 3) !== 3) return false;
 return map.get(a) === 2 &amp;&amp; map.get(b) === 3;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature sub" colspan="3">
-            <h3>
-              <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers"></div><a href="#ESNEXT-Stage-2-Iterator-Helpers">Iterator Helpers</a>
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-instanceof-Iterator"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-instanceof-Iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">instanceof Iterator</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return [1, 2, 3].values() instanceof Iterator;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return [1, 2, 3].values() instanceof Iterator;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-extends-Iterator"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-extends-Iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">extends Iterator</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class Class extends Iterator { }
-const instance = new Class();
-return instance[Symbol.iterator]() === instance;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class Class extends Iterator { }
-const instance = new Class();
-return instance[Symbol.iterator]() === instance;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-from--iterable"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-from--iterable">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.from, iterable</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">const iterator = Iterator.from([1, 2, 3]);
-return 'next' in iterator
-  &amp;&amp; iterator instanceof Iterator
-  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">const iterator = Iterator.from([1, 2, 3]);
-return 'next' in iterator
-  &amp;&amp; iterator instanceof Iterator
-  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-from--iterator"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-from--iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.from, iterator</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">const iterator = Iterator.from({
-  i: 0,
-  next() {
-    return { value: ++this.i, done: this.i &gt; 3 };
-  }
-});
-return 'next' in iterator
-  &amp;&amp; iterator instanceof Iterator
-  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">const iterator = Iterator.from({
-  i: 0,
-  next() {
-    return { value: ++this.i, done: this.i &gt; 3 };
-  }
-});
-return 'next' in iterator
-  &amp;&amp; iterator instanceof Iterator
-  &amp;&amp; Array.from(iterator).join() === '1,2,3';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-asIndexedPairs"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-asIndexedPairs">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.asIndexedPairs</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Array.from([1, 2, 3].values().asIndexedPairs()).join() === '0,1,1,2,2,3';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Array.from([1, 2, 3].values().asIndexedPairs()).join() === '0,1,1,2,2,3';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-drop"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-drop">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.drop</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Array.from([1, 2, 3].values().drop(1)).join() === '2,3';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Array.from([1, 2, 3].values().drop(1)).join() === '2,3';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-every"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-every">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.every</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return [1, 2, 3].values().every(it =&gt; typeof it === 'number');</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return [1, 2, 3].values().every(it =&gt; typeof it === 'number');</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-filter"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-filter">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.filter</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Array.from([1, 2, 3].values().filter(it =&gt; it % 2)).join() === '1,3';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Array.from([1, 2, 3].values().filter(it =&gt; it % 2)).join() === '1,3';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-find"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-find">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.find</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return [1, 2, 3].values().find(it =&gt; it % 2) === 1;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return [1, 2, 3].values().find(it =&gt; it % 2) === 1;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-flatMap"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-flatMap">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.flatMap</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Array.from([1, 2, 3].values().flatMap(it =&gt; [it, 0])).join() === '1,0,2,0,3,0';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Array.from([1, 2, 3].values().flatMap(it =&gt; [it, 0])).join() === '1,0,2,0,3,0';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-forEach"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-forEach">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.forEach</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let result = '';
-[1, 2, 3].values().forEach(it =&gt; result += it);
-return result === '123';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">let result = '';
-[1, 2, 3].values().forEach(it =&gt; result += it);
-return result === '123';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-map"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-map">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.map</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Array.from([1, 2, 3].values().map(it =&gt; it * it)).join() === '1,4,9';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Array.from([1, 2, 3].values().map(it =&gt; it * it)).join() === '1,4,9';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-reduce"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-reduce">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.reduce</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return [1, 2, 3].values().reduce((a, b) =&gt; a + b) === 6;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return [1, 2, 3].values().reduce((a, b) =&gt; a + b) === 6;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-some"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-some">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.some</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return [1, 2, 3].values().some(it =&gt; typeof it === 'number');</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return [1, 2, 3].values().some(it =&gt; typeof it === 'number');</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-take"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-take">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.take</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Array.from([1, 2, 3].values().take(2)).join() === '1,2';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Array.from([1, 2, 3].values().take(2)).join() === '1,2';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-toArray"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype-toArray">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype.toArray</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">const array = [1, 2, 3].values().toArray();
-return Array.isArray(array) &amp;&amp; array.join() === '1,2,3';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">const array = [1, 2, 3].values().toArray();
-return Array.isArray(array) &amp;&amp; array.join() === '1,2,3';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype---toStringTag-"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-Iterator-prototype---toStringTag-">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">Iterator.prototype[@@toStringTag]</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return Iterator.prototype[Symbol.toStringTag] === 'Iterator';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return Iterator.prototype[Symbol.toStringTag] === 'Iterator';</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-instanceof-AsyncIterator"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-instanceof-AsyncIterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">instanceof AsyncIterator</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return (async function*() {})() instanceof AsyncIterator;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return (async function*() {})() instanceof AsyncIterator;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-extends-AsyncIterator"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-extends-AsyncIterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">extends AsyncIterator</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">class Class extends AsyncIterator { }
-const instance = new Class();
-return instance[Symbol.asyncIterator]() === instance;</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">class Class extends AsyncIterator { }
-const instance = new Class();
-return instance[Symbol.asyncIterator]() === instance;</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-from--async-iterable"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-from--async-iterable">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.from, async iterable</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-const iterator = AsyncIterator.from(async function*() { yield * [1, 2, 3] }());
-
-if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
-
-toArray(iterator).then(it =&gt; {
-  if (it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-const iterator = AsyncIterator.from(async function*() { yield * [1, 2, 3] }());
-
-if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
-
-toArray(iterator).then(it =&gt; {
-  if (it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-from--iterable"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-from--iterable">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.from, iterable</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-const iterator = AsyncIterator.from([1, 2, 3]);
-
-if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
-
-toArray(iterator).then(it =&gt; {
-  if (it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-const iterator = AsyncIterator.from([1, 2, 3]);
-
-if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
-
-toArray(iterator).then(it =&gt; {
-  if (it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-from--iterator"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-from--iterator">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.from, iterator</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-const iterator = AsyncIterator.from([1, 2, 3].values());
-
-if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
-
-toArray(iterator).then(it =&gt; {
-  if (it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-const iterator = AsyncIterator.from([1, 2, 3].values());
-
-if (!('next' in iterator) || !(iterator instanceof AsyncIterator)) return false;
-
-toArray(iterator).then(it =&gt; {
-  if (it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-asIndexedPairs"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-asIndexedPairs">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.asIndexedPairs</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray((async function*() { yield * [1, 2, 3] })().asIndexedPairs()).then(it =&gt; {
-  if (it.join() === '0,1,1,2,2,3') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray((async function*() { yield * [1, 2, 3] })().asIndexedPairs()).then(it =&gt; {
-  if (it.join() === '0,1,1,2,2,3') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-drop"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-drop">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.drop</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().drop(1)).then(it =&gt; {
-  if (it.join() === '2,3') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().drop(1)).then(it =&gt; {
-  if (it.join() === '2,3') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-every"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-every">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.every</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">(async function*() { yield * [1, 2, 3] })().every(it =&gt; typeof it === 'number').then(it =&gt; {
-  if (it === true) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">(async function*() { yield * [1, 2, 3] })().every(it =&gt; typeof it === 'number').then(it =&gt; {
-  if (it === true) asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-filter"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-filter">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.filter</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().filter(it =&gt; it % 2)).then(it =&gt; {
-  if (it.join() === '1,3') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().filter(it =&gt; it % 2)).then(it =&gt; {
-  if (it.join() === '1,3') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-find"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-find">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.find</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">(async function*() { yield * [1, 2, 3] })().find(it =&gt; it % 2).then(it =&gt; {
-  if (it === 1) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">(async function*() { yield * [1, 2, 3] })().find(it =&gt; it % 2).then(it =&gt; {
-  if (it === 1) asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-flatMap"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-flatMap">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.flatMap</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().flatMap(it =&gt; [it, 0])).then(it =&gt; {
-  if (it.join() === '1,0,2,0,3,0') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().flatMap(it =&gt; [it, 0])).then(it =&gt; {
-  if (it.join() === '1,0,2,0,3,0') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-forEach"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-forEach">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.forEach</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">let result = '';
-(async function*() { yield * [1, 2, 3] })().forEach(it =&gt; result += it).then(() =&gt; {
-  if (result === '123') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">let result = '';
-(async function*() { yield * [1, 2, 3] })().forEach(it =&gt; result += it).then(() =&gt; {
-  if (result === '123') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-map"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-map">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.map</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().map(it =&gt; it * it)).then(it =&gt; {
-  if (it.join() === '1,4,9') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().map(it =&gt; it * it)).then(it =&gt; {
-  if (it.join() === '1,4,9') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-reduce"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-reduce">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.reduce</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">(async function*() { yield * [1, 2, 3] })().reduce((a, b) =&gt; a + b).then(it =&gt; {
-  if (it === 6) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">(async function*() { yield * [1, 2, 3] })().reduce((a, b) =&gt; a + b).then(it =&gt; {
-  if (it === 6) asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-some"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-some">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.some</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">(async function*() { yield * [1, 2, 3] })().some(it =&gt; typeof it === 'number').then(it =&gt; {
-  if (it === true) asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">(async function*() { yield * [1, 2, 3] })().some(it =&gt; typeof it === 'number').then(it =&gt; {
-  if (it === true) asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-take"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-take">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.take</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it =&gt; {
-  if (it.join() === '1,2') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">async function toArray(iterator) {
-  const result = [];
-  for await (const it of iterator) result.push(it);
-  return result;
-}
-
-toArray(async function*() { yield * [1, 2, 3] }().take(2)).then(it =&gt; {
-  if (it.join() === '1,2') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-toArray"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype-toArray">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype.toArray</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">(async function*() { yield * [1, 2, 3] })().toArray().then(it =&gt; {
-  if (Array.isArray(it) &amp;&amp; it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">(async function*() { yield * [1, 2, 3] })().toArray().then(it =&gt; {
-  if (Array.isArray(it) &amp;&amp; it.join() === '1,2,3') asyncTestPassed();
-});</div>}
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="feature subsub">
-            <div class="hash" id="ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype---toStringTag-"></div><a class="anchor" href="#ESNEXT-Stage-2-Iterator-Helpers-AsyncIterator-prototype---toStringTag-">§</a><a href="https://github.com/tc39/proposal-iterator-helpers">AsyncIterator.prototype[@@toStringTag]</a>
-            <div class="info">?
-              <div class="fn">function(){
-                <div class="code">return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';</div>}
-              </div>
-            </div>
-          </td>
-          <td class="result"></td>
-          <td class="result"></td>
-        </tr>
-        <tr class="codeExample">
-          <td></td>
-          <td colspan="2">
-            <div class="fn">function(){
-              <div class="code">return AsyncIterator.prototype[Symbol.toStringTag] === 'AsyncIterator';</div>}
             </div>
           </td>
         </tr>
