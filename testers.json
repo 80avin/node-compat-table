@@ -3745,6 +3745,18 @@
       "spec": "https://github.com/tc39/proposal-iterator-helpers",
       "code": "return Iterator.prototype[Symbol.toStringTag] === 'Iterator';"
     },
+    "Stage 3›RegExp Pattern Modifiers›i flag": {
+      "spec": "https://github.com/tc39/proposal-regexp-modifiers",
+      "code": "const regex = /^[a-z](?-i:[a-z])$/i;\nreturn regex.test(\"ab\") && regex.test(\"Ab\") && !regex.test(\"aB\");"
+    },
+    "Stage 3›RegExp Pattern Modifiers›m flag": {
+      "spec": "https://github.com/tc39/proposal-regexp-modifiers",
+      "code": "const regex = /^a|(?m:^b)/;\nreturn regex.test(\"a\") && regex.test(\"b\") && regex.test(\"c\\nb\") && !regex.test(\"c\\na\");"
+    },
+    "Stage 3›RegExp Pattern Modifiers›s flag": {
+      "spec": "https://github.com/tc39/proposal-regexp-modifiers",
+      "code": "const regex = /.(?-s:.)/s;\nreturn regex.test(\"\\na\") && regex.test(\"aa\") && !regex.test(\"\\n\\n\");"
+    },
     "Stage 2.7›ShadowRealm": {
       "spec": "https://github.com/tc39/proposal-shadowrealm",
       "code": "return typeof ShadowRealm === \"function\"\n  && [\"evaluate\", \"importValue\"].every(function(key){\n    return key in ShadowRealm.prototype;\n  });"
