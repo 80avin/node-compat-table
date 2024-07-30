@@ -325,9 +325,9 @@
     "misc›Proxy internal calls, Array.prototype.includes": "Proxy is not defined"
   },
   "ES2015": {
-    "_successful": 401,
+    "_successful": 400,
     "_count": 697,
-    "_percent": 0.5753228120516499,
+    "_percent": 0.5738880918220947,
     "optimisation›proper tail calls (tail call optimisation)›direct recursion": "Maximum call stack size exceeded",
     "optimisation›proper tail calls (tail call optimisation)›mutual recursion": "Maximum call stack size exceeded",
     "syntax›default function parameters›basic functionality": "Unexpected token =",
@@ -339,7 +339,7 @@
     "syntax›default function parameters›new Function() support": "Unexpected token =",
     "syntax›rest parameters›basic functionality": true,
     "syntax›rest parameters›function 'length' property": true,
-    "syntax›rest parameters›arguments object interaction": true,
+    "syntax›rest parameters›arguments object interaction": false,
     "syntax›rest parameters›can't be used in setters": true,
     "syntax›rest parameters›new Function() support": true,
     "syntax›spread syntax for iterable objects›with arrays, in function calls": true,
