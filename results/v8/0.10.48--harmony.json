@@ -83,15 +83,18 @@
   },
   "ES2023": {
     "_successful": 0,
-    "_count": 7,
+    "_count": 10,
     "_percent": 0,
     "features›Array find from last›Array.prototype.findLast": "Object [object Object],[object Object],[object Object],[object Object] has no method 'findLast'",
     "features›Array find from last›Array.prototype.findLastIndex": "Object [object Object],[object Object],[object Object],[object Object] has no method 'findLastIndex'",
     "features›Hashbang Grammar": false,
-    "features›Change Array by copy›Array.prototype.toReversed": "Object 1,2,3 has no method 'toReversed'",
-    "features›Change Array by copy›Array.prototype.toSorted": "Object C,A,B has no method 'toSorted'",
-    "features›Change Array by copy›Array.prototype.toSpliced": "Object A,C has no method 'toSpliced'",
-    "features›Change Array by copy›Array.prototype.with": "Object A,X,C has no method 'with'"
+    "features›Change Array by copy›Array.prototype.toReversed()": "Object 1,2,3 has no method 'toReversed'",
+    "features›Change Array by copy›Array.prototype.toSorted()": "Object C,A,B has no method 'toSorted'",
+    "features›Change Array by copy›Array.prototype.toSpliced()": "Object A,C has no method 'toSpliced'",
+    "features›Change Array by copy›Array.prototype.with()": "Object A,X,C has no method 'with'",
+    "features›Change Array by copy›TypedArray.prototype.toReversed()": "Object #<Uint8Array> has no method 'toReversed'",
+    "features›Change Array by copy›TypedArray.prototype.toSorted()": "Object #<Uint8Array> has no method 'toSorted'",
+    "features›Change Array by copy›TypedArray.prototype.with()": "Object #<Uint8Array> has no method 'with'"
   },
   "ES2022": {
     "_successful": 7,

@@ -27546,7 +27546,7 @@ return arr.findLastIndex(function (o) { return o.x === 1; }) === 2;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-toReversed"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-toReversed">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.toReversed</a>
+            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-toReversed--"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-toReversed--">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.toReversed()</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">var arr = [1, 2, 3];
@@ -27568,7 +27568,7 @@ return arr.toReversed()[0] === 3 &amp;&amp; arr[0] === 1;</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-toSorted"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-toSorted">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.toSorted</a>
+            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-toSorted--"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-toSorted--">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.toSorted()</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">var arr = ['C', 'A', 'B'];
@@ -27590,7 +27590,7 @@ return arr.toSorted()[0] === 'A' &amp;&amp; arr[0] === 'C';</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-toSpliced"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-toSpliced">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.toSpliced</a>
+            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-toSpliced--"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-toSpliced--">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.toSpliced()</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">var arr = ['A', 'C'];
@@ -27612,7 +27612,7 @@ return arr.toSpliced(1, 0, 'B')[1] === 'B' &amp;&amp; arr[1] === 'C';</div>}
         </tr>
         <tr>
           <td class="feature subsub">
-            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-with"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-with">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.with</a>
+            <div class="hash" id="ES2023-features-Change-Array-by-copy-Array-prototype-with--"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-Array-prototype-with--">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">Array.prototype.with()</a>
             <div class="info">?
               <div class="fn">function(){
                 <div class="code">var arr = ['A', 'X', 'C'];
@@ -27629,6 +27629,72 @@ return arr.with(1, 'B')[1] === 'B' &amp;&amp; arr[1] === 'X';</div>}
             <div class="fn">function(){
               <div class="code">var arr = ['A', 'X', 'C'];
 return arr.with(1, 'B')[1] === 'B' &amp;&amp; arr[1] === 'X';</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2023-features-Change-Array-by-copy-TypedArray-prototype-toReversed--"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-TypedArray-prototype-toReversed--">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">TypedArray.prototype.toReversed()</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var arr = new Uint8Array([1, 2, 3]);
+return arr.toReversed()[0] == 3 &amp;&amp; arr[0] == 1;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var arr = new Uint8Array([1, 2, 3]);
+return arr.toReversed()[0] == 3 &amp;&amp; arr[0] == 1;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2023-features-Change-Array-by-copy-TypedArray-prototype-toSorted--"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-TypedArray-prototype-toSorted--">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">TypedArray.prototype.toSorted()</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var arr = new Uint8Array([3, 1, 2]);
+return arr.toSorted()[0] == 1 &amp;&amp; arr[0] == 3;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var arr = new Uint8Array([3, 1, 2]);
+return arr.toSorted()[0] == 1 &amp;&amp; arr[0] == 3;</div>}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature subsub">
+            <div class="hash" id="ES2023-features-Change-Array-by-copy-TypedArray-prototype-with--"></div><a class="anchor" href="#ES2023-features-Change-Array-by-copy-TypedArray-prototype-with--">§</a><a href="https://github.com/tc39/proposal-change-array-by-copy">TypedArray.prototype.with()</a>
+            <div class="info">?
+              <div class="fn">function(){
+                <div class="code">var arr = new Uint8Array([1, 0, 2]);
+return arr.with(1, 2)[1] == 2 &amp;&amp; arr[1] == 0;</div>}
+              </div>
+            </div>
+          </td>
+          <td class="result"></td>
+          <td class="result"></td>
+        </tr>
+        <tr class="codeExample">
+          <td></td>
+          <td colspan="2">
+            <div class="fn">function(){
+              <div class="code">var arr = new Uint8Array([1, 0, 2]);
+return arr.with(1, 2)[1] == 2 &amp;&amp; arr[1] == 0;</div>}
             </div>
           </td>
         </tr>

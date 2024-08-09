@@ -83,15 +83,18 @@
   },
   "ES2023": {
     "_successful": 1,
-    "_count": 7,
-    "_percent": 0.14285714285714285,
+    "_count": 10,
+    "_percent": 0.1,
     "features›Array find from last›Array.prototype.findLast": "arr.findLast is not a function",
     "features›Array find from last›Array.prototype.findLastIndex": "arr.findLastIndex is not a function",
     "features›Hashbang Grammar": true,
-    "features›Change Array by copy›Array.prototype.toReversed": "arr.toReversed is not a function",
-    "features›Change Array by copy›Array.prototype.toSorted": "arr.toSorted is not a function",
-    "features›Change Array by copy›Array.prototype.toSpliced": "arr.toSpliced is not a function",
-    "features›Change Array by copy›Array.prototype.with": "arr.with is not a function"
+    "features›Change Array by copy›Array.prototype.toReversed()": "arr.toReversed is not a function",
+    "features›Change Array by copy›Array.prototype.toSorted()": "arr.toSorted is not a function",
+    "features›Change Array by copy›Array.prototype.toSpliced()": "arr.toSpliced is not a function",
+    "features›Change Array by copy›Array.prototype.with()": "arr.with is not a function",
+    "features›Change Array by copy›TypedArray.prototype.toReversed()": "arr.toReversed is not a function",
+    "features›Change Array by copy›TypedArray.prototype.toSorted()": "arr.toSorted is not a function",
+    "features›Change Array by copy›TypedArray.prototype.with()": "arr.with is not a function"
   },
   "ES2022": {
     "_successful": 39,
