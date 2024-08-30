@@ -1,6 +1,6 @@
 {
   "_version": "23.0.0-pre--harmony",
-  "_engine": "v8 12.4.254.21-node.18",
+  "_engine": "v8 12.8.374.13-node.14",
   "ESNEXT": {
     "_successful": 21,
     "_count": 50,
@@ -82,16 +82,19 @@
     "features›ArrayBuffer.prototype.transfer›ArrayBuffer.prototype.realloc()": "buffer1.realloc is not a function"
   },
   "ES2023": {
-    "_successful": 7,
-    "_count": 7,
+    "_successful": 10,
+    "_count": 10,
     "_percent": 1,
     "features›Array find from last›Array.prototype.findLast": true,
     "features›Array find from last›Array.prototype.findLastIndex": true,
     "features›Hashbang Grammar": true,
-    "features›Change Array by copy›Array.prototype.toReversed": true,
-    "features›Change Array by copy›Array.prototype.toSorted": true,
-    "features›Change Array by copy›Array.prototype.toSpliced": true,
-    "features›Change Array by copy›Array.prototype.with": true
+    "features›Change Array by copy›Array.prototype.toReversed()": true,
+    "features›Change Array by copy›Array.prototype.toSorted()": true,
+    "features›Change Array by copy›Array.prototype.toSpliced()": true,
+    "features›Change Array by copy›Array.prototype.with()": true,
+    "features›Change Array by copy›TypedArray.prototype.toReversed()": true,
+    "features›Change Array by copy›TypedArray.prototype.toSorted()": true,
+    "features›Change Array by copy›TypedArray.prototype.with()": true
   },
   "ES2022": {
     "_successful": 39,
